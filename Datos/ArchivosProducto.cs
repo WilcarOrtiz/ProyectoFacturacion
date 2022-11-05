@@ -4,23 +4,24 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades;
 
 namespace Datos
 {
-    public class ArchivosProductos
+    public class ArchivosProducto
     {
         protected String ruta;
 
-        public ArchivosProductos()
+        public ArchivosProducto()
         {
             ruta = "Producto.txt";
         }
-        public ArchivosProductos(string FileName)
+        public ArchivosProducto(string FileName)
         {
             ruta = FileName;
         }
 
-        public String GuardarProducto(Entitades.Producto Articulo)
+        public String GuardarProducto(Producto Articulo)
         {
             StreamWriter sw = new StreamWriter(ruta, true);
             sw.WriteLine(Articulo.ToString());

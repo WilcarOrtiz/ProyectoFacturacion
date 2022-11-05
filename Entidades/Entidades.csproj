@@ -48,19 +48,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{c995e136-0a12-4ea3-a58e-76d60196c5f2}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logica\Logica.csproj">
-      <Project>{4efdcf53-3408-4981-8cef-a26249e34af0}</Project>
-      <Name>Logica</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PresentacionGui\PresentacionGui.csproj">
-      <Project>{af700937-8ccb-4057-9eba-fd3dc44a6e7d}</Project>
-      <Name>PresentacionGui</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
