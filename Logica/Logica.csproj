@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncionesEmpleado.cs" />
+    <Compile Include="FuncionesProducto.cs" />
+    <Compile Include="FuncionesUsuario.cs" />
+    <Compile Include="IServiciosPersona.cs" />
     <Compile Include="IServiciosProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
