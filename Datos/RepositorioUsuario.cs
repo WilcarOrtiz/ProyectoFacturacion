@@ -34,8 +34,6 @@ namespace Datos
                 var Usuarios = new Usuario();
                 Usuarios.NombreUser = linea.Split(';')[0];
                 Usuarios.Contraseña = linea.Split(';')[1];
-                Usuarios.Cedula = linea.Split(';')[2];
-
                 return Usuarios;
             }
             catch (Exception)
