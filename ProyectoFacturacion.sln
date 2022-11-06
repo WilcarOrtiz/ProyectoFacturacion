@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Enti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{C995E136-0A12-4EA3-A58E-76D60196C5F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion_GUI", "..\..\..\Desktop\proyecto\Presentacion_GUI\Presentacion_GUI.csproj", "{E8E2234A-227C-40CB-9A3E-D7D59796C070}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion_GUI", "Presentacion_GUI\Presentacion_GUI.csproj", "{E8E2234A-227C-40CB-9A3E-D7D59796C070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

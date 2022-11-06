@@ -17,10 +17,10 @@ namespace Datos
 
         public RepositorioProducto(String FileName) : base(FileName) { }
 
-        public List<Producto> GetAll()
+        public List<ProductoComprado> GetAll()
         {
             StreamReader sr = new StreamReader(ruta);
-            List<Producto> products = new List<Producto>();
+            List<ProductoComprado> products = new List<ProductoComprado>();
             while (!sr.EndOfStream)
             {
                 products.Add(Mappear(sr.ReadLine()));
@@ -29,23 +29,21 @@ namespace Datos
             return products;
         }
 
-        Producto Mappear(String linea)
+        ProductoComprado Mappear(String linea)
         {
-            var Articulo = new Producto();
+            var Articulo = new ProductoComprado();
             Articulo.ID = linea.Split(';')[0];
             Articulo.Codigo = linea.Split(';')[1];
             Articulo.NombreProducto = linea.Split(';')[2];
             Articulo.Descripcion = linea.Split(';')[3];
-            Articulo.Cantidad = int.Parse(linea.Split(';')[4]);
-            Articulo.Unidad = linea.Split(';')[5];
-            Articulo.PrecioC = float.Parse(linea.Split(';')[6]);
-            Articulo.PrecioV = float.Parse(linea.Split(';')[7]);
+            Articulo.Unidades = int.Parse(linea.Split(';')[4]);
+            Articulo.PrecioC = float.Parse(linea.Split(';')[5]);
+            Articulo.PrecioV = float.Parse(linea.Split(';')[6]);
             return Articulo;
         }
 
-        public string Actualizar(List<Producto> products, bool Modo)
+        public string Actualizar(List<ProductoComprado> products, bool Modo)
         {
-
             var sw = new StreamWriter(ruta, Modo);
             foreach (var item in products)
             {
@@ -53,7 +51,6 @@ namespace Datos
             }
             sw.Close();
             return "Correcto";
-
         }
     }
 }

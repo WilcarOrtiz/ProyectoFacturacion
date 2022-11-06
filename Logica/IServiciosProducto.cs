@@ -9,12 +9,11 @@ namespace Logica
 {
     public interface IServiciosProducto<T>
     {
-        string AgregarProducto(Producto Articulo);
-        string EliminarProducto(Producto Articulo);
+        string AgregarProducto(ProductoComprado Articulo);
+        string EliminarProducto(ProductoComprado Articulo);
         List<T> GetAllProductos();
         T ObtenerPorCodigo(String Codigo);
         string Editar(String ID, String Codigo, String NombreProducto,
-            String Descripcion, String Unidad, int Cantidad,
-            float PrecioC, float PrecioV, Producto Articulo);
+            String Descripcion, int Unidades,float PrecioC, float PrecioV, ProductoComprado Articulo);
     }
 }

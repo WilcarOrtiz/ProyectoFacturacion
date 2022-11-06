@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class FuncionesProducto : IServiciosProducto<Producto>
+    public class FuncionesProducto : IServiciosProducto<ProductoComprado>
     {
         Datos.RepositorioProducto RepositorioProducto = new Datos.RepositorioProducto();
-        List<Producto> products;
+        List<ProductoComprado> products;
 
         public FuncionesProducto()
         {
-            products = new List<Producto>();
+            products = new List<ProductoComprado>();
             products = RepositorioProducto.GetAll();
         }
-        public string AgregarProducto(Producto Articulo)
+        public string AgregarProducto(ProductoComprado Articulo)
         {
             String Mensaje;
             try
@@ -33,7 +33,7 @@ namespace Logica
             return Mensaje;
         }
 
-        public string Editar(string ID, string Codigo, string NombreProducto, string Descripcion, string Unidad, int Cantidad, float PrecioC, float PrecioV, Producto Articulo)
+        public string Editar(string ID, string Codigo, string NombreProducto, string Descripcion, int Unidades, float PrecioC, float PrecioV, ProductoComprado Articulo)
         {
             try
             {
@@ -41,8 +41,7 @@ namespace Logica
                 Articulo.Codigo = Codigo;
                 Articulo.NombreProducto = NombreProducto;
                 Articulo.Descripcion = Descripcion;
-                Articulo.Cantidad = Cantidad;
-                Articulo.Unidad = Unidad;
+                Articulo.Unidades = Unidades;
                 Articulo.PrecioC = PrecioC;
                 Articulo.PrecioV = PrecioV;
                 return RepositorioProducto.Actualizar(products, false);
@@ -55,7 +54,7 @@ namespace Logica
             }
         }
 
-        public string EliminarProducto(Producto Articulo)
+        public string EliminarProducto(ProductoComprado Articulo)
         {
             try
             {
@@ -69,12 +68,12 @@ namespace Logica
             }
         }
 
-        public List<Producto> GetAllProductos()
+        public List<ProductoComprado> GetAllProductos()
         {
             return RepositorioProducto.GetAll();
         }
 
-        public Producto ObtenerPorCodigo(string Codigo)
+        public ProductoComprado ObtenerPorCodigo(string Codigo)
         {
             foreach (var item in products)
             {
@@ -86,7 +85,7 @@ namespace Logica
             return null;
         }
 
-        public List<Producto> DisminuirId(List<Producto> products)
+        public List<ProductoComprado> DisminuirId(List<ProductoComprado> products)
 
         {
             int Conta = 1;
@@ -106,7 +105,7 @@ namespace Logica
         public String ArticuloXId(String id)
         {
             String Cod = "";
-            foreach (Producto item in RepositorioProducto.GetAll())
+            foreach (ProductoComprado item in RepositorioProducto.GetAll())
             {
                 if (item.ID == id)
                 {
@@ -119,7 +118,7 @@ namespace Logica
         public String IdXArticulo(String Cod)
         {
             String ID = "";
-            foreach (Producto item in RepositorioProducto.GetAll())
+            foreach (ProductoComprado item in RepositorioProducto.GetAll())
             {
                 if (item.Codigo == Cod)
                 {
@@ -129,23 +128,28 @@ namespace Logica
             return ID;
         }
 
-        public decimal ValorFinal(String Unidad, int Cantidad, float Precio)
+        public int CantidadUnitaria(String Unidad)
         {
-            //como se maneja es por unidad debemos sacar el valor final
             int Cant = 0;
             switch (Unidad)
             {
                 case "UNIDAD":
                     Cant = 1;
                     break;
-                case "CAJA(24 Unds)":
+                case "CAJA (24 Unds)":
                     Cant = 24;
                     break;
-                case "CANASTA(30 Unds)":
+                case "CANASTA (30 Unds)":
                     Cant = 30;
                     break;
             }
-            return (decimal)(Precio * (float)(Cant * Cantidad));
+            return Cant;
+         
+        }
+
+        public decimal ValorFinal(int Unidades, float Precio)
+        {
+            return (decimal)(Precio * Unidades);
         }
     }
 }
