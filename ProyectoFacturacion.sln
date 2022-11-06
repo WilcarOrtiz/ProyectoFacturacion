@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentacionGui", "PresentacionGui\PresentacionGui.csproj", "{AF700937-8CCB-4057-9EBA-FD3DC44A6E7D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{4EFDCF53-3408-4981-8CEF-A26249E34AF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{29ADD9B7-B49E-437C-889E-7CD450F16C19}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{C995E136-0A12-4EA3-A58E-76D60196C5F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentacion_GUI", "..\..\..\Desktop\proyecto\Presentacion_GUI\Presentacion_GUI.csproj", "{E8E2234A-227C-40CB-9A3E-D7D59796C070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AF700937-8CCB-4057-9EBA-FD3DC44A6E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF700937-8CCB-4057-9EBA-FD3DC44A6E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF700937-8CCB-4057-9EBA-FD3DC44A6E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF700937-8CCB-4057-9EBA-FD3DC44A6E7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EFDCF53-3408-4981-8CEF-A26249E34AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EFDCF53-3408-4981-8CEF-A26249E34AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EFDCF53-3408-4981-8CEF-A26249E34AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{C995E136-0A12-4EA3-A58E-76D60196C5F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C995E136-0A12-4EA3-A58E-76D60196C5F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C995E136-0A12-4EA3-A58E-76D60196C5F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E2234A-227C-40CB-9A3E-D7D59796C070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E2234A-227C-40CB-9A3E-D7D59796C070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E2234A-227C-40CB-9A3E-D7D59796C070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E2234A-227C-40CB-9A3E-D7D59796C070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -143,6 +143,7 @@
             this.btnBodega.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBodega.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBodega.UseVisualStyleBackColor = true;
+            this.btnBodega.Click += new System.EventHandler(this.btnBodega_Click);
             // 
             // btnProductos
             // 
@@ -164,6 +165,7 @@
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnAdministrador
             // 
@@ -185,6 +187,7 @@
             this.btnAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrador.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdministrador.UseVisualStyleBackColor = true;
+            this.btnAdministrador.Click += new System.EventHandler(this.btnAdministrador_Click);
             // 
             // btnEmpleado
             // 
@@ -206,6 +209,7 @@
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
             // iconPictureBox1
             // 
@@ -222,6 +226,7 @@
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconPictureBox1.TabIndex = 7;
             this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // FormularioPrincipal
             // 

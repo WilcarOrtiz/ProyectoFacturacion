@@ -212,7 +212,7 @@
             this.BtnGuardarEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnGuardarEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardarEdit.ForeColor = System.Drawing.Color.Azure;
-            this.BtnGuardarEdit.IconChar = FontAwesome.Sharp.IconChar.FilePen; 
+            this.BtnGuardarEdit.IconChar = FontAwesome.Sharp.IconChar.FilePen;
             this.BtnGuardarEdit.IconColor = System.Drawing.Color.Azure;
             this.BtnGuardarEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnGuardarEdit.IconSize = 32;
@@ -226,6 +226,7 @@
             this.BtnGuardarEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnGuardarEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGuardarEdit.UseVisualStyleBackColor = false;
+            this.BtnGuardarEdit.Click += new System.EventHandler(this.BtnGuardarEdit_Click);
             // 
             // BtnCancelarEdit
             // 
@@ -235,7 +236,7 @@
             this.BtnCancelarEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnCancelarEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelarEdit.ForeColor = System.Drawing.Color.Azure;
-            this.BtnCancelarEdit.IconChar = FontAwesome.Sharp.IconChar.Cancel; 
+            this.BtnCancelarEdit.IconChar = FontAwesome.Sharp.IconChar.Ban;
             this.BtnCancelarEdit.IconColor = System.Drawing.Color.Azure;
             this.BtnCancelarEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCancelarEdit.IconSize = 32;
@@ -249,6 +250,7 @@
             this.BtnCancelarEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnCancelarEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCancelarEdit.UseVisualStyleBackColor = false;
+            this.BtnCancelarEdit.Click += new System.EventHandler(this.BtnCancelarEdit_Click);
             // 
             // FrmProductosEdit
             // 
