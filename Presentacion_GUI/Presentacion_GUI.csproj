@@ -62,6 +62,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmEditarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarEmpleado.Designer.cs">
+      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmEditarEmpleado.resx">
+      <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </EmbeddedResource>

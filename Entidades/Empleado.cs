@@ -11,7 +11,7 @@ namespace Entidades
        
         public override string ToString()
         {
-            return Cedula + ";" + Nombre + ";" + Apellido + ";" + Telefono + ";" + Correo ;
+            return ID + ";" + Cedula + ";" + Nombre + ";" + Apellido + ";" + Telefono + ";" + Correo ;
         }
     }
 }

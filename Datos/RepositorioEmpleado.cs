@@ -32,12 +32,13 @@ namespace Datos
             try
             {
                 var empleado = new Empleado();
-               
-                empleado.Cedula = linea.Split(';')[0];
-                empleado.Nombre = linea.Split(';')[1];
-                empleado.Apellido = linea.Split(';')[2];
-                empleado.Telefono = linea.Split(';')[3];
-                empleado.Correo = linea.Split(';')[4];
+
+                empleado.ID = linea.Split(';')[0];    
+                empleado.Cedula = linea.Split(';')[1];
+                empleado.Nombre = linea.Split(';')[2];
+                empleado.Apellido = linea.Split(';')[3];
+                empleado.Telefono = linea.Split(';')[4];
+                empleado.Correo = linea.Split(';')[5];
 
                 return empleado;
             }

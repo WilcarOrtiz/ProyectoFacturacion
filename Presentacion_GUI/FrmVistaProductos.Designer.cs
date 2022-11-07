@@ -72,6 +72,7 @@
             // 
             // GrillaCatalogo
             // 
+            this.GrillaCatalogo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GrillaCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrillaCatalogo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
@@ -90,14 +91,14 @@
             this.Eliminar.MinimumWidth = 8;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Text = "";
-            this.Eliminar.Width = 150;
+            this.Eliminar.Width = 71;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Editar";
             this.Column15.MinimumWidth = 8;
             this.Column15.Name = "Column15";
-            this.Column15.Width = 150;
+            this.Column15.Width = 57;
             // 
             // btnImprimir
             // 

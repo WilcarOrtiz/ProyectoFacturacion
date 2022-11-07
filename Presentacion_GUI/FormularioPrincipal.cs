@@ -177,9 +177,6 @@ namespace Presentacion_GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -41,9 +41,16 @@ namespace Presentacion_GUI
         void CapturarActualizacion()
         {
             MessageBox.Show(textCodigoEditar.Text);
+
+            //traer el codigo del objeto a editar
             String Cod = FuncionesProductos.ArticuloXId(Id);
+
+            //trae el objeto a editar
             ProductoComprado Articulo = FuncionesProductos.ObtenerPorCodigo(Cod);
+
+            //trae el ID del objeto a editar
             String IdEdit = FuncionesProductos.IdXArticulo(textCodigoEditar.Text);
+
             if ((Id == IdEdit) || (FuncionesProductos.ObtenerPorCodigo(textCodigoEditar.Text) == null))
             {
                 MessageBox.Show(

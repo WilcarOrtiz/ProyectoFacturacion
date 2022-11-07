@@ -14,6 +14,7 @@ namespace Presentacion_GUI
 {
     public partial class FrmPersonal : Form
     {
+        private int posicion;
 
         FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
@@ -21,6 +22,17 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
         }
+
+        public struct Datos
+        {
+            public String ID;
+            public String Cedula;
+            public String Nombre;
+            public String Apellido;
+            public String Telefono;
+            public String Correo;               
+        }
+
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
             CargarGrillaEmpleados();
@@ -169,6 +181,7 @@ namespace Presentacion_GUI
         {
             Empleado empleado = new Empleado();
 
+            empleado.ID = funcionesEmpleado.GetById().ToString();
             empleado.Cedula = txtCedula.Text;
             empleado.Nombre = txtNombres.Text;
             empleado.Apellido = txtApellidos.Text;
@@ -303,8 +316,37 @@ namespace Presentacion_GUI
             }
         }
 
-        
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
+            CargarGrillaEmpleados();
+        }
 
-      
+        public void EditarEmpleado(Empleado empleado)
+        { 
+                MessageBox.Show(empleado.Nombre);
+                Datos informacion;
+                informacion.ID = empleado.ID;
+                informacion.Cedula = empleado.Cedula;
+                informacion.Nombre = empleado.Nombre;
+                informacion.Apellido = empleado.Apellido;
+                informacion.Telefono = empleado.Telefono;
+                informacion.Correo = empleado.Correo;
+
+                FrmEditarEmpleado frmEditar = new FrmEditarEmpleado(informacion);
+                frmEditar.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+           String cedula = GrillaEmpleados.Rows[posicion].Cells[0].Value.ToString();
+           MessageBox.Show(funcionesEmpleado.Eliminar(funcionesEmpleado.ObtenerPorCedula(cedula)));
+            CargarGrillaEmpleados();
+        }
+
+        private void GrillaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            posicion = e.RowIndex; 
+        }
     }
 }

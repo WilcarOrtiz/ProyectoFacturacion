@@ -10,10 +10,10 @@ namespace Logica
     {
         String Agregar(T persona);
 
-        String Editar(T persona);
+        
 
         List<T> GetAll();
 
-        String Eliminar(T persona);
+        
     }
 }

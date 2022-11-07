@@ -198,7 +198,7 @@
             this.PanelContenedor.Name = "PanelContenedor";
             this.PanelContenedor.Size = new System.Drawing.Size(1260, 742);
             this.PanelContenedor.TabIndex = 1;
-            this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
+            
             // 
             // PanelSuperior
             // 
