@@ -75,5 +75,10 @@ namespace Presentacion_GUI
         {
 
         }
+
+        private void PanelTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -108,11 +108,6 @@ namespace Presentacion_GUI
         {
             GenerarPDF();
         }
-
-
-
-
-
        /// <summary>
        /// //
        /// </summary>

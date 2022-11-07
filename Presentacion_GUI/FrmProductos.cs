@@ -23,10 +23,9 @@ namespace Presentacion_GUI
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            //SeleccionUnidades();
+           
             CargarGrillaProductos();  
         }
-
 
         public void BloqueoProduct()
         {
@@ -164,7 +163,6 @@ namespace Presentacion_GUI
             }
         }
 
-
         void GuardarP()
         {
             int Cant = 0; 
@@ -228,5 +226,7 @@ namespace Presentacion_GUI
                 GrillaProductos.Rows.Add(item.Codigo, item.NombreProducto, item.Descripcion, item.Unidades, item.PrecioC, item.PrecioV);
             }
         }
+
+        
     }
 }

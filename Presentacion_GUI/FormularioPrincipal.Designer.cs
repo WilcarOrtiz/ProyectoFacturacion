@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.paneSubMenuAdmin = new System.Windows.Forms.Panel();
             this.BtnPersonal = new FontAwesome.Sharp.IconButton();
             this.btnBodega = new FontAwesome.Sharp.IconButton();
@@ -37,25 +38,35 @@
             this.btnAdministrador = new FontAwesome.Sharp.IconButton();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.PanelSuperior = new System.Windows.Forms.Panel();
             this.iconoFormularioHijoActual = new FontAwesome.Sharp.IconPictureBox();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.paneSubMenuAdmin.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.PanelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panel1.Controls.Add(this.panelLogo);
             this.panel1.Controls.Add(this.paneSubMenuAdmin);
             this.panel1.Controls.Add(this.btnAdministrador);
             this.panel1.Controls.Add(this.btnEmpleado);
-            this.panel1.Location = new System.Drawing.Point(1, 126);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 556);
+            this.panel1.Size = new System.Drawing.Size(240, 800);
             this.panel1.TabIndex = 0;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
+            this.panelLogo.Location = new System.Drawing.Point(0, 569);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(251, 131);
+            this.panelLogo.TabIndex = 3;
+            this.panelLogo.Click += new System.EventHandler(this.panelLogo_Click);
             // 
             // paneSubMenuAdmin
             // 
@@ -66,7 +77,7 @@
             this.paneSubMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneSubMenuAdmin.Location = new System.Drawing.Point(0, 137);
             this.paneSubMenuAdmin.Name = "paneSubMenuAdmin";
-            this.paneSubMenuAdmin.Size = new System.Drawing.Size(251, 200);
+            this.paneSubMenuAdmin.Size = new System.Drawing.Size(240, 200);
             this.paneSubMenuAdmin.TabIndex = 5;
             // 
             // BtnPersonal
@@ -83,7 +94,7 @@
             this.BtnPersonal.Location = new System.Drawing.Point(0, 120);
             this.BtnPersonal.Name = "BtnPersonal";
             this.BtnPersonal.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnPersonal.Size = new System.Drawing.Size(251, 54);
+            this.BtnPersonal.Size = new System.Drawing.Size(240, 54);
             this.BtnPersonal.TabIndex = 6;
             this.BtnPersonal.Text = "   Personal";
             this.BtnPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -105,7 +116,7 @@
             this.btnBodega.Location = new System.Drawing.Point(0, 60);
             this.btnBodega.Name = "btnBodega";
             this.btnBodega.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnBodega.Size = new System.Drawing.Size(251, 60);
+            this.btnBodega.Size = new System.Drawing.Size(240, 60);
             this.btnBodega.TabIndex = 5;
             this.btnBodega.Text = "    Bodega";
             this.btnBodega.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -127,7 +138,7 @@
             this.btnProductos.Location = new System.Drawing.Point(0, 0);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnProductos.Size = new System.Drawing.Size(251, 60);
+            this.btnProductos.Size = new System.Drawing.Size(240, 60);
             this.btnProductos.TabIndex = 4;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,7 +160,7 @@
             this.btnAdministrador.Location = new System.Drawing.Point(0, 70);
             this.btnAdministrador.Name = "btnAdministrador";
             this.btnAdministrador.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnAdministrador.Size = new System.Drawing.Size(251, 67);
+            this.btnAdministrador.Size = new System.Drawing.Size(240, 67);
             this.btnAdministrador.TabIndex = 4;
             this.btnAdministrador.Text = "Administrador";
             this.btnAdministrador.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,7 +182,7 @@
             this.btnEmpleado.Location = new System.Drawing.Point(0, 0);
             this.btnEmpleado.Name = "btnEmpleado";
             this.btnEmpleado.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnEmpleado.Size = new System.Drawing.Size(251, 70);
+            this.btnEmpleado.Size = new System.Drawing.Size(240, 70);
             this.btnEmpleado.TabIndex = 3;
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,19 +194,22 @@
             // 
             this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.PanelContenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelContenedor.Location = new System.Drawing.Point(251, 58);
+            this.PanelContenedor.Location = new System.Drawing.Point(240, 61);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1214, 621);
+            this.PanelContenedor.Size = new System.Drawing.Size(1260, 742);
             this.PanelContenedor.TabIndex = 1;
+            this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
-            // panel3
+            // PanelSuperior
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.panel3.Controls.Add(this.iconoFormularioHijoActual);
-            this.panel3.Location = new System.Drawing.Point(251, 1);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1214, 61);
-            this.panel3.TabIndex = 2;
+            this.PanelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.PanelSuperior.Controls.Add(this.iconoFormularioHijoActual);
+            this.PanelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PanelSuperior.Location = new System.Drawing.Point(240, 0);
+            this.PanelSuperior.Name = "PanelSuperior";
+            this.PanelSuperior.Size = new System.Drawing.Size(1260, 61);
+            this.PanelSuperior.TabIndex = 2;
+            this.PanelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelSuperior_MouseDown);
             // 
             // iconoFormularioHijoActual
             // 
@@ -211,29 +225,22 @@
             this.iconoFormularioHijoActual.TabIndex = 0;
             this.iconoFormularioHijoActual.TabStop = false;
             // 
-            // panelLogo
-            // 
-            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
-            this.panelLogo.Location = new System.Drawing.Point(1, -1);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(251, 131);
-            this.panelLogo.TabIndex = 3;
-            this.panelLogo.Click += new System.EventHandler(this.panelLogo_Click);
-            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1465, 679);
-            this.Controls.Add(this.panelLogo);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.PanelContenedor);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormularioPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioPrincipal";
             this.panel1.ResumeLayout(false);
             this.paneSubMenuAdmin.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.PanelSuperior.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).EndInit();
             this.ResumeLayout(false);
 
@@ -243,7 +250,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PanelContenedor;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PanelSuperior;
         private FontAwesome.Sharp.IconButton btnEmpleado;
         private FontAwesome.Sharp.IconButton btnAdministrador;
         private System.Windows.Forms.Panel panelLogo;

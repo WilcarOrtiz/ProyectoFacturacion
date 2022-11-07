@@ -12,7 +12,7 @@ namespace Datos
     {
         public RepositorioProducto() : base()
         {
-            ruta = "ListaProductos.TXT";
+            ruta = "ListaProductos.txt";
         }
 
         public RepositorioProducto(String FileName) : base(FileName) { }

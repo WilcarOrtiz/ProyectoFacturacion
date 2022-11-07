@@ -10,7 +10,7 @@ namespace Datos
 {
     public class RepositorioUsuario : ArchivosPersona
     {
-        public RepositorioUsuario() : base("Usuarios.txt")
+        public RepositorioUsuario() : base("ListaUsuarios.txt")
         {
 
         }
@@ -32,10 +32,10 @@ namespace Datos
             try
             {
                 var Usuarios = new Usuario();
-                Usuarios.NombreUser = linea.Split(';')[0];
-                Usuarios.Contraseña = linea.Split(';')[1];
-                Usuarios.Cedula = linea.Split(';')[2];
 
+                Usuarios.Cedula = linea.Split(';')[0];
+                Usuarios.Contraseña = linea.Split(';')[1];
+                
                 return Usuarios;
             }
             catch (Exception)

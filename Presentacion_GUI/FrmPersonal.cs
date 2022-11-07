@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,16 @@ namespace Presentacion_GUI
 {
     public partial class FrmPersonal : Form
     {
+
+        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
+        FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
         public FrmPersonal()
         {
             InitializeComponent();
+        }
+        private void FrmPersonal_Load(object sender, EventArgs e)
+        {
+            CargarGrillaEmpleados();
         }
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -128,12 +137,6 @@ namespace Presentacion_GUI
             }
         }
 
-        private void cmbCargos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SeleccionCargos();
-            txtCedula.Select();
-        }
-
         public void Restablecer()
         {
             txtCedula.Text = "Cedula";
@@ -142,92 +145,7 @@ namespace Presentacion_GUI
             txtTelefono.Text = "Telefono";
             txtCorreo.Text = "Correo";
             txtContraseña.Text = "Contraseña";
-            cmbCargos.SelectedIndex = -1;
-        }
-
-        public void SeleccionCargos()
-        {
-            if (cmbCargos.Text == "")
-            {
-                BloqueoTextBox();
-            }
-            else
-            {
-                DesbloqueoTextBox();
-
-                if (cmbCargos.Text == "VENDEDOR")
-                {
-                    txtContraseña.Enabled = true;
-                }
-            }
-        }
-
-        public void BloqueoTextBox()
-        {
-            txtApellidos.Enabled = false;
-            txtTelefono.Enabled = false;
-            txtCedula.Enabled = false;
-            txtContraseña.Enabled = false;
-            txtCorreo.Enabled = false;
-            txtNombres.Enabled = false;
-        }
-
-        public void DesbloqueoTextBox()
-        {
-            txtApellidos.Enabled = true;
-            txtTelefono.Enabled = true;
-            txtCedula.Enabled = true;
-            txtCorreo.Enabled = true;
-            txtNombres.Enabled = true;
-            txtContraseña.Enabled = false;
-        }
-
-        private void txtCedula_Click(object sender, EventArgs e)
-        {
-            if (txtCedula.Text == "Cedula")
-            {
-                txtCedula.Clear();
-            }
-        }
-
-        private void txtNombres_Click(object sender, EventArgs e)
-        {
-            if (txtNombres.Text == "Nombres")
-            {
-                txtNombres.Clear();
-            }
-        }
-
-        private void txtApellidos_Click(object sender, EventArgs e)
-        {
-            if (txtApellidos.Text == "Apellidos")
-            {
-                txtApellidos.Clear();
-            }
-        }
-
-        private void txtTelefono_Click(object sender, EventArgs e)
-        {
-            if (txtTelefono.Text == "Telefono")
-            {
-                txtTelefono.Clear();
-            }
-        }
-
-        private void txtCorreo_Click(object sender, EventArgs e)
-        {
-            if (txtCorreo.Text == "Correo")
-            {
-                txtCorreo.Clear();
-            }
-        }
-
-        private void txtContraseña_Click(object sender, EventArgs e)
-        {
-            if (txtContraseña.Text == "Contraseña")
-            {
-                txtContraseña.Clear();
-            };
+      
         }
 
         private void pbGuardarPersonal_Click(object sender, EventArgs e)
@@ -239,24 +157,154 @@ namespace Presentacion_GUI
                     break;
 
                 case false:
+                    GuardarPersonal();
+                    GuardarUsuario();
+                    CargarGrillaEmpleados();    
                     Restablecer();
                     break;
             }
         }
 
+        public void GuardarPersonal()
+        {
+            Empleado empleado = new Empleado();
+
+            empleado.Cedula = txtCedula.Text;
+            empleado.Nombre = txtNombres.Text;
+            empleado.Apellido = txtApellidos.Text;
+            empleado.Correo = txtCorreo.Text;
+            empleado.Telefono = txtTelefono.Text;
+
+            var resp = funcionesEmpleado.Agregar(empleado);
+
+            MessageBox.Show(resp);
+        }
+
+        public void GuardarUsuario()
+        {
+            Usuario usuario = new Usuario();
+
+            usuario.Cedula = txtCedula.Text;
+            usuario.Contraseña = txtContraseña.Text;
+
+            var resp =funcionesUsuario.Agregar(usuario);
+           
+            MessageBox.Show(resp);
+        }
+
         public Boolean vacio()
         {
             if (txtContraseña.Text == "" || txtCedula.Text == "" || txtApellidos.Text == "" ||
-                txtNombres.Text == "" || txtTelefono.Text == "" || txtCorreo.Text == "")
+                txtNombres.Text == "" || txtTelefono.Text == "" || txtCorreo.Text == "" || 
+                txtContraseña.Text == "Contraseña" || txtCedula.Text == "Cedula" || txtApellidos.Text == "Apellido" ||
+                txtNombres.Text == "Nombres" || txtTelefono.Text == "Telefono" || txtCorreo.Text == "Correo")
             {
                 return true;
             }
             return false;
         }
 
-        private void FrmPersonal_Load(object sender, EventArgs e)
+        private void txtCedula_Enter(object sender, EventArgs e)
         {
-            SeleccionCargos();
+            if (txtCedula.Text == "Cedula")
+            {
+                txtCedula.Clear();
+            }
         }
+
+        private void txtCedula_Leave(object sender, EventArgs e)
+        {
+            if (txtCedula.Text == "")
+            {
+                txtCedula.Text = "Cedula";
+            }
+        }
+
+        private void txtNombres_Enter(object sender, EventArgs e)
+        {
+            if (txtNombres.Text == "Nombres")
+            {
+                txtNombres.Clear();
+            }
+        }
+
+        private void txtNombres_Leave(object sender, EventArgs e)
+        {
+            if (txtNombres.Text == "")
+            {
+                txtNombres.Text = "Nombres";
+            }
+        }
+
+        private void txtApellidos_Enter(object sender, EventArgs e)
+        {
+            if (txtApellidos.Text == "Apellidos")
+            {
+                txtApellidos.Clear();
+            }
+        }
+
+        private void txtApellidos_Leave(object sender, EventArgs e)
+        {
+            if (txtApellidos.Text == "")
+            {
+                txtApellidos.Text = "Apellidos";
+            }
+        }
+
+        private void txtTelefono_Enter(object sender, EventArgs e)
+        {
+            if (txtTelefono.Text == "Telefono")
+            {
+                txtTelefono.Clear();
+            }
+        }
+
+        private void txtTelefono_Leave(object sender, EventArgs e)
+        {
+            if (txtTelefono.Text == "")
+            {
+                txtTelefono.Text = "Telefono";
+            }
+        }
+
+        private void txtCorreo_Enter(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "Correo")
+            {
+                txtCorreo.Clear();
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "")
+            {
+                txtCorreo.Text = "Correo";
+            }
+        }
+
+        private void txtContraseña_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        void CargarGrillaEmpleados()
+        {
+            GrillaEmpleados.Rows.Clear();
+            foreach (var item in funcionesEmpleado.GetAll())
+            {
+                GrillaEmpleados.Rows.Add(item.Cedula, item.Nombre, item.Apellido, item.Telefono, item.Correo);
+            }
+        }
+
+        
+
+      
     }
 }

@@ -24,7 +24,7 @@ namespace Logica
             try
             {
                 usuarios.Add(persona);
-                Mensaje = repositorioUsuario.GuardarEmpleado(persona);
+                Mensaje = repositorioUsuario.GuardarUsuario(persona);
             }
             catch (Exception EX)
             {
@@ -43,16 +43,16 @@ namespace Logica
             throw new NotImplementedException();
         }
 
-        public List<Usuario> GetAllUsuarios()
+        public List<Usuario> GetAll()
         {
             return repositorioUsuario.GetAll();
         }
 
         public bool Login(String usuario, String contra)
         {
-            foreach (Usuario item in GetAllUsuarios())
+            foreach (Usuario item in GetAll())
             {
-                if (usuario == item.NombreUser & contra == item.Contraseña)
+                if (usuario == item.Cedula & contra == item.Contraseña)
                 {
                     return true;
                 }

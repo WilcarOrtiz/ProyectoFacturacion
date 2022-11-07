@@ -43,7 +43,7 @@ namespace Logica
             throw new NotImplementedException();
         }
 
-        public List<Empleado> GetAllUsuarios()
+        public List<Empleado> GetAll()
         {
             return repositorioEmpleado.GetAll();
         }

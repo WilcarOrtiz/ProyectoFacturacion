@@ -8,11 +8,10 @@ namespace Entidades
 {
     public class Empleado : Persona
     {
-        public string Cargo { get; set; }
-
+       
         public override string ToString()
         {
-            return Cargo + ";" + Cedula + ";" + Nombre + ";" + Apellido + ";" + Telefono + ";" + Correo;
+            return Cedula + ";" + Nombre + ";" + Apellido + ";" + Telefono + ";" + Correo ;
         }
     }
 }

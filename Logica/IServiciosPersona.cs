@@ -12,7 +12,7 @@ namespace Logica
 
         String Editar(T persona);
 
-        List<T> GetAllUsuarios();
+        List<T> GetAll();
 
         String Eliminar(T persona);
     }

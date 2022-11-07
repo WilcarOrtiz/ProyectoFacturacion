@@ -27,7 +27,7 @@ namespace Datos
             StreamWriter sw = new StreamWriter(ruta, true);
             sw.WriteLine(Persona.ToString());
             sw.Close();
-            return "Correcto";
+            return "ingreso exitoso";
         }
 
         public String GuardarClientes(Cliente Persona)
@@ -35,7 +35,7 @@ namespace Datos
             StreamWriter sw = new StreamWriter(ruta, true);
             sw.WriteLine(Persona.ToString());
             sw.Close();
-            return "Correcto";
+            return "ingreso exitoso";
         }
 
         public String GuardarUsuario(Usuario Persona)
@@ -43,7 +43,7 @@ namespace Datos
             StreamWriter sw = new StreamWriter(ruta, true);
             sw.WriteLine(Persona.ToString());
             sw.Close();
-            return "Correcto";
+            return "ingreso exitoso";
         }
     }
 }
