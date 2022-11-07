@@ -123,15 +123,5 @@ namespace Presentacion_GUI
             }
             MessageBox.Show(CreacionFactura.RestarStock(CodigoProdVendidos, CantProdVendidos), "VENTAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
