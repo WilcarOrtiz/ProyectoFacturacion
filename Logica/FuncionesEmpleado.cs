@@ -88,16 +88,16 @@ namespace Logica
             return empleados;
         }
 
-        public string Editar(String ID, String Cedula , String Nombre , String Apellido , String Telefono , String Correo, Empleado empleado)
+        public string Editar(String ID, String Cedula , String Nombre , String Apellido , String Telefono , String Correo, Empleado persona)
         {
             try
             {
-                empleado.ID = ID;
-                empleado.Cedula = Cedula;
-                empleado.Nombre = Nombre;
-                empleado.Apellido = Apellido;
-                empleado.Telefono = Telefono;   
-                empleado.Correo = Correo;   
+                persona.ID = ID;
+                persona.Cedula = Cedula;
+                persona.Nombre = Nombre;
+                persona.Apellido = Apellido;
+                persona.Telefono = Telefono;
+                persona.Correo = Correo;   
 
                 return repositorioEmpleado.Actualizar(empleados,false);
             }

@@ -8,5 +8,9 @@ namespace Entidades
 {
     public class Cliente : Persona
     {
+        public override string ToString()
+        {
+            return ID + ";" + Cedula + ";" + Nombre + ";" + Apellido + ";" + Telefono + ";" + Correo;
+        }
     }
 }

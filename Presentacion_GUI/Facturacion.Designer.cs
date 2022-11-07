@@ -32,7 +32,7 @@
             this.btnErroMessage = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnNuevoCliente = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.textFecha = new System.Windows.Forms.TextBox();
@@ -126,25 +126,26 @@
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // iconButton2
+            // btnNuevoCliente
             // 
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Black;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton2.IconColor = System.Drawing.Color.DimGray;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(912, 65);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton2.Size = new System.Drawing.Size(166, 67);
-            this.iconButton2.TabIndex = 14;
-            this.iconButton2.Text = "Nuevo";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.btnNuevoCliente.FlatAppearance.BorderSize = 0;
+            this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoCliente.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevoCliente.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnNuevoCliente.IconColor = System.Drawing.Color.DimGray;
+            this.btnNuevoCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNuevoCliente.IconSize = 32;
+            this.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoCliente.Location = new System.Drawing.Point(912, 65);
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(166, 67);
+            this.btnNuevoCliente.TabIndex = 14;
+            this.btnNuevoCliente.Text = "Nuevo";
+            this.btnNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevoCliente.UseVisualStyleBackColor = true;
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
             // label1
             // 
@@ -522,7 +523,7 @@
             this.Controls.Add(this.textFecha);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.btnNuevoCliente);
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnErroMessage);
@@ -543,7 +544,7 @@
         private FontAwesome.Sharp.IconButton btnErroMessage;
         private System.Windows.Forms.TextBox textBox1;
         private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnNuevoCliente;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.TextBox textFecha;

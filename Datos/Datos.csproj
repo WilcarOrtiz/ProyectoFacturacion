@@ -44,6 +44,7 @@
     <Compile Include="ArchivosPersona.cs" />
     <Compile Include="ArchivosProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioCliente.cs" />
     <Compile Include="RepositorioEmpleado.cs" />
     <Compile Include="RepositorioProducto.cs" />
     <Compile Include="RepositorioUsuario.cs" />

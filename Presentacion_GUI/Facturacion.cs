@@ -114,6 +114,13 @@ namespace Presentacion_GUI
             TextBoxTarifas();
         }
 
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            FrmNuevoCliente nuevoCliente = new FrmNuevoCliente();
+
+            nuevoCliente.ShowDialog();
+        }
+
         void RestarStockVenta()
         {
             for (int i = 0; i < (DataGrillaProductosVenta.RowCount) - 1; i++)

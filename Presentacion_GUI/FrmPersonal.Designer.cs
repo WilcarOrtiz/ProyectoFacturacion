@@ -39,17 +39,17 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.pbFotoEmpleado = new System.Windows.Forms.PictureBox();
             this.gbLista = new System.Windows.Forms.GroupBox();
+            this.textBusqueda = new System.Windows.Forms.TextBox();
+            this.cmbTipoBusqueda = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnEditar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.GrillaEmpleados = new System.Windows.Forms.DataGridView();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.textBusqueda = new System.Windows.Forms.TextBox();
-            this.cmbTipoBusqueda = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.gbIngreso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGuardarPersonal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).BeginInit();
@@ -94,6 +94,7 @@
             this.txtContraseña.Size = new System.Drawing.Size(228, 26);
             this.txtContraseña.TabIndex = 7;
             this.txtContraseña.Text = "Contraseña";
+           
             this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
             this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             this.txtContraseña.Leave += new System.EventHandler(this.txtContraseña_Leave);
@@ -181,6 +182,63 @@
             this.gbLista.TabStop = false;
             this.gbLista.Text = "Lista";
             // 
+            // textBusqueda
+            // 
+            this.textBusqueda.Location = new System.Drawing.Point(269, 44);
+            this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBusqueda.Name = "textBusqueda";
+            this.textBusqueda.Size = new System.Drawing.Size(264, 26);
+            this.textBusqueda.TabIndex = 10;
+            // 
+            // cmbTipoBusqueda
+            // 
+            this.cmbTipoBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoBusqueda.FormattingEnabled = true;
+            this.cmbTipoBusqueda.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre"});
+            this.cmbTipoBusqueda.Location = new System.Drawing.Point(120, 43);
+            this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
+            this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
+            this.cmbTipoBusqueda.TabIndex = 9;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(26, 46);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Buscar por";
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnEditar.IconColor = System.Drawing.Color.Black;
+            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEditar.Location = new System.Drawing.Point(568, 41);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(116, 32);
+            this.btnEditar.TabIndex = 2;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnEliminar.IconColor = System.Drawing.Color.Black;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.Location = new System.Drawing.Point(690, 41);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(116, 31);
+            this.btnEliminar.TabIndex = 1;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // GrillaEmpleados
             // 
             this.GrillaEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -237,63 +295,6 @@
             this.Correo.MinimumWidth = 8;
             this.Correo.Name = "Correo";
             this.Correo.Width = 93;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnEliminar.IconColor = System.Drawing.Color.Black;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.Location = new System.Drawing.Point(690, 41);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(116, 31);
-            this.btnEliminar.TabIndex = 1;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnEditar.IconColor = System.Drawing.Color.Black;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.Location = new System.Drawing.Point(568, 41);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(116, 32);
-            this.btnEditar.TabIndex = 2;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // textBusqueda
-            // 
-            this.textBusqueda.Location = new System.Drawing.Point(269, 44);
-            this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBusqueda.Name = "textBusqueda";
-            this.textBusqueda.Size = new System.Drawing.Size(264, 26);
-            this.textBusqueda.TabIndex = 10;
-            // 
-            // cmbTipoBusqueda
-            // 
-            this.cmbTipoBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoBusqueda.FormattingEnabled = true;
-            this.cmbTipoBusqueda.Items.AddRange(new object[] {
-            "Codigo",
-            "Nombre"});
-            this.cmbTipoBusqueda.Location = new System.Drawing.Point(120, 43);
-            this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
-            this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
-            this.cmbTipoBusqueda.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(26, 46);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 20);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Buscar por";
             // 
             // FrmPersonal
             // 
