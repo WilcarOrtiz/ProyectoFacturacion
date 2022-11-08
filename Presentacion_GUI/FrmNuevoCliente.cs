@@ -56,7 +56,6 @@ namespace Presentacion_GUI
             cliente.Apellido = txtApellido.Text;    
             cliente.Telefono = txtTelefono.Text;    
             cliente.Correo = txtCorreo.Text;
-
             var resp = funcionesCliente.Agregar(cliente);
 
             MessageBox.Show(resp);

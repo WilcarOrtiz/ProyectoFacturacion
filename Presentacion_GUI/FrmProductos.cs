@@ -75,7 +75,14 @@ namespace Presentacion_GUI
                 }
                 else
                 {
-                    txtNombreProduc.Focus();
+                    if (funcionesProductos.ObtenerPorCodigo(txtCodigo.Text) == null)
+                    {
+                        txtNombreProduc.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El codigo ya existe para otro producto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
                 }
             }
         }

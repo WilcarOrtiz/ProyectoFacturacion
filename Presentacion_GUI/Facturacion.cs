@@ -117,7 +117,6 @@ namespace Presentacion_GUI
         private void btnNuevoCliente_Click(object sender, EventArgs e)
         {
             FrmNuevoCliente nuevoCliente = new FrmNuevoCliente();
-
             nuevoCliente.ShowDialog();
         }
 
@@ -130,15 +129,5 @@ namespace Presentacion_GUI
             }
             MessageBox.Show(CreacionFactura.RestarStock(CodigoProdVendidos, CantProdVendidos), "VENTAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
