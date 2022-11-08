@@ -15,28 +15,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Datos.RepositorioCliente">
-    <Position X="3" Y="3.5" Width="1.5" />
+    <Position X="3" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAA=</HashCode>
       <FileName>RepositorioCliente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Datos.RepositorioEmpleado">
-    <Position X="0.75" Y="3.5" Width="1.5" />
+    <Position X="0.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAA=</HashCode>
       <FileName>RepositorioEmpleado.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Datos.RepositorioProducto">
-    <Position X="8" Y="3.5" Width="1.5" />
+    <Position X="8" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAA=</HashCode>
       <FileName>RepositorioProducto.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Datos.RepositorioUsuario">
-    <Position X="5.25" Y="3.5" Width="1.5" />
+    <Position X="5.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>RepositorioUsuario.cs</FileName>
