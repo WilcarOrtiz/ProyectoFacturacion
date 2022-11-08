@@ -130,6 +130,25 @@ namespace Presentacion_GUI
             MessageBox.Show(CreacionFactura.RestarStock(CodigoProdVendidos, CantProdVendidos), "VENTAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void ComboBoxUnidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComboBoxCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
 
         protected override CreateParams CreateParams
         {
