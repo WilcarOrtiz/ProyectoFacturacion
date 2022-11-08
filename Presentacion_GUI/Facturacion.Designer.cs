@@ -74,7 +74,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(154, 87);
+            this.listBox1.Location = new System.Drawing.Point(173, 87);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(277, 24);
             this.listBox1.TabIndex = 1;
@@ -89,7 +89,7 @@
             this.btnErroMessage.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnErroMessage.IconSize = 32;
             this.btnErroMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnErroMessage.Location = new System.Drawing.Point(17, 76);
+            this.btnErroMessage.Location = new System.Drawing.Point(36, 76);
             this.btnErroMessage.Name = "btnErroMessage";
             this.btnErroMessage.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnErroMessage.Size = new System.Drawing.Size(131, 44);
@@ -101,7 +101,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(626, 85);
+            this.textBox1.Location = new System.Drawing.Point(630, 85);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(222, 26);
             this.textBox1.TabIndex = 12;
@@ -116,7 +116,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(482, 82);
+            this.iconButton1.Location = new System.Drawing.Point(486, 82);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton1.Size = new System.Drawing.Size(135, 37);
@@ -136,7 +136,7 @@
             this.btnNuevoCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNuevoCliente.IconSize = 32;
             this.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(912, 74);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(903, 76);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnNuevoCliente.Size = new System.Drawing.Size(166, 45);
@@ -413,7 +413,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 32;
             this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(393, 617);
+            this.iconButton5.Location = new System.Drawing.Point(388, 617);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton5.Size = new System.Drawing.Size(224, 40);
@@ -529,6 +529,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnErroMessage);
             this.Controls.Add(this.listBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Facturacion";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Facturacion_Load);
