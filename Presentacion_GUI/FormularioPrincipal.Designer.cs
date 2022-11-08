@@ -40,7 +40,7 @@
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRegresar = new FontAwesome.Sharp.IconButton();
+            this.btnCerrar = new FontAwesome.Sharp.IconButton();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -50,6 +50,7 @@
             // panelLogo
             // 
             this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
+            this.panelLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelLogo.Location = new System.Drawing.Point(-1, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(242, 131);
@@ -70,6 +71,7 @@
             // 
             // BtnPersonal
             // 
+            this.BtnPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPersonal.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnPersonal.FlatAppearance.BorderSize = 0;
             this.BtnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -92,6 +94,7 @@
             // 
             // btnBodega
             // 
+            this.btnBodega.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBodega.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBodega.FlatAppearance.BorderSize = 0;
             this.btnBodega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -114,6 +117,7 @@
             // 
             // btnProductos
             // 
+            this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductos.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProductos.FlatAppearance.BorderSize = 0;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -136,6 +140,7 @@
             // 
             // btnAdministrador
             // 
+            this.btnAdministrador.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdministrador.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnAdministrador.FlatAppearance.BorderSize = 0;
             this.btnAdministrador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -162,7 +167,7 @@
             this.PanelContenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelContenedor.Location = new System.Drawing.Point(240, 61);
             this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1260, 742);
+            this.PanelContenedor.Size = new System.Drawing.Size(1260, 738);
             this.PanelContenedor.TabIndex = 1;
             // 
             // iconoFormularioHijoActual
@@ -191,6 +196,7 @@
             // 
             // btnEmpleado
             // 
+            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -214,7 +220,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.btnRegresar);
+            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.paneSubMenuAdmin);
             this.panel1.Controls.Add(this.btnAdministrador);
             this.panel1.Controls.Add(this.btnEmpleado);
@@ -223,32 +229,34 @@
             this.panel1.Size = new System.Drawing.Size(241, 670);
             this.panel1.TabIndex = 0;
             // 
-            // btnRegresar
+            // btnCerrar
             // 
-            this.btnRegresar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegresar.FlatAppearance.BorderSize = 0;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.ForeColor = System.Drawing.Color.Azure;
-            this.btnRegresar.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
-            this.btnRegresar.IconColor = System.Drawing.Color.Azure;
-            this.btnRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRegresar.IconSize = 32;
-            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegresar.Location = new System.Drawing.Point(0, 600);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnRegresar.Size = new System.Drawing.Size(241, 70);
-            this.btnRegresar.TabIndex = 6;
-            this.btnRegresar.Text = "Login";
-            this.btnRegresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegresar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.Color.Azure;
+            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
+            this.btnCerrar.IconColor = System.Drawing.Color.Azure;
+            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrar.IconSize = 32;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCerrar.Location = new System.Drawing.Point(0, 600);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnCerrar.Size = new System.Drawing.Size(241, 70);
+            this.btnCerrar.TabIndex = 6;
+            this.btnCerrar.Text = "Exit";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1500, 800);
             this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.panelLogo);
@@ -279,6 +287,6 @@
         private System.Windows.Forms.Panel PanelSuperior;
         private FontAwesome.Sharp.IconButton btnEmpleado;
         private System.Windows.Forms.Panel panel1;
-        private FontAwesome.Sharp.IconButton btnRegresar;
+        private FontAwesome.Sharp.IconButton btnCerrar;
     }
 }

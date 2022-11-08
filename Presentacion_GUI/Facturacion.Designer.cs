@@ -188,6 +188,7 @@
             this.Column7});
             this.DataGrillaProductosVenta.Location = new System.Drawing.Point(33, 271);
             this.DataGrillaProductosVenta.Name = "DataGrillaProductosVenta";
+            this.DataGrillaProductosVenta.ReadOnly = true;
             this.DataGrillaProductosVenta.RowHeadersWidth = 62;
             this.DataGrillaProductosVenta.RowTemplate.Height = 28;
             this.DataGrillaProductosVenta.Size = new System.Drawing.Size(923, 322);

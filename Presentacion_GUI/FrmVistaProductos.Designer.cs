@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVistaProductos));
             this.textBusqueda = new System.Windows.Forms.TextBox();
             this.cmbTipoBusqueda = new System.Windows.Forms.ComboBox();
@@ -74,7 +76,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(83, 149);
+            this.label10.Location = new System.Drawing.Point(83, 146);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
@@ -83,16 +85,36 @@
             // 
             // GrillaCatalogo
             // 
+            this.GrillaCatalogo.AllowUserToOrderColumns = true;
             this.GrillaCatalogo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GrillaCatalogo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.GrillaCatalogo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GrillaCatalogo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GrillaCatalogo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GrillaCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrillaCatalogo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Column15});
-            this.GrillaCatalogo.Location = new System.Drawing.Point(76, 222);
+            this.GrillaCatalogo.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.GrillaCatalogo.Location = new System.Drawing.Point(108, 210);
             this.GrillaCatalogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GrillaCatalogo.Name = "GrillaCatalogo";
+            this.GrillaCatalogo.ReadOnly = true;
             this.GrillaCatalogo.RowHeadersWidth = 62;
-            this.GrillaCatalogo.Size = new System.Drawing.Size(1006, 421);
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.GrillaCatalogo.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.GrillaCatalogo.Size = new System.Drawing.Size(957, 421);
             this.GrillaCatalogo.TabIndex = 8;
             this.GrillaCatalogo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaCatalogo_CellClick);
             // 
@@ -101,15 +123,17 @@
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.MinimumWidth = 8;
             this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             this.Eliminar.Text = "";
-            this.Eliminar.Width = 71;
+            this.Eliminar.Width = 88;
             // 
             // Column15
             // 
             this.Column15.HeaderText = "Editar";
             this.Column15.MinimumWidth = 8;
             this.Column15.Name = "Column15";
-            this.Column15.Width = 57;
+            this.Column15.ReadOnly = true;
+            this.Column15.Width = 69;
             // 
             // panel1
             // 
@@ -123,9 +147,9 @@
             this.panel1.Controls.Add(this.textBusqueda);
             this.panel1.Controls.Add(this.cmbTipoBusqueda);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(56, 12);
+            this.panel1.Location = new System.Drawing.Point(56, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1164, 714);
+            this.panel1.Size = new System.Drawing.Size(1164, 678);
             this.panel1.TabIndex = 10;
             // 
             // iconCup2
@@ -184,6 +208,7 @@
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
             // 
             // IconoBuscar
             // 
@@ -192,7 +217,7 @@
             this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
             this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
             this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconoBuscar.Location = new System.Drawing.Point(200, 141);
+            this.IconoBuscar.Location = new System.Drawing.Point(217, 141);
             this.IconoBuscar.Name = "IconoBuscar";
             this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
             this.IconoBuscar.TabIndex = 10;
