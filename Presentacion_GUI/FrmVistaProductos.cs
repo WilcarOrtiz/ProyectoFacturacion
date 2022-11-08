@@ -94,8 +94,15 @@ namespace Presentacion_GUI
             }
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 1)
             {
-                VistaParaProductos(funcionesProductos.GetAllProductos()[e.RowIndex]);
-                CargarTabla();
+                if (funcionesProductos.GetAllProductos().Count!=0)
+                {
+                    VistaParaProductos(funcionesProductos.GetAllProductos()[e.RowIndex]);
+                    CargarTabla();
+                }
+                else
+                {
+                    MessageBox.Show("No hay productos guardados");
+                }
             }
         }
 

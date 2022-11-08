@@ -145,7 +145,7 @@ namespace Presentacion_GUI
                 }
                 else
                 {
-                    
+                    pbGuardarPersonal.PerformLayout();
                 }
             }
         }
@@ -300,12 +300,18 @@ namespace Presentacion_GUI
 
         private void txtContraseña_Enter(object sender, EventArgs e)
         {
-
+            if (txtContraseña.Text=="Contraseña")
+            {
+                txtContraseña.Text = "";
+            }
         }
 
         private void txtContraseña_Leave(object sender, EventArgs e)
         {
-
+            if (txtContraseña.Text == "")
+            {
+                txtContraseña.Text = "Contraseña";
+            }
         }
 
         void CargarGrillaEmpleados()
@@ -319,8 +325,17 @@ namespace Presentacion_GUI
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
-            CargarGrillaEmpleados();
+            if (funcionesEmpleado.GetAll().Count == 0)
+            {
+                MessageBox.Show("No hay empleados guardados","Advertencia.",MessageBoxButtons.OK);
+            }
+            else
+            {
+                EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
+                FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
+                formularioPrincipal.Opacity = 90;
+                CargarGrillaEmpleados();
+            }         
         }
 
         public void EditarEmpleado(Empleado empleado)
@@ -349,6 +364,7 @@ namespace Presentacion_GUI
         {
             posicion = e.RowIndex; 
         }
-      
+
+        
     }
 }

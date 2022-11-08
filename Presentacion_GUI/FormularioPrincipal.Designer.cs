@@ -38,14 +38,14 @@
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.iconoFormularioHijoActual = new FontAwesome.Sharp.IconPictureBox();
             this.PanelSuperior = new System.Windows.Forms.Panel();
+            this.IconRegresar = new FontAwesome.Sharp.IconPictureBox();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.IconRegresar = new FontAwesome.Sharp.IconPictureBox();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconRegresar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -191,6 +191,21 @@
             this.PanelSuperior.TabIndex = 2;
             this.PanelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelSuperior_MouseDown);
             // 
+            // IconRegresar
+            // 
+            this.IconRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.IconRegresar.ForeColor = System.Drawing.Color.Azure;
+            this.IconRegresar.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.IconRegresar.IconColor = System.Drawing.Color.Azure;
+            this.IconRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconRegresar.IconSize = 46;
+            this.IconRegresar.Location = new System.Drawing.Point(1195, 9);
+            this.IconRegresar.Name = "IconRegresar";
+            this.IconRegresar.Size = new System.Drawing.Size(53, 46);
+            this.IconRegresar.TabIndex = 1;
+            this.IconRegresar.TabStop = false;
+            this.IconRegresar.Click += new System.EventHandler(this.iconPictureBox1_Click);
+            // 
             // btnEmpleado
             // 
             this.btnEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
@@ -224,21 +239,6 @@
             this.panel1.Size = new System.Drawing.Size(241, 670);
             this.panel1.TabIndex = 0;
             // 
-            // IconRegresar
-            // 
-            this.IconRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.IconRegresar.ForeColor = System.Drawing.Color.Azure;
-            this.IconRegresar.IconChar = FontAwesome.Sharp.IconChar.RotateLeft;
-            this.IconRegresar.IconColor = System.Drawing.Color.Azure;
-            this.IconRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconRegresar.IconSize = 46;
-            this.IconRegresar.Location = new System.Drawing.Point(1195, 9);
-            this.IconRegresar.Name = "IconRegresar";
-            this.IconRegresar.Size = new System.Drawing.Size(53, 46);
-            this.IconRegresar.TabIndex = 1;
-            this.IconRegresar.TabStop = false;
-            this.IconRegresar.Click += new System.EventHandler(this.iconPictureBox1_Click);
-            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -256,8 +256,8 @@
             this.paneSubMenuAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.IconRegresar)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

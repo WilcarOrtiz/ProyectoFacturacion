@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,11 @@ namespace Presentacion_GUI
 {
     public partial class FormLogin : Form
     {
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
 
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
         FormularioPrincipal principal = new FormularioPrincipal();
@@ -43,20 +49,28 @@ namespace Presentacion_GUI
                 {
                     MessageBox.Show("Ususario incorrecto");
                 }
-
             }
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            Acceder();
-          
+            Acceder();      
         }
 
         private void txtContraseña_Enter(object sender, EventArgs e)
         {
-
             txtContraseña.UseSystemPasswordChar = true;
+        }
+
+        private void panel3_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
