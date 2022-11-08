@@ -57,7 +57,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(59, 162);
+            this.label10.Location = new System.Drawing.Point(63, 194);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 20);
@@ -68,7 +68,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Azure;
-            this.label11.Location = new System.Drawing.Point(59, 91);
+            this.label11.Location = new System.Drawing.Point(63, 123);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 20);
@@ -79,7 +79,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Azure;
-            this.label12.Location = new System.Drawing.Point(247, 245);
+            this.label12.Location = new System.Drawing.Point(251, 277);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(122, 20);
@@ -90,7 +90,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.Azure;
-            this.label13.Location = new System.Drawing.Point(59, 245);
+            this.label13.Location = new System.Drawing.Point(63, 277);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(135, 20);
@@ -101,7 +101,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.Azure;
-            this.label14.Location = new System.Drawing.Point(59, 18);
+            this.label14.Location = new System.Drawing.Point(63, 50);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 20);
@@ -112,7 +112,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.Azure;
-            this.label15.Location = new System.Drawing.Point(269, 161);
+            this.label15.Location = new System.Drawing.Point(273, 193);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 20);
@@ -128,7 +128,7 @@
             "UNIDAD",
             "CAJA (24 Unds)",
             "CANASTA (30 Unds)"});
-            this.cmbUnidadesEdit.Location = new System.Drawing.Point(63, 190);
+            this.cmbUnidadesEdit.Location = new System.Drawing.Point(67, 222);
             this.cmbUnidadesEdit.Name = "cmbUnidadesEdit";
             this.cmbUnidadesEdit.Size = new System.Drawing.Size(163, 28);
             this.cmbUnidadesEdit.TabIndex = 41;
@@ -137,7 +137,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.Azure;
-            this.label16.Location = new System.Drawing.Point(59, 402);
+            this.label16.Location = new System.Drawing.Point(59, 434);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(217, 20);
@@ -146,7 +146,7 @@
             // 
             // textCodigoEditar
             // 
-            this.textCodigoEditar.Location = new System.Drawing.Point(273, 190);
+            this.textCodigoEditar.Location = new System.Drawing.Point(277, 222);
             this.textCodigoEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textCodigoEditar.Name = "textCodigoEditar";
             this.textCodigoEditar.Size = new System.Drawing.Size(96, 26);
@@ -155,7 +155,7 @@
             // 
             // txtPrecioVEdit
             // 
-            this.txtPrecioVEdit.Location = new System.Drawing.Point(249, 276);
+            this.txtPrecioVEdit.Location = new System.Drawing.Point(253, 307);
             this.txtPrecioVEdit.Name = "txtPrecioVEdit";
             this.txtPrecioVEdit.Size = new System.Drawing.Size(118, 26);
             this.txtPrecioVEdit.TabIndex = 47;
@@ -163,7 +163,7 @@
             // 
             // txtPrecioCEdit
             // 
-            this.txtPrecioCEdit.Location = new System.Drawing.Point(62, 276);
+            this.txtPrecioCEdit.Location = new System.Drawing.Point(66, 308);
             this.txtPrecioCEdit.Name = "txtPrecioCEdit";
             this.txtPrecioCEdit.Size = new System.Drawing.Size(163, 26);
             this.txtPrecioCEdit.TabIndex = 40;
@@ -171,7 +171,7 @@
             // 
             // txtNombreProducEditar
             // 
-            this.txtNombreProducEditar.Location = new System.Drawing.Point(63, 46);
+            this.txtNombreProducEditar.Location = new System.Drawing.Point(67, 78);
             this.txtNombreProducEditar.Name = "txtNombreProducEditar";
             this.txtNombreProducEditar.Size = new System.Drawing.Size(306, 26);
             this.txtNombreProducEditar.TabIndex = 38;
@@ -179,7 +179,7 @@
             // 
             // txtDescripEditar
             // 
-            this.txtDescripEditar.Location = new System.Drawing.Point(63, 120);
+            this.txtDescripEditar.Location = new System.Drawing.Point(67, 152);
             this.txtDescripEditar.Name = "txtDescripEditar";
             this.txtDescripEditar.Size = new System.Drawing.Size(306, 26);
             this.txtDescripEditar.TabIndex = 39;
@@ -189,7 +189,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Azure;
-            this.label1.Location = new System.Drawing.Point(57, 339);
+            this.label1.Location = new System.Drawing.Point(61, 371);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 20);
@@ -198,14 +198,15 @@
             // 
             // CantidadInicial
             // 
-            this.CantidadInicial.Location = new System.Drawing.Point(317, 403);
+            this.CantidadInicial.ForeColor = System.Drawing.Color.Azure;
+            this.CantidadInicial.Location = new System.Drawing.Point(373, 431);
             this.CantidadInicial.Name = "CantidadInicial";
             this.CantidadInicial.Size = new System.Drawing.Size(52, 23);
             this.CantidadInicial.TabIndex = 62;
             // 
             // CantidadEdit
             // 
-            this.CantidadEdit.Location = new System.Drawing.Point(251, 340);
+            this.CantidadEdit.Location = new System.Drawing.Point(255, 372);
             this.CantidadEdit.Name = "CantidadEdit";
             this.CantidadEdit.Size = new System.Drawing.Size(118, 26);
             this.CantidadEdit.TabIndex = 59;
@@ -282,7 +283,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(317, 403);
+            this.label2.Location = new System.Drawing.Point(317, 435);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 63;

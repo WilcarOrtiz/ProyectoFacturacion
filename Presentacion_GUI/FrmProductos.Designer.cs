@@ -305,7 +305,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(953, 200);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnGuardar.Size = new System.Drawing.Size(151, 40);
+            this.BtnGuardar.Size = new System.Drawing.Size(234, 40);
             this.BtnGuardar.TabIndex = 62;
             this.BtnGuardar.Text = "Agregar";
             this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -370,7 +370,7 @@
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.Location = new System.Drawing.Point(1, 441);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1260, 276);
+            this.panel2.Size = new System.Drawing.Size(1260, 316);
             this.panel2.TabIndex = 65;
             // 
             // FrmProductos
