@@ -36,16 +36,21 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconCup2 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconCup1 = new FontAwesome.Sharp.IconPictureBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnImprimir = new FontAwesome.Sharp.IconButton();
             this.IconoBuscar = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCatalogo)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // textBusqueda
             // 
-            this.textBusqueda.Location = new System.Drawing.Point(369, 57);
+            this.textBusqueda.Location = new System.Drawing.Point(454, 141);
             this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBusqueda.Name = "textBusqueda";
             this.textBusqueda.Size = new System.Drawing.Size(341, 26);
@@ -59,7 +64,7 @@
             this.cmbTipoBusqueda.Items.AddRange(new object[] {
             "Codigo",
             "Nombre"});
-            this.cmbTipoBusqueda.Location = new System.Drawing.Point(204, 57);
+            this.cmbTipoBusqueda.Location = new System.Drawing.Point(289, 141);
             this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
             this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
@@ -69,7 +74,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(31, 62);
+            this.label10.Location = new System.Drawing.Point(83, 149);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
@@ -83,11 +88,11 @@
             this.GrillaCatalogo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Column15});
-            this.GrillaCatalogo.Location = new System.Drawing.Point(35, 130);
+            this.GrillaCatalogo.Location = new System.Drawing.Point(76, 222);
             this.GrillaCatalogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GrillaCatalogo.Name = "GrillaCatalogo";
             this.GrillaCatalogo.RowHeadersWidth = 62;
-            this.GrillaCatalogo.Size = new System.Drawing.Size(1058, 421);
+            this.GrillaCatalogo.Size = new System.Drawing.Size(1006, 421);
             this.GrillaCatalogo.TabIndex = 8;
             this.GrillaCatalogo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaCatalogo_CellClick);
             // 
@@ -109,16 +114,56 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panel1.Controls.Add(this.iconCup2);
+            this.panel1.Controls.Add(this.iconCup1);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.btnImprimir);
             this.panel1.Controls.Add(this.IconoBuscar);
             this.panel1.Controls.Add(this.GrillaCatalogo);
             this.panel1.Controls.Add(this.textBusqueda);
             this.panel1.Controls.Add(this.cmbTipoBusqueda);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(56, 54);
+            this.panel1.Location = new System.Drawing.Point(56, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1164, 618);
+            this.panel1.Size = new System.Drawing.Size(1164, 714);
             this.panel1.TabIndex = 10;
+            // 
+            // iconCup2
+            // 
+            this.iconCup2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconCup2.ForeColor = System.Drawing.Color.Azure;
+            this.iconCup2.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.iconCup2.IconColor = System.Drawing.Color.Azure;
+            this.iconCup2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCup2.Location = new System.Drawing.Point(824, 57);
+            this.iconCup2.Name = "iconCup2";
+            this.iconCup2.Size = new System.Drawing.Size(32, 32);
+            this.iconCup2.TabIndex = 68;
+            this.iconCup2.TabStop = false;
+            // 
+            // iconCup1
+            // 
+            this.iconCup1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconCup1.ForeColor = System.Drawing.Color.Azure;
+            this.iconCup1.IconChar = FontAwesome.Sharp.IconChar.BoxesPacking;
+            this.iconCup1.IconColor = System.Drawing.Color.Azure;
+            this.iconCup1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconCup1.Location = new System.Drawing.Point(346, 57);
+            this.iconCup1.Name = "iconCup1";
+            this.iconCup1.Size = new System.Drawing.Size(32, 32);
+            this.iconCup1.TabIndex = 67;
+            this.iconCup1.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Azure;
+            this.label8.Location = new System.Drawing.Point(384, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(418, 42);
+            this.label8.TabIndex = 66;
+            this.label8.Text = "CATALOGO PRODUCTOS";
             // 
             // btnImprimir
             // 
@@ -130,10 +175,10 @@
             this.btnImprimir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnImprimir.IconSize = 32;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimir.Location = new System.Drawing.Point(919, 54);
+            this.btnImprimir.Location = new System.Drawing.Point(855, 133);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnImprimir.Size = new System.Drawing.Size(174, 40);
+            this.btnImprimir.Size = new System.Drawing.Size(227, 40);
             this.btnImprimir.TabIndex = 62;
             this.btnImprimir.Text = "Descargar";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +192,7 @@
             this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
             this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
             this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconoBuscar.Location = new System.Drawing.Point(125, 59);
+            this.IconoBuscar.Location = new System.Drawing.Point(232, 141);
             this.IconoBuscar.Name = "IconoBuscar";
             this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
             this.IconoBuscar.TabIndex = 10;
@@ -159,7 +204,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1260, 742);
+            this.ClientSize = new System.Drawing.Size(1287, 754);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmVistaProductos";
@@ -168,6 +213,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCatalogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).EndInit();
             this.ResumeLayout(false);
 
@@ -184,5 +231,8 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconPictureBox IconoBuscar;
         private FontAwesome.Sharp.IconButton btnImprimir;
+        private FontAwesome.Sharp.IconPictureBox iconCup2;
+        private FontAwesome.Sharp.IconPictureBox iconCup1;
+        private System.Windows.Forms.Label label8;
     }
 }
