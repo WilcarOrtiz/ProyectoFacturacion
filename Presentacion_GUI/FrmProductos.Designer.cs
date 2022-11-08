@@ -183,7 +183,7 @@
             // 
             // txtPrecioV
             // 
-            this.txtPrecioV.Location = new System.Drawing.Point(589, 262);
+            this.txtPrecioV.Location = new System.Drawing.Point(585, 262);
             this.txtPrecioV.Name = "txtPrecioV";
             this.txtPrecioV.Size = new System.Drawing.Size(163, 26);
             this.txtPrecioV.TabIndex = 44;
@@ -259,7 +259,7 @@
             // 
             // txtPrecioC
             // 
-            this.txtPrecioC.Location = new System.Drawing.Point(374, 260);
+            this.txtPrecioC.Location = new System.Drawing.Point(374, 261);
             this.txtPrecioC.Name = "txtPrecioC";
             this.txtPrecioC.Size = new System.Drawing.Size(163, 26);
             this.txtPrecioC.TabIndex = 37;
@@ -302,7 +302,7 @@
             this.BtnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnGuardar.IconSize = 32;
             this.BtnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardar.Location = new System.Drawing.Point(953, 200);
+            this.BtnGuardar.Location = new System.Drawing.Point(954, 200);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.BtnGuardar.Size = new System.Drawing.Size(197, 40);

@@ -45,7 +45,7 @@ namespace Presentacion_GUI
             informacion.Codigo = Articulo.Codigo;
             informacion.NombreProducto = Articulo.NombreProducto;
             informacion.Descripcion = Articulo.Descripcion;
-            informacion.Cantidad  = Articulo.Unidades ;
+            informacion.Cantidad = Articulo.Unidades;
             informacion.PrecioC = Articulo.PrecioC;
             informacion.PrecioV = Articulo.PrecioV;
             FrmProductosEdit FPE = new FrmProductosEdit(informacion);
@@ -57,12 +57,13 @@ namespace Presentacion_GUI
             Tabla = new DataTable();
             Tabla.Columns.Add("Codigo");
             Tabla.Columns.Add("Nombre");
+            Tabla.Columns.Add("Descripcion");
             Tabla.Columns.Add("Cantidad");
             Tabla.Columns.Add("$ Compra");
             Tabla.Columns.Add("$ Venta");
             foreach (var item in funcionesProductos.GetAllProductos())
             {
-                Tabla.Rows.Add(item.Codigo, item.NombreProducto, item.Unidades, item.PrecioC, item.PrecioV);
+                Tabla.Rows.Add(item.Codigo, item.NombreProducto, item.Descripcion, item.Unidades, item.PrecioC, item.PrecioV);
             }
             GrillaCatalogo.DataSource = Tabla;
         }
@@ -93,7 +94,7 @@ namespace Presentacion_GUI
             }
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 1)
             {
-                if (funcionesProductos.GetAllProductos().Count!=0)
+                if (funcionesProductos.GetAllProductos().Count != 0)
                 {
                     VistaParaProductos(funcionesProductos.GetAllProductos()[e.RowIndex]);
                     CargarTabla();
@@ -114,9 +115,9 @@ namespace Presentacion_GUI
         {
             GenerarPDF();
         }
-       /// <summary>
-       /// //
-       /// </summary>
+        /// <summary>
+        /// //
+        /// </summary>
         public void GenerarPDF()
         {
             {
@@ -132,11 +133,12 @@ namespace Presentacion_GUI
                     filas += "<tr>";
                     filas += "<td>" + item.Codigo.ToString() + "</td>";
                     filas += "<td>" + item.NombreProducto.ToString() + "</td>";
+                    filas += "<td>" + item.Descripcion.ToString() + "</td>";
                     filas += "<td>" + item.Unidades.ToString() + "</td>";
                     filas += "<td>" + item.PrecioV.ToString() + "</td>";
                     filas += "<td>" + item.PrecioC.ToString() + "</td>";
                     filas += "</tr>";
-                    total += funcionesProductos.ValorFinal(item.Unidades,item.PrecioC);
+                    total += funcionesProductos.ValorFinal(item.Unidades, item.PrecioC);
                 }
                 MessageBox.Show(total.ToString());
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
@@ -172,6 +174,7 @@ namespace Presentacion_GUI
             }
         }
 
+
         protected override CreateParams CreateParams
         {
             get
@@ -182,5 +185,9 @@ namespace Presentacion_GUI
             }
         }
 
+        private void btnImprimir_Click_1(object sender, EventArgs e)
+        {
+            GenerarPDF();
+        }
     }
 }
