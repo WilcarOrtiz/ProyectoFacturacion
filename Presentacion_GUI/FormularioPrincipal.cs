@@ -136,6 +136,7 @@ namespace Presentacion_GUI
         private void btnEmpleado_Click_1(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            AbrirFormEnPanel(new Facturacion());
             OcultarSubMenu();
         }
 
