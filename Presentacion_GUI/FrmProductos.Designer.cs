@@ -152,7 +152,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.Azure;
-            this.label7.Location = new System.Drawing.Point(790, 232);
+            this.label7.Location = new System.Drawing.Point(790, 231);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 20);
@@ -163,7 +163,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Azure;
-            this.label6.Location = new System.Drawing.Point(174, 231);
+            this.label6.Location = new System.Drawing.Point(174, 230);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);
@@ -174,7 +174,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Azure;
-            this.label5.Location = new System.Drawing.Point(560, 153);
+            this.label5.Location = new System.Drawing.Point(560, 151);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 20);
@@ -193,7 +193,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Azure;
-            this.label4.Location = new System.Drawing.Point(585, 234);
+            this.label4.Location = new System.Drawing.Point(585, 232);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 20);
@@ -204,7 +204,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Azure;
-            this.label3.Location = new System.Drawing.Point(370, 232);
+            this.label3.Location = new System.Drawing.Point(370, 230);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 20);
@@ -215,7 +215,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Azure;
-            this.label2.Location = new System.Drawing.Point(330, 152);
+            this.label2.Location = new System.Drawing.Point(330, 150);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
@@ -226,7 +226,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Azure;
-            this.label1.Location = new System.Drawing.Point(174, 152);
+            this.label1.Location = new System.Drawing.Point(174, 150);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
@@ -305,7 +305,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(953, 200);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnGuardar.Size = new System.Drawing.Size(234, 40);
+            this.BtnGuardar.Size = new System.Drawing.Size(197, 40);
             this.BtnGuardar.TabIndex = 62;
             this.BtnGuardar.Text = "Agregar";
             this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

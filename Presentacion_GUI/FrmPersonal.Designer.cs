@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.BtnEditar = new FontAwesome.Sharp.IconButton();
+            this.IconoBuscar = new FontAwesome.Sharp.IconPictureBox();
             this.textBusqueda = new System.Windows.Forms.TextBox();
             this.cmbTipoBusqueda = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnEditar = new FontAwesome.Sharp.IconButton();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.GrillaEmpleados = new System.Windows.Forms.DataGridView();
             this.Cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,41 +43,97 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pbGuardarPersonal = new System.Windows.Forms.PictureBox();
+            this.iconPictureNuevoUsuario = new FontAwesome.Sharp.IconPictureBox();
+            this.btnGuardarPersonal = new FontAwesome.Sharp.IconButton();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.pbFotoEmpleado = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGuardarPersonal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureNuevoUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panel1.Controls.Add(this.btnEliminar);
+            this.panel1.Controls.Add(this.BtnEditar);
+            this.panel1.Controls.Add(this.IconoBuscar);
             this.panel1.Controls.Add(this.textBusqueda);
             this.panel1.Controls.Add(this.cmbTipoBusqueda);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.btnEditar);
-            this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.GrillaEmpleados);
             this.panel1.Location = new System.Drawing.Point(402, 42);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(835, 634);
             this.panel1.TabIndex = 2;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Azure;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.btnEliminar.IconColor = System.Drawing.Color.Azure;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.IconSize = 32;
+            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.Location = new System.Drawing.Point(211, 71);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnEliminar.Size = new System.Drawing.Size(176, 40);
+            this.btnEliminar.TabIndex = 62;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.FlatAppearance.BorderSize = 0;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.ForeColor = System.Drawing.Color.Azure;
+            this.BtnEditar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
+            this.BtnEditar.IconColor = System.Drawing.Color.Azure;
+            this.BtnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEditar.IconSize = 32;
+            this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEditar.Location = new System.Drawing.Point(28, 70);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.BtnEditar.Size = new System.Drawing.Size(177, 40);
+            this.BtnEditar.TabIndex = 61;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEditar.UseVisualStyleBackColor = true;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnGuardarEdit_Click);
+            // 
+            // IconoBuscar
+            // 
+            this.IconoBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.IconoBuscar.ForeColor = System.Drawing.Color.Azure;
+            this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
+            this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
+            this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconoBuscar.Location = new System.Drawing.Point(161, 21);
+            this.IconoBuscar.Name = "IconoBuscar";
+            this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
+            this.IconoBuscar.TabIndex = 17;
+            this.IconoBuscar.TabStop = false;
+            // 
             // textBusqueda
             // 
-            this.textBusqueda.Location = new System.Drawing.Point(324, 24);
+            this.textBusqueda.Location = new System.Drawing.Point(392, 21);
             this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBusqueda.Name = "textBusqueda";
-            this.textBusqueda.Size = new System.Drawing.Size(264, 26);
+            this.textBusqueda.Size = new System.Drawing.Size(287, 26);
             this.textBusqueda.TabIndex = 16;
             // 
             // cmbTipoBusqueda
@@ -84,9 +141,9 @@
             this.cmbTipoBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoBusqueda.FormattingEnabled = true;
             this.cmbTipoBusqueda.Items.AddRange(new object[] {
-            "Codigo",
+            "Cedula",
             "Nombre"});
-            this.cmbTipoBusqueda.Location = new System.Drawing.Point(145, 24);
+            this.cmbTipoBusqueda.Location = new System.Drawing.Point(213, 21);
             this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
             this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
@@ -103,32 +160,6 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Buscar por";
             // 
-            // btnEditar
-            // 
-            this.btnEditar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnEditar.IconColor = System.Drawing.Color.Black;
-            this.btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEditar.Location = new System.Drawing.Point(28, 70);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(116, 32);
-            this.btnEditar.TabIndex = 13;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnEliminar.IconColor = System.Drawing.Color.Black;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.Location = new System.Drawing.Point(183, 71);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(116, 31);
-            this.btnEliminar.TabIndex = 12;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // GrillaEmpleados
             // 
             this.GrillaEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -141,7 +172,7 @@
             this.Apellido,
             this.Telefono,
             this.Correo});
-            this.GrillaEmpleados.Location = new System.Drawing.Point(25, 119);
+            this.GrillaEmpleados.Location = new System.Drawing.Point(25, 121);
             this.GrillaEmpleados.MultiSelect = false;
             this.GrillaEmpleados.Name = "GrillaEmpleados";
             this.GrillaEmpleados.RowHeadersWidth = 62;
@@ -189,30 +220,52 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panel2.Controls.Add(this.pbGuardarPersonal);
+            this.panel2.Controls.Add(this.iconPictureNuevoUsuario);
+            this.panel2.Controls.Add(this.btnGuardarPersonal);
             this.panel2.Controls.Add(this.txtContraseña);
             this.panel2.Controls.Add(this.txtTelefono);
             this.panel2.Controls.Add(this.txtCorreo);
             this.panel2.Controls.Add(this.txtApellidos);
             this.panel2.Controls.Add(this.txtNombres);
             this.panel2.Controls.Add(this.txtCedula);
-            this.panel2.Controls.Add(this.pbFotoEmpleado);
             this.panel2.Location = new System.Drawing.Point(20, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(365, 630);
             this.panel2.TabIndex = 3;
             // 
-            // pbGuardarPersonal
+            // iconPictureNuevoUsuario
             // 
-            this.pbGuardarPersonal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbGuardarPersonal.Image = ((System.Drawing.Image)(resources.GetObject("pbGuardarPersonal.Image")));
-            this.pbGuardarPersonal.Location = new System.Drawing.Point(135, 510);
-            this.pbGuardarPersonal.Name = "pbGuardarPersonal";
-            this.pbGuardarPersonal.Size = new System.Drawing.Size(92, 83);
-            this.pbGuardarPersonal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbGuardarPersonal.TabIndex = 16;
-            this.pbGuardarPersonal.TabStop = false;
-            this.pbGuardarPersonal.Click += new System.EventHandler(this.pbGuardarPersonal_Click);
+            this.iconPictureNuevoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconPictureNuevoUsuario.ForeColor = System.Drawing.Color.Azure;
+            this.iconPictureNuevoUsuario.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.iconPictureNuevoUsuario.IconColor = System.Drawing.Color.Azure;
+            this.iconPictureNuevoUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureNuevoUsuario.IconSize = 125;
+            this.iconPictureNuevoUsuario.Location = new System.Drawing.Point(124, 36);
+            this.iconPictureNuevoUsuario.Name = "iconPictureNuevoUsuario";
+            this.iconPictureNuevoUsuario.Size = new System.Drawing.Size(128, 125);
+            this.iconPictureNuevoUsuario.TabIndex = 64;
+            this.iconPictureNuevoUsuario.TabStop = false;
+            // 
+            // btnGuardarPersonal
+            // 
+            this.btnGuardarPersonal.FlatAppearance.BorderSize = 0;
+            this.btnGuardarPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarPersonal.ForeColor = System.Drawing.Color.Azure;
+            this.btnGuardarPersonal.IconChar = FontAwesome.Sharp.IconChar.ArrowDown;
+            this.btnGuardarPersonal.IconColor = System.Drawing.Color.Azure;
+            this.btnGuardarPersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGuardarPersonal.IconSize = 32;
+            this.btnGuardarPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarPersonal.Location = new System.Drawing.Point(151, 519);
+            this.btnGuardarPersonal.Name = "btnGuardarPersonal";
+            this.btnGuardarPersonal.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnGuardarPersonal.Size = new System.Drawing.Size(63, 40);
+            this.btnGuardarPersonal.TabIndex = 63;
+            this.btnGuardarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarPersonal.UseVisualStyleBackColor = true;
+            this.btnGuardarPersonal.Click += new System.EventHandler(this.iconButton1_Click_1);
             // 
             // txtContraseña
             // 
@@ -276,17 +329,6 @@
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
-            // pbFotoEmpleado
-            // 
-            this.pbFotoEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbFotoEmpleado.Image = ((System.Drawing.Image)(resources.GetObject("pbFotoEmpleado.Image")));
-            this.pbFotoEmpleado.Location = new System.Drawing.Point(123, 33);
-            this.pbFotoEmpleado.Name = "pbFotoEmpleado";
-            this.pbFotoEmpleado.Size = new System.Drawing.Size(116, 117);
-            this.pbFotoEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbFotoEmpleado.TabIndex = 9;
-            this.pbFotoEmpleado.TabStop = false;
-            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -303,11 +345,11 @@
             this.Load += new System.EventHandler(this.FrmPersonal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGuardarPersonal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoEmpleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureNuevoUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,8 +360,6 @@
         private System.Windows.Forms.TextBox textBusqueda;
         private System.Windows.Forms.ComboBox cmbTipoBusqueda;
         private System.Windows.Forms.Label label10;
-        private FontAwesome.Sharp.IconButton btnEditar;
-        private FontAwesome.Sharp.IconButton btnEliminar;
         private System.Windows.Forms.DataGridView GrillaEmpleados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -327,13 +367,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pbGuardarPersonal;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.TextBox txtCedula;
-        private System.Windows.Forms.PictureBox pbFotoEmpleado;
+        private FontAwesome.Sharp.IconPictureBox IconoBuscar;
+        private FontAwesome.Sharp.IconButton BtnEditar;
+        private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton btnGuardarPersonal;
+        private FontAwesome.Sharp.IconPictureBox iconPictureNuevoUsuario;
     }
 }

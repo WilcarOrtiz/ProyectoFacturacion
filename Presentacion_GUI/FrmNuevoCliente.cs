@@ -28,24 +28,7 @@ namespace Presentacion_GUI
             InitializeComponent();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            switch (Vacio())
-            {
-                case true:
 
-                    MessageBox.Show("Debe llenar todos los campos", "Advertencia.", MessageBoxButtons.OK);
-                    break;
-
-                case false:
-
-                    Guardar();
-                    RestablecerCampos();    
-                    this.Close();
-                    break;
-            }
-            
-        }
 
         public void Guardar()
         {
@@ -85,10 +68,6 @@ namespace Presentacion_GUI
                
         }
      
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void FrmNuevoCliente_MouseDown(object sender, MouseEventArgs e)
         {
@@ -272,6 +251,27 @@ namespace Presentacion_GUI
             }
         }
 
-       
+        private void BtnCancelarEdit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            switch (Vacio())
+            {
+                case true:
+
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia.", MessageBoxButtons.OK);
+                    break;
+
+                case false:
+
+                    Guardar();
+                    RestablecerCampos();
+                    this.Close();
+                    break;
+            }
+        }
     }
 }

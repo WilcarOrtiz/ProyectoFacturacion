@@ -35,17 +35,17 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSalir = new FontAwesome.Sharp.IconPictureBox();
             this.btnErroMessage = new FontAwesome.Sharp.IconButton();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
-            this.btnSalir = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,6 +123,21 @@
             this.panel3.TabIndex = 0;
             this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            this.btnSalir.IconColor = System.Drawing.Color.SlateBlue;
+            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnSalir.IconSize = 40;
+            this.btnSalir.Location = new System.Drawing.Point(960, 9);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(43, 40);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.TabStop = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // btnErroMessage
             // 
             this.btnErroMessage.FlatAppearance.BorderSize = 0;
@@ -197,21 +212,6 @@
             this.iconPictureBox3.TabIndex = 5;
             this.iconPictureBox3.TabStop = false;
             // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.Gray;
-            this.btnSalir.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSalir.IconColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnSalir.IconSize = 40;
-            this.btnSalir.Location = new System.Drawing.Point(959, 10);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(43, 40);
-            this.btnSalir.TabIndex = 11;
-            this.btnSalir.TabStop = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -227,8 +227,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }

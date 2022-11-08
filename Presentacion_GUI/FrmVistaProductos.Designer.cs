@@ -50,7 +50,7 @@
             // 
             // textBusqueda
             // 
-            this.textBusqueda.Location = new System.Drawing.Point(454, 141);
+            this.textBusqueda.Location = new System.Drawing.Point(426, 143);
             this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBusqueda.Name = "textBusqueda";
             this.textBusqueda.Size = new System.Drawing.Size(341, 26);
@@ -64,7 +64,7 @@
             this.cmbTipoBusqueda.Items.AddRange(new object[] {
             "Codigo",
             "Nombre"});
-            this.cmbTipoBusqueda.Location = new System.Drawing.Point(289, 141);
+            this.cmbTipoBusqueda.Location = new System.Drawing.Point(261, 143);
             this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
             this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
@@ -192,7 +192,7 @@
             this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
             this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
             this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconoBuscar.Location = new System.Drawing.Point(232, 141);
+            this.IconoBuscar.Location = new System.Drawing.Point(200, 141);
             this.IconoBuscar.Name = "IconoBuscar";
             this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
             this.IconoBuscar.TabIndex = 10;

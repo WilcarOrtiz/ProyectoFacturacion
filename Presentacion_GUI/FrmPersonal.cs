@@ -145,7 +145,7 @@ namespace Presentacion_GUI
                 }
                 else
                 {
-                    pbGuardarPersonal.PerformLayout();
+                    btnGuardarPersonal.PerformLayout();
                 }
             }
         }
@@ -159,23 +159,6 @@ namespace Presentacion_GUI
             txtCorreo.Text = "Correo";
             txtContraseña.Text = "Contraseña";
       
-        }
-
-        private void pbGuardarPersonal_Click(object sender, EventArgs e)
-        {
-            switch (vacio())
-            {
-                case true:
-                    MessageBox.Show("Debe llenar todos los campos", "VERIFICAR.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
-
-                case false:
-                    GuardarPersonal();
-                    GuardarUsuario();
-                    CargarGrillaEmpleados();    
-                    Restablecer();
-                    break;
-            }
         }
 
         public void GuardarPersonal()
@@ -323,21 +306,6 @@ namespace Presentacion_GUI
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (funcionesEmpleado.GetAll().Count == 0)
-            {
-                MessageBox.Show("No hay empleados guardados","Advertencia.",MessageBoxButtons.OK);
-            }
-            else
-            {
-                EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
-                FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
-                formularioPrincipal.Opacity = 90;
-                CargarGrillaEmpleados();
-            }         
-        }
-
         public void EditarEmpleado(Empleado empleado)
         { 
                 MessageBox.Show(empleado.Nombre);
@@ -352,19 +320,49 @@ namespace Presentacion_GUI
                 FrmEditarEmpleado frmEditar = new FrmEditarEmpleado(informacion);
                 frmEditar.ShowDialog();
         }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-           String cedula = GrillaEmpleados.Rows[posicion].Cells[0].Value.ToString();
-           MessageBox.Show(funcionesEmpleado.Eliminar(funcionesEmpleado.ObtenerPorCedula(cedula)));
-            CargarGrillaEmpleados();
-        }
-
         private void GrillaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             posicion = e.RowIndex; 
         }
 
-        
+        private void BtnGuardarEdit_Click(object sender, EventArgs e)
+        {
+            if (funcionesEmpleado.GetAll().Count == 0)
+            {
+                MessageBox.Show("No hay empleados guardados", "Advertencia.", MessageBoxButtons.OK);
+            }
+            else
+            {
+                EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
+                FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
+                formularioPrincipal.Opacity = 90;
+                CargarGrillaEmpleados();
+            }
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            String cedula = GrillaEmpleados.Rows[posicion].Cells[0].Value.ToString();
+            MessageBox.Show(funcionesEmpleado.Eliminar(funcionesEmpleado.ObtenerPorCedula(cedula)));
+            CargarGrillaEmpleados();
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            switch (vacio())
+            {
+                case true:
+                    MessageBox.Show("Debe llenar todos los campos", "VERIFICAR.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+
+                case false:
+                    GuardarPersonal();
+                    GuardarUsuario();
+                    CargarGrillaEmpleados();
+                    Restablecer();
+                    break;
+            }
+        }
+
     }
 }

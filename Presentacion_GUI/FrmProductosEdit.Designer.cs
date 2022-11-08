@@ -221,7 +221,7 @@
             this.BtnGuardarEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnGuardarEdit.IconSize = 32;
             this.BtnGuardarEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuardarEdit.Location = new System.Drawing.Point(40, 524);
+            this.BtnGuardarEdit.Location = new System.Drawing.Point(40, 521);
             this.BtnGuardarEdit.Name = "BtnGuardarEdit";
             this.BtnGuardarEdit.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.BtnGuardarEdit.Size = new System.Drawing.Size(175, 40);
@@ -242,7 +242,7 @@
             this.BtnCancelarEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCancelarEdit.IconSize = 32;
             this.BtnCancelarEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelarEdit.Location = new System.Drawing.Point(229, 524);
+            this.BtnCancelarEdit.Location = new System.Drawing.Point(229, 521);
             this.BtnCancelarEdit.Name = "BtnCancelarEdit";
             this.BtnCancelarEdit.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.BtnCancelarEdit.Size = new System.Drawing.Size(209, 40);

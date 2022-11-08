@@ -179,12 +179,13 @@ namespace Presentacion_GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void iconPictureBox1_Click(object sender, EventArgs e)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-           
+
             FormLogin Login = new FormLogin();
-            Login.Visible=true;
+            Login.Visible = true;
             this.Close();
         }
+
     }
 }
