@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.GrillaProductos = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +66,9 @@
             // 
             // GrillaProductos
             // 
+            this.GrillaProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.GrillaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GrillaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.GrillaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrillaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -73,11 +77,18 @@
             this.Column4,
             this.Column6,
             this.Column7});
+            this.GrillaProductos.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.GrillaProductos.Location = new System.Drawing.Point(139, 334);
             this.GrillaProductos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GrillaProductos.Name = "GrillaProductos";
             this.GrillaProductos.ReadOnly = true;
             this.GrillaProductos.RowHeadersWidth = 62;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.GrillaProductos.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GrillaProductos.Size = new System.Drawing.Size(967, 293);
             this.GrillaProductos.TabIndex = 28;
             // 
