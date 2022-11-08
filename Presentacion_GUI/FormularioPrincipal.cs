@@ -40,7 +40,7 @@ namespace Presentacion_GUI
             Form fh = Formhijo as Form;
             fh.TopLevel = false;
             fh.Dock = DockStyle.Fill;
-
+            PanelContenedor.Visible = true;
             this.PanelContenedor.Controls.Add(fh);
             this.PanelContenedor.Tag = fh;
             fh.Show();
@@ -121,6 +121,7 @@ namespace Presentacion_GUI
 
                 iconoFormularioHijoActual.IconChar = currentBtn.IconChar;
                 iconoFormularioHijoActual.IconColor = currentBtn.IconColor;
+                PanelContenedor.Visible = false; 
             }
         }
 
@@ -131,6 +132,7 @@ namespace Presentacion_GUI
             leftBorderBtn.Visible = false;
             iconoFormularioHijoActual.IconChar = IconChar.Home;
             iconoFormularioHijoActual.IconColor = currentBtn.IconColor;
+            PanelContenedor.Visible = false; 
             OcultarSubMenu();
         }
 
@@ -138,12 +140,13 @@ namespace Presentacion_GUI
         {
             ActivateButton(sender, RGBColors.color2);
             AbrirFormEnPanel(new Facturacion());
+
             OcultarSubMenu();
         }
 
         private void btnAdministrador_Click_1(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color3); 
             MostrarSubMenu(paneSubMenuAdmin);
 
         }
@@ -181,11 +184,17 @@ namespace Presentacion_GUI
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-
-            FormLogin Login = new FormLogin();
-            Login.Visible = true;
-            this.Close();
+            Application.Exit();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
     }
 }

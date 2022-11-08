@@ -74,7 +74,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(83, 149);
+            this.label10.Location = new System.Drawing.Point(83, 147);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
@@ -83,14 +83,16 @@
             // 
             // GrillaCatalogo
             // 
+            this.GrillaCatalogo.AllowUserToOrderColumns = true;
             this.GrillaCatalogo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GrillaCatalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GrillaCatalogo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Column15});
-            this.GrillaCatalogo.Location = new System.Drawing.Point(76, 222);
+            this.GrillaCatalogo.Location = new System.Drawing.Point(76, 221);
             this.GrillaCatalogo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GrillaCatalogo.Name = "GrillaCatalogo";
+            this.GrillaCatalogo.ReadOnly = true;
             this.GrillaCatalogo.RowHeadersWidth = 62;
             this.GrillaCatalogo.Size = new System.Drawing.Size(1006, 421);
             this.GrillaCatalogo.TabIndex = 8;
@@ -101,6 +103,7 @@
             this.Eliminar.HeaderText = "Eliminar";
             this.Eliminar.MinimumWidth = 8;
             this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             this.Eliminar.Text = "";
             this.Eliminar.Width = 71;
             // 
@@ -109,6 +112,7 @@
             this.Column15.HeaderText = "Editar";
             this.Column15.MinimumWidth = 8;
             this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
             this.Column15.Width = 57;
             // 
             // panel1
@@ -123,9 +127,9 @@
             this.panel1.Controls.Add(this.textBusqueda);
             this.panel1.Controls.Add(this.cmbTipoBusqueda);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(56, 12);
+            this.panel1.Location = new System.Drawing.Point(56, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1164, 714);
+            this.panel1.Size = new System.Drawing.Size(1164, 678);
             this.panel1.TabIndex = 10;
             // 
             // iconCup2
@@ -192,7 +196,7 @@
             this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
             this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
             this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconoBuscar.Location = new System.Drawing.Point(200, 141);
+            this.IconoBuscar.Location = new System.Drawing.Point(217, 141);
             this.IconoBuscar.Name = "IconoBuscar";
             this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
             this.IconoBuscar.TabIndex = 10;

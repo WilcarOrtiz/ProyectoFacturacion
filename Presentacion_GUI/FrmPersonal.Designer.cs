@@ -96,7 +96,10 @@
             // 
             // BtnEditar
             // 
+            this.BtnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEditar.FlatAppearance.BorderSize = 0;
+            this.BtnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BtnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditar.ForeColor = System.Drawing.Color.Azure;
             this.BtnEditar.IconChar = FontAwesome.Sharp.IconChar.PenToSquare;
@@ -122,7 +125,7 @@
             this.IconoBuscar.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassArrowRight;
             this.IconoBuscar.IconColor = System.Drawing.Color.Azure;
             this.IconoBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IconoBuscar.Location = new System.Drawing.Point(161, 21);
+            this.IconoBuscar.Location = new System.Drawing.Point(176, 21);
             this.IconoBuscar.Name = "IconoBuscar";
             this.IconoBuscar.Size = new System.Drawing.Size(32, 32);
             this.IconoBuscar.TabIndex = 17;
@@ -153,7 +156,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(24, 27);
+            this.label10.Location = new System.Drawing.Point(24, 25);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 20);
@@ -162,6 +165,7 @@
             // 
             // GrillaEmpleados
             // 
+            this.GrillaEmpleados.AllowUserToOrderColumns = true;
             this.GrillaEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GrillaEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GrillaEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

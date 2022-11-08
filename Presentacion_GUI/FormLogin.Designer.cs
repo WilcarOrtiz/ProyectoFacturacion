@@ -126,6 +126,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.btnSalir.ForeColor = System.Drawing.Color.SlateBlue;
             this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
             this.btnSalir.IconColor = System.Drawing.Color.SlateBlue;
@@ -164,6 +165,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(373, 26);
             this.txtContraseña.TabIndex = 8;
+        
             this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
             // 
             // txtUsuario
@@ -176,6 +178,7 @@
             // btnEmpleado
             // 
             this.btnEmpleado.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEmpleado.FlatAppearance.BorderSize = 0;
             this.btnEmpleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MediumPurple;
             this.btnEmpleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSlateBlue;

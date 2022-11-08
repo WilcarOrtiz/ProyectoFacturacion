@@ -199,7 +199,7 @@
             // CantidadInicial
             // 
             this.CantidadInicial.ForeColor = System.Drawing.Color.Azure;
-            this.CantidadInicial.Location = new System.Drawing.Point(373, 431);
+            this.CantidadInicial.Location = new System.Drawing.Point(386, 434);
             this.CantidadInicial.Name = "CantidadInicial";
             this.CantidadInicial.Size = new System.Drawing.Size(52, 23);
             this.CantidadInicial.TabIndex = 62;

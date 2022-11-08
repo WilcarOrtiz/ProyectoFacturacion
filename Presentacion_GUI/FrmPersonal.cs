@@ -334,17 +334,22 @@ namespace Presentacion_GUI
             else
             {
                 EditarEmpleado(funcionesEmpleado.GetAll()[posicion]);
-                FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
-                formularioPrincipal.Opacity = 90;
                 CargarGrillaEmpleados();
             }
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            String cedula = GrillaEmpleados.Rows[posicion].Cells[0].Value.ToString();
-            MessageBox.Show(funcionesEmpleado.Eliminar(funcionesEmpleado.ObtenerPorCedula(cedula)));
-            CargarGrillaEmpleados();
+            if (funcionesEmpleado.GetAll().Count != 0)
+            {
+                String cedula = GrillaEmpleados.Rows[posicion].Cells[0].Value.ToString();
+                MessageBox.Show(funcionesEmpleado.Eliminar(funcionesEmpleado.ObtenerPorCedula(cedula)));
+                CargarGrillaEmpleados();
+            }
+            else
+            {
+                MessageBox.Show("No hay elementos guardardos");
+            }
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)
@@ -361,6 +366,17 @@ namespace Presentacion_GUI
                     CargarGrillaEmpleados();
                     Restablecer();
                     break;
+            }
+        }
+
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
             }
         }
 
