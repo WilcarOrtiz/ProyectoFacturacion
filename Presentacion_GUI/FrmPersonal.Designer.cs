@@ -179,6 +179,7 @@
             this.GrillaEmpleados.Location = new System.Drawing.Point(25, 121);
             this.GrillaEmpleados.MultiSelect = false;
             this.GrillaEmpleados.Name = "GrillaEmpleados";
+            this.GrillaEmpleados.ReadOnly = true;
             this.GrillaEmpleados.RowHeadersWidth = 62;
             this.GrillaEmpleados.RowTemplate.Height = 28;
             this.GrillaEmpleados.Size = new System.Drawing.Size(779, 500);
@@ -190,6 +191,7 @@
             this.Cedula.HeaderText = "Cedula";
             this.Cedula.MinimumWidth = 8;
             this.Cedula.Name = "Cedula";
+            this.Cedula.ReadOnly = true;
             this.Cedula.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cedula.Width = 95;
             // 
@@ -198,6 +200,7 @@
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 8;
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             this.Nombre.Width = 101;
             // 
             // Apellido
@@ -205,6 +208,7 @@
             this.Apellido.HeaderText = "Apellido";
             this.Apellido.MinimumWidth = 8;
             this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
             this.Apellido.Width = 101;
             // 
             // Telefono
@@ -212,6 +216,7 @@
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.MinimumWidth = 8;
             this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             this.Telefono.Width = 107;
             // 
             // Correo
@@ -219,6 +224,7 @@
             this.Correo.HeaderText = "Correo";
             this.Correo.MinimumWidth = 8;
             this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
             this.Correo.Width = 93;
             // 
             // panel2

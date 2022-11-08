@@ -134,6 +134,7 @@ namespace Presentacion_GUI
             iconoFormularioHijoActual.IconColor = currentBtn.IconColor;
             PanelContenedor.Visible = false; 
             OcultarSubMenu();
+           
         }
 
         private void btnEmpleado_Click_1(object sender, EventArgs e)
@@ -173,7 +174,10 @@ namespace Presentacion_GUI
 
         private void panelLogo_Click(object sender, EventArgs e)
         {
-            Reiniciar();
+            if (PanelContenedor.Visible != true)
+            {
+                Reiniciar();
+            }
         }
 
         private void PanelSuperior_MouseDown(object sender, MouseEventArgs e)
