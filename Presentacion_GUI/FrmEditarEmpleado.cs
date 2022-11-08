@@ -41,7 +41,7 @@ namespace Presentacion_GUI
             }
             else
             {
-                switch (MessageBox.Show("El codigo ya existe para otro producto\nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+                switch (MessageBox.Show("La cedula ya existe \nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
                 {
                     case DialogResult.OK:
                         txtCedulaEditar.Text = "";
