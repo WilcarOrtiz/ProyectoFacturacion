@@ -15,9 +15,9 @@ namespace Presentacion_GUI
 {
     public partial class FrmEditarEmpleado : Form
     {
+       
         FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado(); 
         FrmPersonal FrmPersonal = new FrmPersonal();
-        FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
         String ID;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -88,15 +88,13 @@ namespace Presentacion_GUI
                 case false:
                     Actualizar(); 
                     this.Close();
-                   
-                    formularioPrincipal.Opacity = 100;
+                  
                     break;
             }       
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            formularioPrincipal.Opacity = 100;
             this.Close();
         }
 

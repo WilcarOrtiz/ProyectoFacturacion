@@ -2,6 +2,7 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,20 @@ namespace Logica
         public int GetById()
         {
             return GetAll().Count + 1;
+        }
+
+
+        public string ValidarUser(String Cedula)
+        {
+            string Nombre = null; 
+            foreach (var item in repositorioEmpleado.GetAll())
+            {
+                if (Cedula==item.Cedula )
+                {
+                    Nombre =item.Nombre;
+                }
+            }
+            return Nombre;
         }
 
         public String IdXEmpleado(String cedula)

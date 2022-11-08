@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.btnErroMessage = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnNuevoCliente = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textFecha = new System.Windows.Forms.TextBox();
             this.DataGrillaProductosVenta = new System.Windows.Forms.DataGridView();
@@ -44,9 +39,19 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnErroMessage = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnNuevoCliente = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ComboBoxUnidades = new System.Windows.Forms.ComboBox();
+            this.ComboBoxProductos = new System.Windows.Forms.ComboBox();
+            this.ComboBoxCantidad = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,96 +64,14 @@
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.txtCambio = new System.Windows.Forms.TextBox();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ComboBoxUnidades = new System.Windows.Forms.ComboBox();
-            this.ComboBoxProductos = new System.Windows.Forms.ComboBox();
-            this.ComboBoxCantidad = new System.Windows.Forms.NumericUpDown();
             this.comboBoxDescuento = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrillaProductosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxCantidad)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(137, 8);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(277, 44);
-            this.listBox1.TabIndex = 1;
-            // 
-            // btnErroMessage
-            // 
-            this.btnErroMessage.FlatAppearance.BorderSize = 0;
-            this.btnErroMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnErroMessage.ForeColor = System.Drawing.Color.Azure;
-            this.btnErroMessage.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnErroMessage.IconColor = System.Drawing.Color.Azure;
-            this.btnErroMessage.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnErroMessage.IconSize = 32;
-            this.btnErroMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnErroMessage.Location = new System.Drawing.Point(0, 8);
-            this.btnErroMessage.Name = "btnErroMessage";
-            this.btnErroMessage.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnErroMessage.Size = new System.Drawing.Size(131, 44);
-            this.btnErroMessage.TabIndex = 11;
-            this.btnErroMessage.Text = "Cliente";
-            this.btnErroMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnErroMessage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnErroMessage.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(561, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 26);
-            this.textBox1.TabIndex = 12;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Azure;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton1.IconColor = System.Drawing.Color.Azure;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(420, 8);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton1.Size = new System.Drawing.Size(135, 44);
-            this.iconButton1.TabIndex = 13;
-            this.iconButton1.Text = "Buscar";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevoCliente
-            // 
-            this.btnNuevoCliente.FlatAppearance.BorderSize = 0;
-            this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoCliente.ForeColor = System.Drawing.Color.Black;
-            this.btnNuevoCliente.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnNuevoCliente.IconColor = System.Drawing.Color.Azure;
-            this.btnNuevoCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNuevoCliente.IconSize = 32;
-            this.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(789, 8);
-            this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNuevoCliente.Size = new System.Drawing.Size(124, 44);
-            this.btnNuevoCliente.TabIndex = 14;
-            this.btnNuevoCliente.Text = "Nuevo";
-            this.btnNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevoCliente.UseVisualStyleBackColor = true;
-            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
             // label1
             // 
@@ -240,11 +163,110 @@
             this.Column7.ReadOnly = true;
             this.Column7.Width = 150;
             // 
+            // iconButton5
+            // 
+            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconButton5.FlatAppearance.BorderSize = 0;
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.ForeColor = System.Drawing.Color.Azure;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton5.IconColor = System.Drawing.Color.Azure;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton5.IconSize = 32;
+            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.Location = new System.Drawing.Point(410, 608);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton5.Size = new System.Drawing.Size(191, 40);
+            this.iconButton5.TabIndex = 39;
+            this.iconButton5.Text = "Registrar Venta";
+            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton5.UseVisualStyleBackColor = false;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(201, 47);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(277, 44);
+            this.listBox1.TabIndex = 1;
+            // 
+            // btnErroMessage
+            // 
+            this.btnErroMessage.FlatAppearance.BorderSize = 0;
+            this.btnErroMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnErroMessage.ForeColor = System.Drawing.Color.Azure;
+            this.btnErroMessage.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnErroMessage.IconColor = System.Drawing.Color.Azure;
+            this.btnErroMessage.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnErroMessage.IconSize = 32;
+            this.btnErroMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnErroMessage.Location = new System.Drawing.Point(64, 47);
+            this.btnErroMessage.Name = "btnErroMessage";
+            this.btnErroMessage.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnErroMessage.Size = new System.Drawing.Size(131, 44);
+            this.btnErroMessage.TabIndex = 11;
+            this.btnErroMessage.Text = "Cliente";
+            this.btnErroMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnErroMessage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnErroMessage.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(625, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(222, 26);
+            this.textBox1.TabIndex = 12;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton1.IconColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(484, 47);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(135, 44);
+            this.iconButton1.TabIndex = 13;
+            this.iconButton1.Text = "Buscar";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevoCliente
+            // 
+            this.btnNuevoCliente.FlatAppearance.BorderSize = 0;
+            this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevoCliente.ForeColor = System.Drawing.Color.Azure;
+            this.btnNuevoCliente.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnNuevoCliente.IconColor = System.Drawing.Color.Azure;
+            this.btnNuevoCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNuevoCliente.IconSize = 32;
+            this.btnNuevoCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoCliente.Location = new System.Drawing.Point(853, 47);
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(124, 44);
+            this.btnNuevoCliente.TabIndex = 14;
+            this.btnNuevoCliente.Text = "Nuevo";
+            this.btnNuevoCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevoCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevoCliente.UseVisualStyleBackColor = true;
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Azure;
-            this.label2.Location = new System.Drawing.Point(10, 90);
+            this.label2.Location = new System.Drawing.Point(74, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 22;
@@ -254,7 +276,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Azure;
-            this.label3.Location = new System.Drawing.Point(10, 157);
+            this.label3.Location = new System.Drawing.Point(74, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 23;
@@ -271,7 +293,7 @@
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 32;
             this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(497, 75);
+            this.iconButton3.Location = new System.Drawing.Point(561, 114);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton3.Size = new System.Drawing.Size(135, 44);
@@ -281,6 +303,61 @@
             this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton3.UseVisualStyleBackColor = true;
             this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Azure;
+            this.label10.Location = new System.Drawing.Point(322, 195);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 20);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Medida";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // ComboBoxUnidades
+            // 
+            this.ComboBoxUnidades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ComboBoxUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxUnidades.FormattingEnabled = true;
+            this.ComboBoxUnidades.Items.AddRange(new object[] {
+            "UNIDAD",
+            "SIXPACK",
+            "DOCEPACK",
+            "CAJA (24 Unds)",
+            "CANASTA (30 Unds)"});
+            this.ComboBoxUnidades.Location = new System.Drawing.Point(390, 190);
+            this.ComboBoxUnidades.Name = "ComboBoxUnidades";
+            this.ComboBoxUnidades.Size = new System.Drawing.Size(137, 28);
+            this.ComboBoxUnidades.TabIndex = 41;
+            this.ComboBoxUnidades.SelectedIndexChanged += new System.EventHandler(this.ComboBoxUnidades_SelectedIndexChanged);
+            // 
+            // ComboBoxProductos
+            // 
+            this.ComboBoxProductos.FormattingEnabled = true;
+            this.ComboBoxProductos.Location = new System.Drawing.Point(166, 126);
+            this.ComboBoxProductos.Name = "ComboBoxProductos";
+            this.ComboBoxProductos.Size = new System.Drawing.Size(350, 28);
+            this.ComboBoxProductos.TabIndex = 42;
+            // 
+            // ComboBoxCantidad
+            // 
+            this.ComboBoxCantidad.Location = new System.Drawing.Point(154, 192);
+            this.ComboBoxCantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ComboBoxCantidad.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ComboBoxCantidad.Name = "ComboBoxCantidad";
+            this.ComboBoxCantidad.Size = new System.Drawing.Size(120, 26);
+            this.ComboBoxCantidad.TabIndex = 49;
+            this.ComboBoxCantidad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ComboBoxCantidad.ValueChanged += new System.EventHandler(this.ComboBoxCantidad_ValueChanged);
             // 
             // label4
             // 
@@ -403,83 +480,6 @@
             this.iconButton4.UseVisualStyleBackColor = true;
             this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
-            // iconButton5
-            // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.ForeColor = System.Drawing.Color.Azure;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton5.IconColor = System.Drawing.Color.Azure;
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 32;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(410, 608);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton5.Size = new System.Drawing.Size(191, 40);
-            this.iconButton5.TabIndex = 39;
-            this.iconButton5.Text = "Registrar Venta";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = false;
-            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(258, 156);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 20);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Medida";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // ComboBoxUnidades
-            // 
-            this.ComboBoxUnidades.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ComboBoxUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBoxUnidades.FormattingEnabled = true;
-            this.ComboBoxUnidades.Items.AddRange(new object[] {
-            "UNIDAD",
-            "SIXPACK",
-            "DOCEPACK",
-            "CAJA (24 Unds)",
-            "CANASTA (30 Unds)"});
-            this.ComboBoxUnidades.Location = new System.Drawing.Point(326, 151);
-            this.ComboBoxUnidades.Name = "ComboBoxUnidades";
-            this.ComboBoxUnidades.Size = new System.Drawing.Size(137, 28);
-            this.ComboBoxUnidades.TabIndex = 41;
-            this.ComboBoxUnidades.SelectedIndexChanged += new System.EventHandler(this.ComboBoxUnidades_SelectedIndexChanged);
-            // 
-            // ComboBoxProductos
-            // 
-            this.ComboBoxProductos.FormattingEnabled = true;
-            this.ComboBoxProductos.Location = new System.Drawing.Point(102, 87);
-            this.ComboBoxProductos.Name = "ComboBoxProductos";
-            this.ComboBoxProductos.Size = new System.Drawing.Size(350, 28);
-            this.ComboBoxProductos.TabIndex = 42;
-            // 
-            // ComboBoxCantidad
-            // 
-            this.ComboBoxCantidad.Location = new System.Drawing.Point(90, 153);
-            this.ComboBoxCantidad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ComboBoxCantidad.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ComboBoxCantidad.Name = "ComboBoxCantidad";
-            this.ComboBoxCantidad.Size = new System.Drawing.Size(120, 26);
-            this.ComboBoxCantidad.TabIndex = 49;
-            this.ComboBoxCantidad.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ComboBoxCantidad.ValueChanged += new System.EventHandler(this.ComboBoxCantidad_ValueChanged);
-            // 
             // comboBoxDescuento
             // 
             this.comboBoxDescuento.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -499,6 +499,26 @@
             this.comboBoxDescuento.TabIndex = 50;
             this.comboBoxDescuento.SelectedIndexChanged += new System.EventHandler(this.comboBoxDescuento_SelectedIndexChanged);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panel2.Controls.Add(this.ComboBoxCantidad);
+            this.panel2.Controls.Add(this.ComboBoxProductos);
+            this.panel2.Controls.Add(this.ComboBoxUnidades);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Controls.Add(this.iconButton3);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnNuevoCliente);
+            this.panel2.Controls.Add(this.iconButton1);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.btnErroMessage);
+            this.panel2.Controls.Add(this.listBox1);
+            this.panel2.Location = new System.Drawing.Point(-6, -3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1361, 452);
+            this.panel2.TabIndex = 52;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
@@ -515,30 +535,10 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(997, 247);
+            this.panel1.Location = new System.Drawing.Point(997, 264);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(332, 390);
+            this.panel1.Size = new System.Drawing.Size(332, 373);
             this.panel1.TabIndex = 51;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panel2.Controls.Add(this.ComboBoxCantidad);
-            this.panel2.Controls.Add(this.ComboBoxProductos);
-            this.panel2.Controls.Add(this.ComboBoxUnidades);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.iconButton3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnNuevoCliente);
-            this.panel2.Controls.Add(this.iconButton1);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.btnErroMessage);
-            this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Location = new System.Drawing.Point(33, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(923, 205);
-            this.panel2.TabIndex = 52;
             // 
             // Facturacion
             // 
@@ -546,11 +546,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1351, 669);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.iconButton5);
             this.Controls.Add(this.DataGrillaProductosVenta);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.textFecha);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.iconButton5);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Facturacion";
@@ -558,27 +558,39 @@
             this.Load += new System.EventHandler(this.Facturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGrillaProductosVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ComboBoxCantidad)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textFecha;
+        private System.Windows.Forms.DataGridView DataGrillaProductosVenta;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.ListBox listBox1;
         private FontAwesome.Sharp.IconButton btnErroMessage;
         private System.Windows.Forms.TextBox textBox1;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton btnNuevoCliente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textFecha;
-        private System.Windows.Forms.DataGridView DataGrillaProductosVenta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton iconButton3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox ComboBoxUnidades;
+        private System.Windows.Forms.ComboBox ComboBoxProductos;
+        private System.Windows.Forms.NumericUpDown ComboBoxCantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -591,20 +603,8 @@
         private System.Windows.Forms.TextBox txtEfectivo;
         private System.Windows.Forms.TextBox txtCambio;
         private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox ComboBoxUnidades;
-        private System.Windows.Forms.ComboBox ComboBoxProductos;
-        private System.Windows.Forms.NumericUpDown ComboBoxCantidad;
         private System.Windows.Forms.ComboBox comboBoxDescuento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewButtonColumn Column7;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -18,10 +18,14 @@ namespace Presentacion_GUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-
+        Datos informacion;
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
-        FormularioPrincipal principal = new FormularioPrincipal();
+        FormularioPrincipal principal;
+        public struct Datos
+        {
+            public string Cedula;
+        }
+
         public FormLogin()
         {
             InitializeComponent();
@@ -41,6 +45,9 @@ namespace Presentacion_GUI
 
                 if (funcionesUsuario.Login(Usuario, Contraseña) == true)
                 {
+
+                    informacion.Cedula = txtUsuario.Text;
+                    principal= new FormularioPrincipal(informacion);
                     principal.Show();
                     this.Visible = false; 
                     btnErroMessage.Visible = false;
@@ -70,8 +77,8 @@ namespace Presentacion_GUI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
-            formularioPrincipal.Close();
+            //FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
+            //formularioPrincipal.Close();
             Application.Exit();        
         }
 

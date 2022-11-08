@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,19 +21,30 @@ namespace Presentacion_GUI
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
+        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
-        public FormularioPrincipal()
+       
+        
+        public FormularioPrincipal(FormLogin.Datos informacion)
         {
             InitializeComponent();
+            MessageBox.Show(informacion.Cedula.ToString());
+            string Nombre = funcionesEmpleado.ValidarUser(informacion.Cedula);
+            if (Nombre!=null)
+            {
+                MessageBox.Show("BIENVEDIO: \n"+Nombre.ToUpper(), "WM LICORES", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Deshabilitar();
+            }
             PersonalizarDiseño();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
-            
-            //panelMenu.Controls.Add(leftBorderBtn);
         }
-
+        private void Deshabilitar()
+        {
+            btnAdministrador.Visible = false;
+        }
         private void AbrirFormEnPanel(object Formhijo)
         {
             if (this.PanelContenedor.Controls.Count > 0)
