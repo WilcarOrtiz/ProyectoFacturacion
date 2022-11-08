@@ -116,7 +116,7 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(451, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1020, 625);
+            this.panel3.Size = new System.Drawing.Size(1020, 685);
             this.panel3.TabIndex = 0;
             // 
             // btnErroMessage

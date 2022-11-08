@@ -36,6 +36,7 @@ namespace Presentacion_GUI
                 if (funcionesUsuario.Login(Usuario, Contraseña) == true)
                 {
                     principal.Show();
+                    this.Visible = false; 
                     btnErroMessage.Visible = false;
                 }
                 else
@@ -49,6 +50,7 @@ namespace Presentacion_GUI
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
             Acceder();
+          
         }
 
         private void txtContraseña_Enter(object sender, EventArgs e)

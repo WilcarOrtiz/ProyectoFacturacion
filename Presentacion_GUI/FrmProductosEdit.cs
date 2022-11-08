@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
+using Logica;
 
 namespace Presentacion_GUI
 {
@@ -76,20 +77,116 @@ namespace Presentacion_GUI
                 }
             }
         }
-        private void BtnGuardarEdit_Click(object sender, EventArgs e)
+
+
+        private void txtPrecioCEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            CapturarActualizacion();
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtPrecioCEdit.TextLength == 0 || (Int32.Parse(txtPrecioCEdit.Text) <= 0))
+                {
+                    MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    txtPrecioVEdit.Focus()
+;
+                }
+            }
+        }
+
+        private void txtPrecioVEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtPrecioVEdit.TextLength == 0 || (Int32.Parse(txtPrecioVEdit.Text) <= 0))
+                {
+                    MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    CantidadEdit.Focus()
+;
+                }
+            }
+        }
+
+        private void textCodigoEditar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (textCodigoEditar.TextLength < 0)
+                {
+                    MessageBox.Show("Debe ingresar un codigo correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+
+        private void txtNombreProducEditar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar) && txtNombreProducEditar.TextLength == 0)
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
+            {
+                if (txtNombreProducEditar.TextLength <= 2)
+                {
+                    MessageBox.Show("El texto es muy corto...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    txtDescripEditar.Focus();
+                }
+            }
+        }
+
+        private void txtDescripEditar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (Char.IsDigit(e.KeyChar) && txtDescripEditar.TextLength == 0)
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == Convert.ToChar(Keys.Enter)))
+            {
+                if (txtDescripEditar.TextLength <= 2)
+                {
+                    MessageBox.Show("El texto es muy corto...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    cmbUnidadesEdit.Focus();
+                }
+            }
+        }
+
+        private void BtnGuardarEdit_Click_1(object sender, EventArgs e)
+        {
+             CapturarActualizacion();
             this.Close(); 
         }
 
         private void BtnCancelarEdit_Click(object sender, EventArgs e)
         {
-            this.Close(); 
-        }
-
-        private void FrmProductosEdit_Load(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

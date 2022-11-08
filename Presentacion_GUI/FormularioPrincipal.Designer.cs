@@ -40,10 +40,12 @@
             this.PanelSuperior = new System.Windows.Forms.Panel();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.IconRegresar = new FontAwesome.Sharp.IconPictureBox();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconRegresar)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -73,7 +75,7 @@
             this.BtnPersonal.FlatAppearance.BorderSize = 0;
             this.BtnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPersonal.ForeColor = System.Drawing.Color.Azure;
-            this.BtnPersonal.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.BtnPersonal.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
             this.BtnPersonal.IconColor = System.Drawing.Color.Azure;
             this.BtnPersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPersonal.IconSize = 32;
@@ -95,7 +97,7 @@
             this.btnBodega.FlatAppearance.BorderSize = 0;
             this.btnBodega.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBodega.ForeColor = System.Drawing.Color.Azure;
-            this.btnBodega.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnBodega.IconChar = FontAwesome.Sharp.IconChar.BoxOpen;
             this.btnBodega.IconColor = System.Drawing.Color.Azure;
             this.btnBodega.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBodega.IconSize = 32;
@@ -117,7 +119,7 @@
             this.btnProductos.FlatAppearance.BorderSize = 0;
             this.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProductos.ForeColor = System.Drawing.Color.Azure;
-            this.btnProductos.IconChar = FontAwesome.Sharp.IconChar.Receipt;
+            this.btnProductos.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
             this.btnProductos.IconColor = System.Drawing.Color.Azure;
             this.btnProductos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnProductos.IconSize = 32;
@@ -181,6 +183,7 @@
             // PanelSuperior
             // 
             this.PanelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.PanelSuperior.Controls.Add(this.IconRegresar);
             this.PanelSuperior.Controls.Add(this.iconoFormularioHijoActual);
             this.PanelSuperior.Location = new System.Drawing.Point(240, 0);
             this.PanelSuperior.Name = "PanelSuperior";
@@ -221,6 +224,21 @@
             this.panel1.Size = new System.Drawing.Size(241, 670);
             this.panel1.TabIndex = 0;
             // 
+            // IconRegresar
+            // 
+            this.IconRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.IconRegresar.ForeColor = System.Drawing.Color.Azure;
+            this.IconRegresar.IconChar = FontAwesome.Sharp.IconChar.RotateLeft;
+            this.IconRegresar.IconColor = System.Drawing.Color.Azure;
+            this.IconRegresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IconRegresar.IconSize = 46;
+            this.IconRegresar.Location = new System.Drawing.Point(1195, 9);
+            this.IconRegresar.Name = "IconRegresar";
+            this.IconRegresar.Size = new System.Drawing.Size(53, 46);
+            this.IconRegresar.TabIndex = 1;
+            this.IconRegresar.TabStop = false;
+            this.IconRegresar.Click += new System.EventHandler(this.iconPictureBox1_Click);
+            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -239,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IconRegresar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +274,6 @@
         private System.Windows.Forms.Panel PanelSuperior;
         private FontAwesome.Sharp.IconButton btnEmpleado;
         private System.Windows.Forms.Panel panel1;
+        private FontAwesome.Sharp.IconPictureBox IconRegresar;
     }
 }

@@ -20,13 +20,6 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
         }
-
-        private void FrmProductos_Load(object sender, EventArgs e)
-        {
-           
-            CargarGrillaProductos();  
-        }
-
         public void BloqueoProduct()
         {
             txtNombreProduc.Enabled = false;
@@ -127,7 +120,7 @@ namespace Presentacion_GUI
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (txtPrecioC.TextLength == 0)
+                if (txtPrecioC.TextLength == 0 || (Int32.Parse(txtPrecioC.Text) <= 0))
                 {
                     MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
@@ -155,10 +148,9 @@ namespace Presentacion_GUI
             {
                 e.Handled = true;
             }
-
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (txtPrecioV.TextLength == 0)
+                if (txtPrecioV.TextLength == 0 ||  (Int32.Parse(txtPrecioV.Text)<=0))
                 {
                     MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
@@ -234,6 +226,20 @@ namespace Presentacion_GUI
             }
         }
 
-        
+        private void BtnCancelarEdit_Click(object sender, EventArgs e)
+        {
+            switch (vacioProductos())
+            {
+                case true:
+                    MessageBox.Show("Verifique los campos obligatorios", "VERIFICAR.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    break;
+                case false:
+                    GuardarP();
+                    RestablecerProductos();
+                    CargarGrillaProductos();
+                    break;
+            }
+        }
+
     }
 }
