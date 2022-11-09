@@ -1,0 +1,34 @@
+1;5234;Corona;Lata;3;8336;7682
+2;3040;Aguila 0.0;Lata;6;4943;3229
+3;5285;Aguila light;Lata;4;6722;2577
+4;6048;Corona;Personal;3;1979;5647
+5;3189;Club Colombia;Lata;1;3937;1291
+6;6522;Aguila light;Lata;2;8857;8036
+7;2805;Aguila light;Jumbo;5;2322;2344
+8;3069;Aguila 0.0;Lata;8;8403;7000
+9;2535;Budweiser;Personal;2;1079;2162
+10;6910;costeñita;Lata;8;6183;4233
+11;6532;Aguila light;Personal;3;7795;6471
+12;6050;Club Colombia;Jumbo;8;2323;7479
+13;6937;Stella;Lata;4;5173;7366
+14;5833;Club Colombia;Lata;1;2351;1448
+15;9806;costeñita;Lata;3;8192;5563
+16;2721;Aguila 0.0;Personal;7;7353;7933
+17;7971;Pilsen;Lata;5;4915;1014
+18;2621;Stella;Jumbo;5;5670;5902
+19;9600;Corona;Personal;6;7913;4777
+20;9781;Corona;Personal;8;8732;5465
+21;3182;Aguila light;Lata;7;4185;1695
+22;9233;Budweiser;Jumbo;7;8729;3055
+23;1458;Budweiser;Jumbo;6;1780;4322
+24;8501;costeñita;Personal;2;6643;2908
+25;5214;Pilsen;Personal;10;6020;5794
+26;1368;Corona;Jumbo;9;7936;1339
+27;8220;Aguila;Lata;4;5493;1183
+28;4364;costeñita;Jumbo;2;4794;8354
+29;8778;Aguila light;Personal;10;1313;6318
+30;9358;Aguila 0.0;Lata;10;8427;4223
+31;5555;BlackWhite;Litro;60;100;2000
+32;6666;OldPar;Litro;48;100;200
+33;9999;Guandolo;Litro;90;10;200
+
