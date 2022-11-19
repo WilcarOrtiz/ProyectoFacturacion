@@ -50,6 +50,7 @@
     <Compile Include="NuevoRepositorioEmpleado.cs" />
     <Compile Include="NuevoRepositorioEstado.cs" />
     <Compile Include="NuevoRepositorioProducto.cs" />
+    <Compile Include="NuevoRepositorioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioCliente.cs" />
     <Compile Include="RepositorioEmpleado.cs" />

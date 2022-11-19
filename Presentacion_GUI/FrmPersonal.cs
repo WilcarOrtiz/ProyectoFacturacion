@@ -1,5 +1,7 @@
 ﻿using Entidades;
+using iTextSharp.text.pdf.codec.wmf;
 using Logica;
+using Presentacion_GUI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +21,11 @@ namespace Presentacion_GUI
 
         FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
+
+        NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario(); 
+
+
+        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado(); 
         public FrmPersonal()
         {
             InitializeComponent();
@@ -37,6 +44,7 @@ namespace Presentacion_GUI
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
             CargarGrillaEmpleados();
+            CargarLisBoxEstado(); 
         }
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -163,18 +171,34 @@ namespace Presentacion_GUI
 
         public void GuardarPersonal()
         {
-            Empleado empleado = new Empleado();
+            String Mensaje = String.Empty;
+           Usuario empleado = new Usuario();
 
             empleado.ID = funcionesEmpleado.GetById().ToString();
             empleado.Cedula = txtCedula.Text;
             empleado.Nombre = txtNombres.Text;
+            empleado.PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstado.SelectedItem).Valor) };
             empleado.Apellido = txtApellidos.Text;
             empleado.Correo = txtCorreo.Text;
             empleado.Telefono = txtTelefono.Text;
+            empleado.Contraseña = txtContraseña.Text; 
 
-            var resp = funcionesEmpleado.Agregar(empleado);
 
-            MessageBox.Show(resp);
+            int IdGenerado = NuevasFuncionesUsuario.Registrar (empleado, out Mensaje);
+            GrillaEmpleados.Rows.Add();
+            if (IdGenerado == 0)
+            {
+                MessageBox.Show(Mensaje);
+            }
+            else
+            {
+                MessageBox.Show("Empleado registrado correctamente");
+            }
+
+
+            //var resp = funcionesEmpleado.Agregar(empleado);
+
+            //MessageBox.Show(resp);
         }
 
         public void GuardarUsuario()
@@ -378,6 +402,19 @@ namespace Presentacion_GUI
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
+        }
+
+
+        private void CargarLisBoxEstado()
+        {
+            List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
+            foreach (NEstado item in listaEstados)
+            {
+                cmbEstado.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
+            }
+            cmbEstado.SelectedIndex = 0;
+            cmbEstado.DisplayMember = "Texto";
+            cmbEstado.ValueMember = "Valor";
         }
 
     }

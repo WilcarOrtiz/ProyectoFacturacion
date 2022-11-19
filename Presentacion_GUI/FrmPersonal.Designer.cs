@@ -51,7 +51,7 @@
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).BeginInit();
@@ -231,7 +231,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cmbEstado);
             this.panel2.Controls.Add(this.iconPictureNuevoUsuario);
             this.panel2.Controls.Add(this.btnGuardarPersonal);
             this.panel2.Controls.Add(this.txtContraseña);
@@ -269,7 +269,7 @@
             this.btnGuardarPersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardarPersonal.IconSize = 32;
             this.btnGuardarPersonal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarPersonal.Location = new System.Drawing.Point(151, 519);
+            this.btnGuardarPersonal.Location = new System.Drawing.Point(139, 564);
             this.btnGuardarPersonal.Name = "btnGuardarPersonal";
             this.btnGuardarPersonal.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuardarPersonal.Size = new System.Drawing.Size(63, 40);
@@ -281,7 +281,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(68, 455);
+            this.txtContraseña.Location = new System.Drawing.Point(68, 398);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(228, 26);
             this.txtContraseña.TabIndex = 15;
@@ -291,7 +291,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(68, 347);
+            this.txtTelefono.Location = new System.Drawing.Point(68, 290);
             this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(228, 26);
@@ -302,7 +302,7 @@
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(68, 401);
+            this.txtCorreo.Location = new System.Drawing.Point(68, 344);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(228, 26);
             this.txtCorreo.TabIndex = 13;
@@ -312,7 +312,7 @@
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(68, 298);
+            this.txtApellidos.Location = new System.Drawing.Point(68, 241);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(228, 26);
             this.txtApellidos.TabIndex = 12;
@@ -322,7 +322,7 @@
             // 
             // txtNombres
             // 
-            this.txtNombres.Location = new System.Drawing.Point(68, 245);
+            this.txtNombres.Location = new System.Drawing.Point(68, 188);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(228, 26);
             this.txtNombres.TabIndex = 11;
@@ -332,7 +332,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(68, 192);
+            this.txtCedula.Location = new System.Drawing.Point(68, 135);
             this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(228, 26);
@@ -341,13 +341,14 @@
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
-            // comboBox1
+            // cmbEstado
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 134);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(228, 28);
-            this.comboBox1.TabIndex = 65;
+            this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(160, 459);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(136, 28);
+            this.cmbEstado.TabIndex = 71;
             // 
             // FrmPersonal
             // 
@@ -398,6 +399,6 @@
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnGuardarPersonal;
         private FontAwesome.Sharp.IconPictureBox iconPictureNuevoUsuario;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbEstado;
     }
 }

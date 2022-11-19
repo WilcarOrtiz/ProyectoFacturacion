@@ -53,6 +53,7 @@
     <Compile Include="NuevaFuncionesCategoria.cs" />
     <Compile Include="NuevasFuncionEstado.cs" />
     <Compile Include="NuevasFuncionesProductos.cs" />
+    <Compile Include="NuevasFuncionesUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
