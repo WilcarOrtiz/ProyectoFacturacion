@@ -9,5 +9,9 @@ namespace Entidades
    public class NEmpleado : Persona
     {
 
+        public DateTime FechaContratacion { get; set; }   
+
+
+
     }
 }

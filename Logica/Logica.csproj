@@ -51,7 +51,7 @@
     <Compile Include="IServiciosPersona.cs" />
     <Compile Include="IServiciosProducto.cs" />
     <Compile Include="NuevaFuncionesCategoria.cs" />
-    <Compile Include="NuevaFuncionesClientes.cs" />
+    <Compile Include="NuevasFuncionesEmpleado.cs" />
     <Compile Include="NuevasFuncionEstado.cs" />
     <Compile Include="NuevasFuncionesProductos.cs" />
     <Compile Include="NuevasFuncionesUsuario.cs" />
