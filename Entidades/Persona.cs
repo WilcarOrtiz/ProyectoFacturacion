@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class Persona
     {
-        public String ID { get; set; } 
+        public int ID { get; set; } 
         public String Cedula { get; set; }
         public String Nombre { get; set; }
         public NEstado PEstado { get; set; }

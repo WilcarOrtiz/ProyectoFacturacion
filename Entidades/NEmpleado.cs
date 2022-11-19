@@ -9,9 +9,5 @@ namespace Entidades
    public class NEmpleado : Persona
     {
 
-
-
-
-
     }
 }

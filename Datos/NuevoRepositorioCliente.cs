@@ -47,7 +47,6 @@ namespace Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     objconexion.Open();
                     cmd.ExecuteNonQuery();
-
                     idClienteGenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
                 }
@@ -58,6 +57,33 @@ namespace Datos
                 Mensaje = EX.Message;
             }
             return idClienteGenerado;
+        }
+
+
+        public int BuscarCliente(string cedula, out string Mensaje)
+        {
+            int idClienteBusqueda = 0; Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_Buscar_Cliente", objconexion);
+                    cmd.Parameters.AddWithValue("CedulaCliente", cedula);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+                    cmd.ExecuteNonQuery();
+                    idClienteBusqueda = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idClienteBusqueda = 0;
+                Mensaje = EX.Message;
+            }
+            return idClienteBusqueda;
         }
     }
 }

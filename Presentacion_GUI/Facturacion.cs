@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Entidades;
+using Logica;
+using Presentacion_GUI.Utilidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +17,9 @@ namespace Presentacion_GUI
     {
         Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
         Logica.CreacionFactura CreacionFactura = new Logica.CreacionFactura();
+        Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new Logica.NuevasFuncionesProductos();
+        Logica.NuevaFuncionesClientes NuevaFuncionesClientes = new NuevaFuncionesClientes();
+
         List<String> CodigoProdVendidos;
         List<int> CantProdVendidos;
         float SubTotal, SubtotalSinDescuento;
@@ -28,9 +34,9 @@ namespace Presentacion_GUI
 
         void llenadoComboBoxProductos()
         {
-            foreach (var item in funcionesProductos.GetAllProductos())
+            foreach (var item in NuevasFuncionesProductos.Listar())
             {
-                ComboBoxProductos.Items.Add(item.NombreProducto + "  -  " + item.Descripcion);
+                ComboBoxProductos.Items.Add(item.Nombre + "  -  " + item.Descripcion);
             }
         }
 
@@ -48,11 +54,11 @@ namespace Presentacion_GUI
         void AgregarProductoGrilla()
         {
             int Cant = Cantidad();
-            foreach (var item in funcionesProductos.GetAllProductos())
+            foreach (var item in NuevasFuncionesProductos.Listar())
             {
-                if (ComboBoxProductos.Text == (item.NombreProducto + "  -  " + item.Descripcion))
+                if (ComboBoxProductos.Text == (item.Nombre + "  -  " + item.Descripcion))
                 {
-                    DataGrillaProductosVenta.Rows.Add(item.Codigo, item.NombreProducto, item.Descripcion, Cant, item.PrecioV, (item.PrecioV * Cant));
+                    DataGrillaProductosVenta.Rows.Add(item.Codigo, item.Nombre, item.Descripcion, Cant, item.PrecioVenta, (item.PrecioVenta * Cant));
                 }
             }
         }
@@ -71,9 +77,9 @@ namespace Presentacion_GUI
         public Boolean ValidarDisponibilidad()
         {
             Cant = Cantidad();
-            foreach (var item in funcionesProductos.GetAllProductos())
+            foreach (var item in NuevasFuncionesProductos.Listar())
             {
-                if (ComboBoxProductos.Text == (item.NombreProducto + "  -  " + item.Descripcion))
+                if (ComboBoxProductos.Text == (item.Nombre + "  -  " + item.Descripcion))
                 {
                     if (!CreacionFactura.Stock(item.Codigo, Cant))
                     {
@@ -150,6 +156,16 @@ namespace Presentacion_GUI
 
         }
 
+        private void textFecha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         protected override CreateParams CreateParams
         {
             get
@@ -159,5 +175,21 @@ namespace Presentacion_GUI
                 return cp;
             }
         }
+
+
+
+
+        private void CargarComboBoxClientes()
+        {
+            List<Cliente> listaCliente = NuevaFuncionesClientes.Listar();
+            foreach (Cliente item in listaCliente)
+            { 
+                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = item.Descripcion });
+            }
+            comboBoxClientes.SelectedIndex = 0;
+            comboBoxClientes.DisplayMember = "Texto";
+            comboBoxClientes.ValueMember = "Valor";
+        }
+
     }
 }
