@@ -47,6 +47,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="ICrud.cs" />
     <Compile Include="NuevoRepositorioCategoria.cs" />
+    <Compile Include="NuevoRepositorioCliente.cs" />
     <Compile Include="NuevoRepositorioEmpleado.cs" />
     <Compile Include="NuevoRepositorioEstado.cs" />
     <Compile Include="NuevoRepositorioProducto.cs" />
