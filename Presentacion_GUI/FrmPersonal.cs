@@ -20,6 +20,7 @@ namespace Presentacion_GUI
         private int posicion;
 
         FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
+        NuevasFuncionesEmpleado nuevafuncionesEmpleado = new NuevasFuncionesEmpleado();
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
 
         NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario(); 
@@ -324,9 +325,9 @@ namespace Presentacion_GUI
         void CargarGrillaEmpleados()
         {
             GrillaEmpleados.Rows.Clear();
-            foreach (var item in funcionesEmpleado.GetAll())
+            foreach (var item in nuevafuncionesEmpleado.Listar())
             {
-                GrillaEmpleados.Rows.Add(item.Cedula, item.Nombre, item.Apellido, item.Telefono, item.Correo);
+                GrillaEmpleados.Rows.Add(item.Cedula, item.Nombre, item.Apellido, item.Telefono, item.Correo,item.PEstado.Descripcion,item.FechaContratacion);
             }
         }
 
@@ -407,14 +408,14 @@ namespace Presentacion_GUI
 
         private void CargarLisBoxEstado()
         {
-            List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
-            foreach (NEstado item in listaEstados)
-            {
-                cmbEstado.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
-            }
-            cmbEstado.SelectedIndex = 0;
-            cmbEstado.DisplayMember = "Texto";
-            cmbEstado.ValueMember = "Valor";
+            //List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
+            //foreach (NEstado item in listaEstados)
+            //{
+            //    cmbEstado.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
+            //}
+            //cmbEstado.SelectedIndex = 0;
+            //cmbEstado.DisplayMember = "Texto";
+            //cmbEstado.ValueMember = "Valor";
         }
 
     }

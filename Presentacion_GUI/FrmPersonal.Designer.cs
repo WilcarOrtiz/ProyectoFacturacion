@@ -43,6 +43,7 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.iconPictureNuevoUsuario = new FontAwesome.Sharp.IconPictureBox();
             this.btnGuardarPersonal = new FontAwesome.Sharp.IconButton();
             this.txtContraseña = new System.Windows.Forms.TextBox();
@@ -51,7 +52,8 @@
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaContratacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).BeginInit();
@@ -176,7 +178,9 @@
             this.Nombre,
             this.Apellido,
             this.Telefono,
-            this.Correo});
+            this.Correo,
+            this.Estado,
+            this.FechaContratacion});
             this.GrillaEmpleados.Location = new System.Drawing.Point(25, 121);
             this.GrillaEmpleados.MultiSelect = false;
             this.GrillaEmpleados.Name = "GrillaEmpleados";
@@ -244,6 +248,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(365, 630);
             this.panel2.TabIndex = 3;
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Location = new System.Drawing.Point(160, 459);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(136, 28);
+            this.cmbEstado.TabIndex = 71;
             // 
             // iconPictureNuevoUsuario
             // 
@@ -341,14 +354,21 @@
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
-            // cmbEstado
+            // Estado
             // 
-            this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Location = new System.Drawing.Point(160, 459);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(136, 28);
-            this.cmbEstado.TabIndex = 71;
+            this.Estado.HeaderText = "Estado";
+            this.Estado.MinimumWidth = 8;
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            this.Estado.Width = 96;
+            // 
+            // FechaContratacion
+            // 
+            this.FechaContratacion.HeaderText = "Fecha de contratacion";
+            this.FechaContratacion.MinimumWidth = 8;
+            this.FechaContratacion.Name = "FechaContratacion";
+            this.FechaContratacion.ReadOnly = true;
+            this.FechaContratacion.Width = 187;
             // 
             // FrmPersonal
             // 
@@ -400,5 +420,7 @@
         private FontAwesome.Sharp.IconButton btnGuardarPersonal;
         private FontAwesome.Sharp.IconPictureBox iconPictureNuevoUsuario;
         private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaContratacion;
     }
 }

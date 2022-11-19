@@ -97,7 +97,6 @@ namespace Datos
                 }
             }
             return listaProductos;
-
         }
 
         public int Registrar(NProducto obj, out string Mensaje)
