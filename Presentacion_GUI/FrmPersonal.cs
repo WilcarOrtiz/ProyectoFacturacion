@@ -1,6 +1,6 @@
 ﻿using Entidades;
 using iTextSharp.text.pdf.codec.wmf;
-using Logica;
+using Logica; 
 using Presentacion_GUI.Utilidades;
 using System;
 using System.Collections.Generic;

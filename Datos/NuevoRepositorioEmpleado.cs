@@ -44,14 +44,14 @@ namespace Datos
                         {
                             listaEmpleados.Add(new NEmpleado()
                             {
-                               // ID = dr["IdEmpleado"].ToString(),
+                                ID = Convert.ToInt32(dr["IdProducto"]),
                                 Cedula = dr["CedulaEmpleado"].ToString(),
                                 Nombre = dr["PrimerNombre"].ToString(),
                                 Apellido = dr["PrimerApelldido"].ToString(),
                                 Telefono = dr["Telefono"].ToString(),
                                 Correo = dr["Correo"].ToString(),
                                 PEstado = new NEstado() { IdEstado = Convert.ToInt32(dr["IdEstado"]), Descripcion = dr["Descripcion"].ToString() },
-                                //FechaContratacion = Convert.ToDateTime(dr["FechaContratacion"].ToString())
+                                FechaContratacion = Convert.ToDateTime(dr["FechaContratacion"].ToString())
 
                             }) ; ;
                         }
