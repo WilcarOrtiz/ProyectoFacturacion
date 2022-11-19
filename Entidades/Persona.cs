@@ -10,10 +10,8 @@ namespace Entidades
     {
         public String ID { get; set; } 
         public String Cedula { get; set; }
-        public String PrimerNombre { get; set; }
-        public String SegundoNombre { get; set; }
-        public String PrimerApellido { get; set; }
-        public String SegundoApellido { get; set; }
+        public String Nombre { get; set; }
+        public String Apellido { get; set; }
         public String Telefono { get; set; }
         public String Correo { get; set; }
 
