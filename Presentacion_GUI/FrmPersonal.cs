@@ -202,17 +202,17 @@ namespace Presentacion_GUI
             //MessageBox.Show(resp);
         }
 
-        public void GuardarUsuario()
-        {
-            Usuario usuario = new Usuario();
+        //public void GuardarUsuario()
+        //{
+        //    Usuario usuario = new Usuario();
 
-            usuario.Cedula = txtCedula.Text;
-            usuario.Contraseña = txtContraseña.Text;
+        //    usuario.Cedula = txtCedula.Text;
+        //    usuario.Contraseña = txtContraseña.Text;
 
-            var resp =funcionesUsuario.Agregar(usuario);
+        //    var resp =funcionesUsuario.Agregar(usuario);
            
-            MessageBox.Show(resp);
-        }
+        //    MessageBox.Show(resp);
+        //}
 
         public Boolean vacio()
         {
@@ -387,7 +387,6 @@ namespace Presentacion_GUI
 
                 case false:
                     GuardarPersonal();
-                    GuardarUsuario();
                     CargarGrillaEmpleados();
                     Restablecer();
                     break;
