@@ -44,6 +44,10 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Factura.cs" />
+    <Compile Include="NCategoria.cs" />
+    <Compile Include="NEmpleado.cs" />
+    <Compile Include="NEstado.cs" />
+    <Compile Include="NProducto.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="ProductoComprado.cs" />

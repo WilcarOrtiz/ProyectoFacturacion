@@ -147,9 +147,9 @@ namespace Logica
          
         }
 
-        public decimal ValorFinal(int Unidades, float Precio)
+        public decimal ValorFinal(int Unidades, decimal Precio)
         {
-            return (decimal)(Precio * Unidades);
+            return (Precio * Unidades);
         }
     }
 }

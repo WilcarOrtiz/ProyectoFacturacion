@@ -10,25 +10,35 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics.Contracts;
 using Logica;
+using Presentacion_GUI.Utilidades;
 
 namespace Presentacion_GUI
 {
     public partial class FrmProductosEdit : Form
     {
         Logica.FuncionesProducto FuncionesProductos = new Logica.FuncionesProducto();
-        String Id;
+        Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
+        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
+        Logica.NuevasFuncionesProductos nuevasFuncionesProductos = new NuevasFuncionesProductos();
+
         int CantidadI;   
         public FrmProductosEdit(FrmVistaProductos.Datos informacion)
         {
             InitializeComponent();
-            Id = informacion.ID;
+            textIDProductoEdit.Text = informacion.ID.ToString();
             txtNombreProducEditar.Text = informacion.NombreProducto;
             txtDescripEditar.Text = informacion.Descripcion;
             textCodigoEditar.Text = informacion.Codigo;
             txtPrecioCEdit.Text = informacion.PrecioC.ToString();
             txtPrecioVEdit.Text = informacion.PrecioV.ToString();
+            cbnCategoriaEdit.Text = informacion.Categoria.Descripcion;
+            cmbEstadoEdit.Text = informacion.Estado.Descripcion; 
             CantidadI = informacion.Cantidad;
             CantidadInicial.Text = informacion.Cantidad.ToString();
+
+
+            CargarLisBoxEstado();
+            CargarLisBoxCategoria();
         }
         public Boolean vacio()
         {
@@ -41,41 +51,73 @@ namespace Presentacion_GUI
         }
         void CapturarActualizacion()
         {
-            MessageBox.Show(textCodigoEditar.Text);
 
-            //traer el codigo del objeto a editar
-            String Cod = FuncionesProductos.ArticuloXId(Id);
 
-            //trae el objeto a editar
-            ProductoComprado Articulo = FuncionesProductos.ObtenerPorCodigo(Cod);
 
-            //trae el ID del objeto a editar
-            String IdEdit = FuncionesProductos.IdXArticulo(textCodigoEditar.Text);
 
-            if ((Id == IdEdit) || (FuncionesProductos.ObtenerPorCodigo(textCodigoEditar.Text) == null))
+            String Mensaje = String.Empty;
+            int Cant = 0;
+            Cant = (int)CantidadEdit.Value;
+            NProducto obj = new NProducto()
             {
-                MessageBox.Show(
-                    FuncionesProductos.Editar(
-                        Id, textCodigoEditar.Text, txtNombreProducEditar.Text,
-                    txtDescripEditar.Text, 
-                    ((FuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
-                    float.Parse(txtPrecioCEdit.Text), float.Parse(txtPrecioVEdit.Text)
-                    , Articulo));
+                IdProducto = int.Parse(textIDProductoEdit.Text),
+                Codigo = textCodigoEditar.Text,
+                Nombre = txtNombreProducEditar.Text,
+                Descripcion = txtDescripEditar.Text,
+                PCategoria = new NCategoria { IdCategoria = (int)(((OpcionesCombo)cbnCategoriaEdit.SelectedItem).Valor) },
+                Stock = ((FuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
+                PrecioCompra = decimal.Parse(txtPrecioCEdit.Text),
+                PrecioVenta = decimal.Parse(txtPrecioVEdit.Text),
+                PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstadoEdit.SelectedItem).Valor) }
 
+            };
+            int IdGenerado = nuevasFuncionesProductos.Editar(obj, out Mensaje);
+            if (IdGenerado == 0)
+            {
+                MessageBox.Show(Mensaje);
             }
             else
             {
-                switch (MessageBox.Show("El codigo ya existe para otro producto\nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
-                {
-                    case DialogResult.OK:
-                        textCodigoEditar.Text = "";
-                        textCodigoEditar.Focus();
-                        break;
-                    case DialogResult.Cancel:
-                        this.Close();
-                        break;
-                }
+                MessageBox.Show("Producto actualizado con exito");
             }
+
+
+
+            //MessageBox.Show(textCodigoEditar.Text);
+
+            ////traer el codigo del objeto a editar
+            //String Cod = FuncionesProductos.ArticuloXId(Id);
+
+            ////trae el objeto a editar
+            //ProductoComprado Articulo = FuncionesProductos.ObtenerPorCodigo(Cod);
+
+            ////trae el ID del objeto a editar
+            //String IdEdit = FuncionesProductos.IdXArticulo(textCodigoEditar.Text);
+
+            //if ((Id == IdEdit) || (FuncionesProductos.ObtenerPorCodigo(textCodigoEditar.Text) == null))
+            //{
+            //    MessageBox.Show(
+            //        FuncionesProductos.Editar(
+            //            Id, textCodigoEditar.Text, txtNombreProducEditar.Text,
+            //        txtDescripEditar.Text, 
+            //        ((FuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
+            //        float.Parse(txtPrecioCEdit.Text), float.Parse(txtPrecioVEdit.Text)
+            //        , Articulo));
+
+            //}
+            //else
+            //{
+            //    switch (MessageBox.Show("El codigo ya existe para otro producto\nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+            //    {
+            //        case DialogResult.OK:
+            //            textCodigoEditar.Text = "";
+            //            textCodigoEditar.Focus();
+            //            break;
+            //        case DialogResult.Cancel:
+            //            this.Close();
+            //            break;
+            //    }
+            //}
         }
 
 
@@ -197,6 +239,39 @@ namespace Presentacion_GUI
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
+        }
+
+
+
+        private void CargarLisBoxCategoria()
+        {
+            List<NCategoria> listaCategorias = NuevaFuncionesCategoria.Listar();
+            foreach (NCategoria item in listaCategorias)
+            {
+                cbnCategoriaEdit.Items.Add(new OpcionesCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
+            }
+            cbnCategoriaEdit.SelectedIndex = 0;
+            cbnCategoriaEdit.DisplayMember = "Texto";
+            cbnCategoriaEdit.ValueMember = "Valor";
+        }
+
+
+        private void CargarLisBoxEstado()
+        {
+            List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
+            foreach (NEstado item in listaEstados)
+            {
+                cmbEstadoEdit.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
+            }
+            cmbEstadoEdit.SelectedIndex = 0;
+            cmbEstadoEdit.DisplayMember = "Texto";
+            cmbEstadoEdit.ValueMember = "Valor";
+        }
+
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -51,6 +51,7 @@
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).BeginInit();
@@ -230,6 +231,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.iconPictureNuevoUsuario);
             this.panel2.Controls.Add(this.btnGuardarPersonal);
             this.panel2.Controls.Add(this.txtContraseña);
@@ -250,10 +252,10 @@
             this.iconPictureNuevoUsuario.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
             this.iconPictureNuevoUsuario.IconColor = System.Drawing.Color.Azure;
             this.iconPictureNuevoUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureNuevoUsuario.IconSize = 125;
-            this.iconPictureNuevoUsuario.Location = new System.Drawing.Point(124, 36);
+            this.iconPictureNuevoUsuario.IconSize = 72;
+            this.iconPictureNuevoUsuario.Location = new System.Drawing.Point(139, 35);
             this.iconPictureNuevoUsuario.Name = "iconPictureNuevoUsuario";
-            this.iconPictureNuevoUsuario.Size = new System.Drawing.Size(128, 125);
+            this.iconPictureNuevoUsuario.Size = new System.Drawing.Size(75, 72);
             this.iconPictureNuevoUsuario.TabIndex = 64;
             this.iconPictureNuevoUsuario.TabStop = false;
             // 
@@ -339,6 +341,14 @@
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(68, 134);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(228, 28);
+            this.comboBox1.TabIndex = 65;
+            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -388,5 +398,6 @@
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnGuardarPersonal;
         private FontAwesome.Sharp.IconPictureBox iconPictureNuevoUsuario;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

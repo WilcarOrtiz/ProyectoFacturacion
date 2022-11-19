@@ -41,6 +41,7 @@
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -60,13 +61,14 @@
             // paneSubMenuAdmin
             // 
             this.paneSubMenuAdmin.BackColor = System.Drawing.Color.SlateBlue;
+            this.paneSubMenuAdmin.Controls.Add(this.iconButton1);
             this.paneSubMenuAdmin.Controls.Add(this.BtnPersonal);
             this.paneSubMenuAdmin.Controls.Add(this.btnBodega);
             this.paneSubMenuAdmin.Controls.Add(this.btnProductos);
             this.paneSubMenuAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneSubMenuAdmin.Location = new System.Drawing.Point(0, 137);
             this.paneSubMenuAdmin.Name = "paneSubMenuAdmin";
-            this.paneSubMenuAdmin.Size = new System.Drawing.Size(241, 200);
+            this.paneSubMenuAdmin.Size = new System.Drawing.Size(241, 457);
             this.paneSubMenuAdmin.TabIndex = 5;
             // 
             // BtnPersonal
@@ -252,6 +254,28 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            this.iconButton1.IconColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.Location = new System.Drawing.Point(0, 174);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(241, 54);
+            this.iconButton1.TabIndex = 7;
+            this.iconButton1.Text = "Listar Ventas";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -288,5 +312,6 @@
         private FontAwesome.Sharp.IconButton btnEmpleado;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnCerrar;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }

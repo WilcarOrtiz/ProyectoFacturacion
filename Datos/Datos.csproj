@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +44,12 @@
   <ItemGroup>
     <Compile Include="ArchivosPersona.cs" />
     <Compile Include="ArchivosProducto.cs" />
+    <Compile Include="Conexion.cs" />
+    <Compile Include="ICrud.cs" />
+    <Compile Include="NuevoRepositorioCategoria.cs" />
+    <Compile Include="NuevoRepositorioEmpleado.cs" />
+    <Compile Include="NuevoRepositorioEstado.cs" />
+    <Compile Include="NuevoRepositorioProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioCliente.cs" />
     <Compile Include="RepositorioEmpleado.cs" />
@@ -50,13 +57,14 @@
     <Compile Include="RepositorioUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DiagramaClases_Datos.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{29add9b7-b49e-437c-889e-7cd450f16c19}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DiagramaClases_Datos.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

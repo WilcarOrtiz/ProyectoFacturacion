@@ -47,8 +47,12 @@
     <Compile Include="FuncionesProducto.cs" />
     <Compile Include="FuncionesUsuario.cs" />
     <Compile Include="IFacturacion.cs" />
+    <Compile Include="IProcesos.cs" />
     <Compile Include="IServiciosPersona.cs" />
     <Compile Include="IServiciosProducto.cs" />
+    <Compile Include="NuevaFuncionesCategoria.cs" />
+    <Compile Include="NuevasFuncionEstado.cs" />
+    <Compile Include="NuevasFuncionesProductos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +66,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DiagramaClases_Logica.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

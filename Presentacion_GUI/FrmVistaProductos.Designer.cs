@@ -65,7 +65,8 @@
             this.cmbTipoBusqueda.FormattingEnabled = true;
             this.cmbTipoBusqueda.Items.AddRange(new object[] {
             "Codigo",
-            "Nombre"});
+            "Nombre",
+            "Estado"});
             this.cmbTipoBusqueda.Location = new System.Drawing.Point(261, 143);
             this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";

@@ -15,39 +15,49 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
+using Entidades;
 
 namespace Presentacion_GUI
 {
     public partial class FrmVistaProductos : Form
     {
         Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
+        Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new NuevasFuncionesProductos();
+
+       
+
         int fila;
         DataTable Tabla;
         public FrmVistaProductos()
         {
             InitializeComponent();
+          
         }
 
         public struct Datos
         {
             public string Codigo;
-            public string ID;
+            public int ID;
             public string NombreProducto;
             public string Descripcion;
             public int Cantidad;
-            public float PrecioC;
-            public float PrecioV;
+            public decimal PrecioC;
+            public decimal PrecioV;
+            public NEstado Estado;
+            public NCategoria Categoria;
         }
-        void VistaParaProductos(Entidades.ProductoComprado Articulo)
+        void VistaParaProductos(Entidades.NProducto Articulo)
         {
             Datos informacion;
-            informacion.ID = Articulo.ID;
+            informacion.ID = Articulo.IdProducto;
             informacion.Codigo = Articulo.Codigo;
-            informacion.NombreProducto = Articulo.NombreProducto;
+            informacion.NombreProducto = Articulo.Nombre;
             informacion.Descripcion = Articulo.Descripcion;
-            informacion.Cantidad = Articulo.Unidades;
-            informacion.PrecioC = Articulo.PrecioC;
-            informacion.PrecioV = Articulo.PrecioV;
+            informacion.Cantidad = Articulo.Stock;
+            informacion.PrecioC = Articulo.PrecioCompra;
+            informacion.PrecioV = Articulo.PrecioVenta;
+            informacion.Categoria = Articulo.PCategoria;
+            informacion.Estado = Articulo.PEstado;
             FrmProductosEdit FPE = new FrmProductosEdit(informacion);
             FPE.ShowDialog();
         }
@@ -55,15 +65,18 @@ namespace Presentacion_GUI
         void CargarTabla()
         {
             Tabla = new DataTable();
+            Tabla.Columns.Add("ID");
             Tabla.Columns.Add("Codigo");
             Tabla.Columns.Add("Nombre");
             Tabla.Columns.Add("Descripcion");
-            Tabla.Columns.Add("Cantidad");
+            Tabla.Columns.Add("Categoria");
+            Tabla.Columns.Add("Stock");
+            Tabla.Columns.Add("Estado");
             Tabla.Columns.Add("$ Compra");
             Tabla.Columns.Add("$ Venta");
-            foreach (var item in funcionesProductos.GetAllProductos())
+            foreach (NProducto item in NuevasFuncionesProductos.Listar())
             {
-                Tabla.Rows.Add(item.Codigo, item.NombreProducto, item.Descripcion, item.Unidades, item.PrecioC, item.PrecioV);
+                Tabla.Rows.Add(item.IdProducto, item.Codigo, item.Nombre, item.Descripcion, item.PCategoria.Descripcion, item.Stock, item.PEstado.Descripcion, item.PrecioCompra, item.PrecioVenta);
             }
             GrillaCatalogo.DataSource = Tabla;
         }
@@ -81,6 +94,10 @@ namespace Presentacion_GUI
                     Dv.RowFilter = " Nombre  LIKE '" + textBusqueda.Text + "%'";
                     GrillaCatalogo.DataSource = Dv;
                     break;
+                case "Estado":
+                    Dv.RowFilter = " Estado  LIKE '" + textBusqueda.Text + "%'";
+                    GrillaCatalogo.DataSource = Dv;
+                    break;
             }
         }
         public void GrillaCatalogo_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -96,7 +113,7 @@ namespace Presentacion_GUI
             {
                 if (funcionesProductos.GetAllProductos().Count != 0)
                 {
-                    VistaParaProductos(funcionesProductos.GetAllProductos()[e.RowIndex]);
+                    VistaParaProductos(NuevasFuncionesProductos.Listar()[e.RowIndex]);
                     CargarTabla();
                 }
                 else
@@ -109,6 +126,7 @@ namespace Presentacion_GUI
         private void FrmVistaProductos_Load(object sender, EventArgs e)
         {
             CargarTabla();
+           
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -128,17 +146,19 @@ namespace Presentacion_GUI
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
                 string filas = string.Empty;
                 decimal total = 0;
-                foreach (var item in funcionesProductos.GetAllProductos())
+                foreach (var item in NuevasFuncionesProductos.Listar())
                 {
                     filas += "<tr>";
                     filas += "<td>" + item.Codigo.ToString() + "</td>";
-                    filas += "<td>" + item.NombreProducto.ToString() + "</td>";
-                    filas += "<td>" + item.Descripcion.ToString() + "</td>";
-                    filas += "<td>" + item.Unidades.ToString() + "</td>";
-                    filas += "<td>" + item.PrecioV.ToString() + "</td>";
-                    filas += "<td>" + item.PrecioC.ToString() + "</td>";
+                    filas += "<td>" + item.Nombre.ToString() + "</td>";
+                    filas += "<td>" + item.Stock.ToString() + "</td>";
+                    filas += "<td>" + item.PCategoria.Descripcion.ToString() + "</td>";
+                    filas += "<td>" + item.PEstado.Descripcion.ToString() + "</td>";
+                    filas += "<td>" + item.FechaIngreso.ToShortDateString() + "</td>";
+                    filas += "<td>" + item.PrecioVenta.ToString() + "</td>";
+                    filas += "<td>" + item.PrecioCompra.ToString() + "</td>";
                     filas += "</tr>";
-                    total += funcionesProductos.ValorFinal(item.Unidades, item.PrecioC);
+                    total += funcionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
                 }
                 MessageBox.Show(total.ToString());
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
@@ -173,7 +193,6 @@ namespace Presentacion_GUI
 
             }
         }
-
 
         protected override CreateParams CreateParams
         {

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cliente : Persona
+   public class NEmpleado : Persona
     {
-      
+
+
+
+
+
     }
 }

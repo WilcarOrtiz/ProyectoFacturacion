@@ -1,4 +1,6 @@
-﻿using Logica;
+﻿using Entidades;
+using Logica;
+using Presentacion_GUI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static iTextSharp.tool.xml.html.HTML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Presentacion_GUI.Utilidades;
 
 namespace Presentacion_GUI
 {
@@ -16,6 +20,11 @@ namespace Presentacion_GUI
     {
 
         Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
+        NuevasFuncionesProductos procesosProductos = new NuevasFuncionesProductos();
+        Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
+        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
+
+
         public FrmProductos()
         {
             InitializeComponent();
@@ -164,7 +173,7 @@ namespace Presentacion_GUI
             }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                if (txtPrecioV.TextLength == 0 ||  (Int32.Parse(txtPrecioV.Text)<=0))
+                if (txtPrecioV.TextLength == 0 || (Int32.Parse(txtPrecioV.Text) <= 0))
                 {
                     MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
@@ -178,14 +187,14 @@ namespace Presentacion_GUI
 
         void GuardarP()
         {
-            int Cant = 0; 
+            int Cant = 0;
             var Articulo = new Entidades.ProductoComprado();
             Articulo.ID = funcionesProductos.GetById().ToString();
             Articulo.Codigo = txtCodigo.Text;
             Articulo.NombreProducto = txtNombreProduc.Text;
             Articulo.Descripcion = txtDescrip.Text;
             Cant = (int)Cantidad.Value;
-            Articulo.Unidades = (funcionesProductos.CantidadUnitaria(cmbUnidades.Text.ToString())*Cant);
+            Articulo.Unidades = (funcionesProductos.CantidadUnitaria(cmbUnidades.Text.ToString()) * Cant);
             int Val = Articulo.Unidades;
             Articulo.PrecioC = float.Parse(txtPrecioC.Text);
             Articulo.PrecioV = float.Parse(txtPrecioV.Text);
@@ -193,20 +202,6 @@ namespace Presentacion_GUI
             MessageBox.Show(Respuesta, "MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            switch (vacioProductos())
-            {
-                case true:
-                    MessageBox.Show("Verifique los campos obligatorios", "VERIFICAR.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
-                case false:
-                    GuardarP();
-                    RestablecerProductos();
-                    CargarGrillaProductos();
-                    break;
-            }
-        }
 
         public void RestablecerProductos()
         {
@@ -214,10 +209,15 @@ namespace Presentacion_GUI
             txtNombreProduc.Text = "";
             txtDescrip.Text = "";
             Cantidad.Value = 1;
-            cmbUnidades.Text = "";
             txtPrecioC.Text = "";
             txtPrecioV.Text = "";
-            cmbUnidades.Focus();
+            cmbUnidades.SelectedIndex = 0;
+            cbnCategoria.SelectedIndex = 0;
+            cbnCategoria.DisplayMember = "Texto";
+            cbnCategoria.ValueMember = "Valor";
+            cmbEstado.SelectedIndex = 0;
+            cmbEstado.DisplayMember = "Texto";
+            cmbEstado.ValueMember = "Valor";
 
         }
 
@@ -240,20 +240,86 @@ namespace Presentacion_GUI
             }
         }
 
-        private void BtnCancelarEdit_Click(object sender, EventArgs e)
+
+
+
+
+
+        #region MEODO PARA CARGAR LOS LISTBOX DESDE LA BASE
+        private void CargarLisBoxCategoria()
         {
-            switch (vacioProductos())
+            List<NCategoria> listaCategorias = NuevaFuncionesCategoria.Listar();
+            foreach (NCategoria item in listaCategorias)
             {
-                case true:
-                    MessageBox.Show("Verifique los campos obligatorios", "VERIFICAR.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    break;
-                case false:
-                    GuardarP();
-                    RestablecerProductos();
-                    CargarGrillaProductos();
-                    break;
+                cbnCategoria.Items.Add(new OpcionesCombo() { Valor = item.IdCategoria, Texto = item.Descripcion });
             }
+            cbnCategoria.SelectedIndex = 0;
+            cbnCategoria.DisplayMember = "Texto";
+            cbnCategoria.ValueMember = "Valor";
         }
 
+
+        private void CargarLisBoxEstado()
+        {
+            List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
+            foreach (NEstado item in listaEstados)
+            {
+                cmbEstado.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
+            }
+            cmbEstado.SelectedIndex = 0;
+            cmbEstado.DisplayMember = "Texto";
+            cmbEstado.ValueMember = "Valor";
+        }
+
+        #endregion
+
+
+        private void FrmProductos_Load(object sender, EventArgs e)
+        {
+            CargarLisBoxEstado();
+            CargarLisBoxCategoria();
+        }
+
+
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            GuardarProducto();
+            RestablecerProductos();
+        }
+
+
+        public void GuardarProducto()
+        {
+            String Mensaje = String.Empty;
+            int Cant = 0;
+            Cant = (int)Cantidad.Value;
+            NProducto obj = new NProducto()
+            {
+                
+                Codigo = txtCodigo.Text,
+                Nombre = txtNombreProduc.Text,
+                Descripcion = txtDescrip.Text,
+                PCategoria = new NCategoria { IdCategoria = (int)(((OpcionesCombo)cbnCategoria.SelectedItem).Valor) },
+                Stock = (funcionesProductos.CantidadUnitaria(cmbUnidades.Text.ToString()) * Cant),
+                PrecioCompra = decimal.Parse(txtPrecioC.Text),
+                PrecioVenta = decimal.Parse(txtPrecioV.Text),
+                PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstado.SelectedItem).Valor) }
+               
+            };
+            int IdGenerado = procesosProductos.Registrar(obj, out Mensaje);
+            GrillaProductos.Rows.Add("",obj.Codigo,obj.Nombre,obj.Descripcion,cbnCategoria.Text, obj.Stock,obj.PrecioCompra,obj.PrecioVenta);
+            if (IdGenerado == 0)
+            {
+                MessageBox.Show(Mensaje);
+            }
+            else
+            {
+                MessageBox.Show("Producto ingresado en bodega");
+            }
+        }
+        }
+
+
     }
-}
+
