@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioPrincipal));
             this.panelLogo = new System.Windows.Forms.Panel();
             this.paneSubMenuAdmin = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.BtnPersonal = new FontAwesome.Sharp.IconButton();
             this.btnBodega = new FontAwesome.Sharp.IconButton();
             this.btnProductos = new FontAwesome.Sharp.IconButton();
@@ -38,10 +39,12 @@
             this.PanelContenedor = new System.Windows.Forms.Panel();
             this.iconoFormularioHijoActual = new FontAwesome.Sharp.IconPictureBox();
             this.PanelSuperior = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxCedula = new System.Windows.Forms.TextBox();
             this.btnEmpleado = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
@@ -70,6 +73,28 @@
             this.paneSubMenuAdmin.Name = "paneSubMenuAdmin";
             this.paneSubMenuAdmin.Size = new System.Drawing.Size(241, 457);
             this.paneSubMenuAdmin.TabIndex = 5;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            this.iconButton1.IconColor = System.Drawing.Color.Azure;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.Location = new System.Drawing.Point(0, 174);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(241, 54);
+            this.iconButton1.TabIndex = 7;
+            this.iconButton1.Text = "Listar Ventas";
+            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // BtnPersonal
             // 
@@ -189,12 +214,42 @@
             // PanelSuperior
             // 
             this.PanelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.PanelSuperior.Controls.Add(this.label3);
+            this.PanelSuperior.Controls.Add(this.textBoxId);
+            this.PanelSuperior.Controls.Add(this.textBoxCedula);
             this.PanelSuperior.Controls.Add(this.iconoFormularioHijoActual);
             this.PanelSuperior.Location = new System.Drawing.Point(240, 0);
             this.PanelSuperior.Name = "PanelSuperior";
             this.PanelSuperior.Size = new System.Drawing.Size(1260, 61);
             this.PanelSuperior.TabIndex = 2;
             this.PanelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelSuperior_MouseDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Azure;
+            this.label3.Location = new System.Drawing.Point(891, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 20);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "Usuario";
+            // 
+            // textBoxId
+            // 
+            this.textBoxId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.textBoxId.Location = new System.Drawing.Point(1023, 18);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(30, 26);
+            this.textBoxId.TabIndex = 2;
+            // 
+            // textBoxCedula
+            // 
+            this.textBoxCedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.textBoxCedula.Location = new System.Drawing.Point(1065, 18);
+            this.textBoxCedula.Name = "textBoxCedula";
+            this.textBoxCedula.Size = new System.Drawing.Size(171, 26);
+            this.textBoxCedula.TabIndex = 1;
             // 
             // btnEmpleado
             // 
@@ -254,28 +309,6 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // iconButton1
-            // 
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.ForeColor = System.Drawing.Color.Azure;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
-            this.iconButton1.IconColor = System.Drawing.Color.Azure;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 32;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.Location = new System.Drawing.Point(0, 174);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton1.Size = new System.Drawing.Size(241, 54);
-            this.iconButton1.TabIndex = 7;
-            this.iconButton1.Text = "Listar Ventas";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -294,6 +327,7 @@
             this.paneSubMenuAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).EndInit();
             this.PanelSuperior.ResumeLayout(false);
+            this.PanelSuperior.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -313,5 +347,8 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnCerrar;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxCedula;
+        private System.Windows.Forms.Label label3;
     }
 }

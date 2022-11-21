@@ -15,10 +15,10 @@ namespace Datos
 
         }
 
-        public List<Cliente> GetAll()
+        public List<NCliente> GetAll()
         {
             StreamReader sr = new StreamReader(ruta);
-            List<Cliente> clientes = new List<Cliente>();
+            List<NCliente> clientes = new List<NCliente>();
             while (!sr.EndOfStream)
             {
                 clientes.Add(Mappear(sr.ReadLine()));
@@ -27,18 +27,18 @@ namespace Datos
             return clientes;
         }
 
-        Cliente Mappear(String linea)
+        NCliente Mappear(String linea)
         {
             try
             {
-                var clientes = new Cliente();
+                var clientes = new NCliente();
 
-                clientes.ID = linea.Split(';')[0];
-                clientes.Cedula = linea.Split(';')[1];
-                clientes.Nombre = linea.Split(';')[2];
-                clientes.Apellido = linea.Split(';')[3];
-                clientes.Telefono = linea.Split(';')[4];
-                clientes.Correo = linea.Split(';')[5];
+                //clientes.ID = linea.Split(';')[0];
+                //clientes.Cedula = linea.Split(';')[1];
+                //clientes.Nombre = linea.Split(';')[2];
+                //clientes.Apellido = linea.Split(';')[3];
+                //clientes.Telefono = linea.Split(';')[4];
+                //clientes.Correo = linea.Split(';')[5];
 
                 return clientes;
             }
@@ -49,7 +49,7 @@ namespace Datos
             }
         }
 
-        public string Actualizar(List<Cliente> cliente, bool Modo)
+        public string Actualizar(List<NCliente> cliente, bool Modo)
         {
 
             var sw = new StreamWriter(ruta, Modo);

@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades; 
+
 
 namespace Presentacion_GUI
 {
@@ -18,14 +20,11 @@ namespace Presentacion_GUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        Datos informacion;
+  
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
-        FormularioPrincipal principal;
-        public struct Datos
-        {
-            public string Cedula;
-        }
 
+        Logica.NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario(); 
+        FormularioPrincipal principal;
         public FormLogin()
         {
             InitializeComponent();
@@ -34,6 +33,7 @@ namespace Presentacion_GUI
 
         public void Acceder()
         {
+            String Mensaje = String.Empty;
             if (txtContraseña.Text == "" || txtUsuario.Text == "")
             {
                 btnErroMessage.Visible = true; 
@@ -42,12 +42,15 @@ namespace Presentacion_GUI
             {
                 String Usuario = txtUsuario.Text;
                 String Contraseña = txtContraseña.Text;
-
-                if (funcionesUsuario.Login(Usuario, Contraseña) == true)
+                int IdGenerado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
+                if (IdGenerado!=0)
                 {
-
-                    informacion.Cedula = txtUsuario.Text;
-                    principal= new FormularioPrincipal(informacion);
+ 
+                    Usuario usuario = new Usuario();
+                    usuario.ID = IdGenerado;
+                    usuario.Cedula = Usuario;
+                    usuario.Contraseña = txtContraseña.Text;
+                    principal = new FormularioPrincipal(usuario);
                     principal.Show();
                     this.Visible = false; 
                     btnErroMessage.Visible = false;

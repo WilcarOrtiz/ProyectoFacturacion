@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Logica;
+using Presentacion_GUI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,14 @@ namespace Presentacion_GUI
 {
     public partial class FrmEditarEmpleado : Form
     {
-       
-        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado(); 
+
+        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
+        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
+        Logica.NuevasFuncionesEmpleado NuevasFuncionesEmpleado = new NuevasFuncionesEmpleado(); 
+
+
+
+
         FrmPersonal FrmPersonal = new FrmPersonal();
         String ID;
 
@@ -28,41 +35,43 @@ namespace Presentacion_GUI
         public FrmEditarEmpleado(FrmPersonal.Datos informacion)
         {
             InitializeComponent();
+            CargarLisBoxEstado(); 
 
-            ID = informacion.ID;
+
             txtCedulaEditar.Text   = informacion.Cedula;
             txtNombreEditar.Text   = informacion.Nombre;
             txtApellidoEditar.Text = informacion.Apellido;
             txtTelefonoEditar.Text = informacion.Telefono;
             txtCorreoEditar.Text   = informacion.Correo;
+            cmbEstadoEdit.Text = informacion.Estado.Descripcion;
+            textBoxEmpleadoEditar.Text = informacion.ID.ToString(); 
+
         }
 
         public void Actualizar()
         {
-            String cedula = funcionesEmpleado.EmpleadoXId(ID);
-            Empleado empleado = funcionesEmpleado.ObtenerPorCedula(cedula);
-            String IDeditada = funcionesEmpleado.IdXEmpleado(txtCedulaEditar.Text);
-
-            if ((ID == IDeditada)||(funcionesEmpleado.ObtenerPorCedula(txtCedulaEditar.Text)==null))
+            String Mensaje = String.Empty;
+            NEmpleado obj = new NEmpleado()
             {
-                MessageBox.Show(funcionesEmpleado.Editar(ID,txtCedulaEditar.Text,txtNombreEditar.Text,txtApellidoEditar.Text,
-                    txtTelefonoEditar.Text,txtCorreoEditar.Text,empleado));
+                ID = int.Parse(textBoxEmpleadoEditar.Text),
+                Cedula = txtCedulaEditar.Text,
+                Nombre = txtNombreEditar.Text,
+                Apellido = txtApellidoEditar.Text,
+                Telefono = txtTelefonoEditar.Text, 
+                Correo = txtCorreoEditar.Text, 
+                PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstadoEdit.SelectedItem).Valor) }
+
+            };
+            int IdGenerado = NuevasFuncionesEmpleado.Editar(obj, out Mensaje);
+            if (IdGenerado == 0)
+            {
+                MessageBox.Show(Mensaje);
             }
             else
             {
-                switch (MessageBox.Show("La cedula ya existe \nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
-                {
-                    case DialogResult.OK:
-                        txtCedulaEditar.Text = "";
-                        txtCedulaEditar.Focus();
-                        break;
-                    case DialogResult.Cancel:
-                        this.Close();
-                        break;
-                }
+                MessageBox.Show("Producto actualizado con exito");
             }
         }
-
         public Boolean Vacio()
         {
             if (txtCedulaEditar.Text == "" || txtNombreEditar.Text == "" || txtApellidoEditar.Text == "" || txtTelefonoEditar.Text == "" ||
@@ -75,7 +84,6 @@ namespace Presentacion_GUI
                 return false;
             }
         }
-
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             switch (Vacio())
@@ -114,7 +122,6 @@ namespace Presentacion_GUI
                 }
                 else
                 {
-                    //falta la validacion de si existe la cedula 
                     txtNombreEditar.Focus();
                 }
             }
@@ -200,7 +207,17 @@ namespace Presentacion_GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-
+        private void CargarLisBoxEstado()
+        {
+            List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
+            foreach (NEstado item in listaEstados)
+            {
+                cmbEstadoEdit.Items.Add(new OpcionesCombo() { Valor = item.IdEstado, Texto = item.Descripcion });
+            }
+            cmbEstadoEdit.SelectedIndex = 0;
+            cmbEstadoEdit.DisplayMember = "Texto";
+            cmbEstadoEdit.ValueMember = "Valor";
+        }
 
         protected override CreateParams CreateParams
         {

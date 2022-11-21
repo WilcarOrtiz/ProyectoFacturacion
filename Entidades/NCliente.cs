@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class NEmpleado : Persona
+    public class NCliente : Persona
     {
-
-        public DateTime FechaContratacion { get; set; }
-        public  NEstado PEstado { get; set; }
-
-        public NEmpleado(int ID, String Cedula, String Nombre,String Apellido, String Telefono, String Correo, NEstado PEstado, DateTime FechaContratacion)
+        public NCliente(int ID, String Cedula, String Nombre, String Apellido, String Telefono, String Correo, NEstado PEstado)
         {
             this.ID = ID;
             this.Cedula = Cedula;
@@ -21,10 +17,10 @@ namespace Entidades
             this.Telefono = Telefono;
             this.Correo = Correo;
             this.PEstado = PEstado;
-            this.FechaContratacion = FechaContratacion;
+           
         }
 
-        public NEmpleado()
+        public NCliente()
         {
 
         }

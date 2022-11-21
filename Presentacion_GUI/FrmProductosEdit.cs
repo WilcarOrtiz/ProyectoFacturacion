@@ -16,7 +16,7 @@ namespace Presentacion_GUI
 {
     public partial class FrmProductosEdit : Form
     {
-        Logica.FuncionesProducto FuncionesProductos = new Logica.FuncionesProducto();
+     
         Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
         Logica.NuevasFuncionesProductos nuevasFuncionesProductos = new NuevasFuncionesProductos();
@@ -65,7 +65,7 @@ namespace Presentacion_GUI
                 Nombre = txtNombreProducEditar.Text,
                 Descripcion = txtDescripEditar.Text,
                 PCategoria = new NCategoria { IdCategoria = (int)(((OpcionesCombo)cbnCategoriaEdit.SelectedItem).Valor) },
-                Stock = ((FuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
+                Stock = ((nuevasFuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
                 PrecioCompra = decimal.Parse(txtPrecioCEdit.Text),
                 PrecioVenta = decimal.Parse(txtPrecioVEdit.Text),
                 PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstadoEdit.SelectedItem).Valor) }
@@ -80,44 +80,6 @@ namespace Presentacion_GUI
             {
                 MessageBox.Show("Producto actualizado con exito");
             }
-
-
-
-            //MessageBox.Show(textCodigoEditar.Text);
-
-            ////traer el codigo del objeto a editar
-            //String Cod = FuncionesProductos.ArticuloXId(Id);
-
-            ////trae el objeto a editar
-            //ProductoComprado Articulo = FuncionesProductos.ObtenerPorCodigo(Cod);
-
-            ////trae el ID del objeto a editar
-            //String IdEdit = FuncionesProductos.IdXArticulo(textCodigoEditar.Text);
-
-            //if ((Id == IdEdit) || (FuncionesProductos.ObtenerPorCodigo(textCodigoEditar.Text) == null))
-            //{
-            //    MessageBox.Show(
-            //        FuncionesProductos.Editar(
-            //            Id, textCodigoEditar.Text, txtNombreProducEditar.Text,
-            //        txtDescripEditar.Text, 
-            //        ((FuncionesProductos.CantidadUnitaria(cmbUnidadesEdit.Text.ToString()) * (int)CantidadEdit.Value) + CantidadI),
-            //        float.Parse(txtPrecioCEdit.Text), float.Parse(txtPrecioVEdit.Text)
-            //        , Articulo));
-
-            //}
-            //else
-            //{
-            //    switch (MessageBox.Show("El codigo ya existe para otro producto\nDesea continuar con la actulizacion", "ERROR", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
-            //    {
-            //        case DialogResult.OK:
-            //            textCodigoEditar.Text = "";
-            //            textCodigoEditar.Focus();
-            //            break;
-            //        case DialogResult.Cancel:
-            //            this.Close();
-            //            break;
-            //    }
-            //}
         }
 
 

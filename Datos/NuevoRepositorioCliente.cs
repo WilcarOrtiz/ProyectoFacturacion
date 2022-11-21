@@ -9,24 +9,50 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class NuevoRepositorioCliente : ICrud<Cliente>
+    public class NuevoRepositorioCliente : ICrud<NCliente>
     {
-        public int Editar(Cliente obj, out string Mensaje)
+        public int Editar(NCliente obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }
 
-        public int Eliminar(Cliente obj, out string Mensaje)
+        public int Eliminar(NCliente obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }
 
-        public List<Cliente> Listar()
+        public List<NCliente> Listar()
         {
-            throw new NotImplementedException();
+            List<NCliente> ListaClientes = new List<NCliente>();
+            using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT c.IdCliente,c.CedulaCliente,c.PrimerNombre,c.PrimerApelldido , c.Telefono , c.Correo,e.IdEstado,e.Descripcion FROM CLIENTE c");
+                    query.AppendLine("INNER JOIN ESTADO e ON e.IdEstado = c.IdEstado");
+                    SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
+                    cmd.CommandType = CommandType.Text;
+                    objconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            ListaClientes.Add(new NCliente(dr.GetInt32(0), dr.GetString(1), dr.GetString(2), dr.GetString(3), dr.GetString(4), dr.GetString(5),
+                                new NEstado() { IdEstado = dr.GetInt32(6), Descripcion = dr.GetString(7) }));
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ListaClientes = new List<NCliente>();
+                }
+            }
+            return ListaClientes;
         }
 
-        public int Registrar(Cliente obj, out string Mensaje)
+        public int Registrar(NCliente obj, out string Mensaje)
         {
             int idClienteGenerado = 0;
             Mensaje = string.Empty;
@@ -35,13 +61,12 @@ namespace Datos
             {
                 using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("F_Registrar_Empleado", objconexion);
-                    cmd.Parameters.AddWithValue("CedulaEmpleado", obj.Cedula);
+                    SqlCommand cmd = new SqlCommand("F_Registrar_Cliente", objconexion);
+                    cmd.Parameters.AddWithValue("CedulaCliente", obj.Cedula);
                     cmd.Parameters.AddWithValue("PrimerNombre", obj.Nombre);
                     cmd.Parameters.AddWithValue("PrimerApellido", obj.Apellido);
                     cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
                     cmd.Parameters.AddWithValue("Correo", obj.Correo);
-                    cmd.Parameters.AddWithValue("IdEstado", obj.PEstado.IdEstado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -58,8 +83,6 @@ namespace Datos
             }
             return idClienteGenerado;
         }
-
-
         public int BuscarCliente(string cedula, out string Mensaje)
         {
             int idClienteBusqueda = 0; Mensaje = string.Empty;

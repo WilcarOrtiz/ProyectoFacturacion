@@ -11,10 +11,10 @@ namespace Entidades
         public int ID { get; set; } 
         public String Cedula { get; set; }
         public String Nombre { get; set; }
-        public NEstado PEstado { get; set; }
         public String Apellido { get; set; }
         public String Telefono { get; set; }
         public String Correo { get; set; }
-
+        public NEstado PEstado { get; set; }
+        
     }
 }

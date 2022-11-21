@@ -31,5 +31,30 @@ namespace Logica
              return nuevoRepositorioProducto.Registrar(obj, out Mensaje);
         }
 
+
+        public int CantidadUnitaria(String Unidad)
+        {
+            int Cant = 0;
+            switch (Unidad)
+            {
+                case "UNIDAD":
+                    Cant = 1;
+                    break;
+                case "CAJA (24 Unds)":
+                    Cant = 24;
+                    break;
+                case "CANASTA (30 Unds)":
+                    Cant = 30;
+                    break;
+            }
+            return Cant;
+
+        }
+
+        public decimal ValorFinal(int Unidades, decimal Precio)
+        {
+            return (Precio * Unidades);
+        }
+
     }
 }

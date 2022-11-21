@@ -136,7 +136,4 @@ namespace Datos
             return idProductogenerado;
         }
     }
-
-
-    
 }

@@ -13,7 +13,7 @@ namespace Logica
         NuevoRepositorioEmpleado repositorioEmpleado = new NuevoRepositorioEmpleado();
         public int Editar(NEmpleado obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+            return repositorioEmpleado.Editar(obj, out  Mensaje); 
         }
 
         public int Eliminar(NEmpleado obj, out string Mensaje)

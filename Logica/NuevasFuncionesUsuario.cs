@@ -14,20 +14,23 @@ namespace Logica
         {
             throw new NotImplementedException();
         }
-
         public int Eliminar(Usuario obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }
-
         public List<Usuario> Listar()
         {
             throw new NotImplementedException();
         }
-
         public int Registrar(Usuario obj, out string Mensaje)
         {
             return NuevoRepositorioUsuario.Registrar(obj, out Mensaje); 
         }
+        public int Login(String Cedula, string Contraseña, out string Mensaje)
+        {
+            return NuevoRepositorioUsuario.Login( Cedula, Contraseña, out Mensaje);
+        }
+
+       
     }
 }

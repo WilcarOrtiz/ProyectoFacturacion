@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using Logica;
+using Presentacion_GUI.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,30 +16,31 @@ namespace Presentacion_GUI
 {
     public partial class FrmNuevoCliente : Form
     {
+
+        Logica.NuevasFuncionesCliente NuevaFuncionesClientes = new NuevasFuncionesCliente();
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-       
         FuncionesCliente funcionesCliente = new FuncionesCliente();
-
-        public FrmNuevoCliente()
+        public FrmNuevoCliente(Facturacion.Datos informacion)
         {
             InitializeComponent();
+            txtCedula.Text = informacion.Cedula.ToString();     
+         
         }
 
 
 
         public void Guardar()
         {
-            Cliente cliente = new Cliente();
-            cliente.ID = funcionesCliente.GetById().ToString();
+            NCliente cliente = new NCliente();
             cliente.Cedula = txtCedula.Text;
-            cliente.Nombre = txtNombre.Text;    
-            cliente.Apellido = txtApellido.Text;    
-            cliente.Telefono = txtTelefono.Text;    
+            cliente.Nombre = txtNombre.Text;
+            cliente.Apellido = txtApellido.Text;
+            cliente.Telefono = txtTelefono.Text;
             cliente.Correo = txtCorreo.Text;
+
             var resp = funcionesCliente.Agregar(cliente);
 
             MessageBox.Show(resp);
@@ -46,18 +48,15 @@ namespace Presentacion_GUI
 
         public void RestablecerCampos()
         {
-            txtCedula.Text   = "Cedula";
-            txtNombre.Text   = "Nombre";
-            txtApellido.Text = "Apellido";
-            txtTelefono.Text = "Telefono";
-            txtCorreo.Text   = "Correo";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtTelefono.Text = "";
+            txtCorreo.Text = "";
         }
 
         public Boolean Vacio()
         {
-            if (txtCedula.Text==""||txtNombre.Text==""||txtApellido.Text==""||txtTelefono.Text==""||
-                txtCorreo.Text=="" || txtCedula.Text == "Cedula" || txtNombre.Text == "Nombre" || 
-                txtApellido.Text == "Apellido" ||txtTelefono.Text == "Telefono" || txtCorreo.Text == "Correo")
+            if (txtNombre.Text == "" || txtApellido.Text == "")
             {
                 return true;
             }
@@ -65,10 +64,39 @@ namespace Presentacion_GUI
             {
                 return false;
             }
-               
-        }
-     
 
+        }
+        public void GuardarCliente()
+        {
+            if (Vacio() == true)
+            {
+                MessageBox.Show("Algun Campo obligatorio esta vacio (Nombre, Apellido)...");
+            }
+            else
+            {
+                String Mensaje = String.Empty;
+                NCliente obj = new NCliente()
+                {
+                    Cedula = txtCedula.Text,
+                    Nombre = txtNombre.Text,
+                    Apellido = txtApellido.Text,
+                    Telefono = txtTelefono.Text,
+                    Correo = txtCorreo.Text,
+                };
+                int IdGenerado = NuevaFuncionesClientes.Registrar(obj, out Mensaje);
+                if (IdGenerado == 0)
+                {
+                    MessageBox.Show(Mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Cliente registrado correctamente");
+                }
+            }
+
+
+
+        }
         private void FrmNuevoCliente_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -91,7 +119,7 @@ namespace Presentacion_GUI
                 }
                 else
                 {
-                    //falta la validacion de si existe la cedula 
+
                     txtNombre.Focus();
                 }
             }
@@ -171,85 +199,6 @@ namespace Presentacion_GUI
             }
         }
 
-        private void txtCedula_Enter(object sender, EventArgs e)
-        {
-            if (txtCedula.Text=="Cedula")
-            {
-                txtCedula.Text = "";
-            }
-        }
-
-        private void txtCedula_Leave(object sender, EventArgs e)
-        {
-            if (txtCedula.Text == "")
-            {
-                txtCedula.Text = "Cedula";
-            }
-        }
-
-        private void txtNombre_Enter(object sender, EventArgs e)
-        {
-            if (txtNombre.Text=="Nombre")
-            {
-                txtNombre.Text = "";
-            }
-        }
-
-        private void txtNombre_Leave(object sender, EventArgs e)
-        {
-            if (txtNombre.Text == "")
-            {
-                txtNombre.Text = "Nombre";
-            }
-        }
-
-        private void txtApellido_Enter(object sender, EventArgs e)
-        {
-            if (txtApellido.Text == "Apellido")
-            {
-                txtApellido.Text = "";
-            }
-        }
-
-        private void txtApellido_Leave(object sender, EventArgs e)
-        {
-            if (txtApellido.Text == "")
-            {
-                txtApellido.Text = "Apellido";
-            }
-        }
-
-        private void txtTelefono_Enter(object sender, EventArgs e)
-        {
-            if (txtTelefono.Text == "Telefono")
-            {
-                txtTelefono.Text = "";
-            }
-        }
-
-        private void txtTelefono_Leave(object sender, EventArgs e)
-        {
-            if (txtTelefono.Text == "")
-            {
-                txtTelefono.Text = "Telefono";
-            }
-        }
-
-        private void txtCorreo_Enter(object sender, EventArgs e)
-        {
-            if (txtCorreo.Text=="Correo")
-            {
-                txtCorreo.Text = "";
-            }
-        }
-
-        private void txtCorreo_Leave(object sender, EventArgs e)
-        {
-            if (txtCorreo.Text == "")
-            {
-                txtCorreo.Text = "Correo";
-            }
-        }
 
         private void BtnCancelarEdit_Click(object sender, EventArgs e)
         {
@@ -267,7 +216,7 @@ namespace Presentacion_GUI
 
                 case false:
 
-                    Guardar();
+                    GuardarCliente();
                     RestablecerCampos();
                     this.Close();
                     break;

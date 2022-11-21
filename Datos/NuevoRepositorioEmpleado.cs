@@ -13,26 +13,55 @@ namespace Datos
     {
         public int Editar(NEmpleado obj, out string Mensaje)
         {
-            throw new NotImplementedException();
-        }
 
+
+            int idEmpleadoEditado = 0;
+            Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_Editar_Empleado", objconexion);
+                    cmd.Parameters.AddWithValue("IdEmpleado", obj.ID);
+                    cmd.Parameters.AddWithValue("CedulaEmpleado", obj.Cedula);
+                    cmd.Parameters.AddWithValue("PrimerNombre", obj.Nombre);
+                    cmd.Parameters.AddWithValue("PrimerApellido", obj.Apellido);
+                    cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("IdEstado", obj.PEstado.IdEstado);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idEmpleadoEditado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idEmpleadoEditado = 0;
+                Mensaje = EX.Message;
+            }
+            return idEmpleadoEditado;
+        }
         public int Eliminar(NEmpleado obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }
-
         public List<NEmpleado> Listar()
         {
-            List<NEmpleado> listaEmpleados = new List<NEmpleado>();
+            List<NEmpleado> ListaEmpleados = new List<NEmpleado>();
 
             using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT IdEmpleado , CedulaEmpleado , PrimerNombre , PrimerApelldido , Telefono , Correo , e.Descripcion , FechaContratacion ");
-                    query.AppendLine("FROM EMPLEADO p INNER JOIN ESTADO e ");
-                    query.AppendLine("ON e.IdEstado = p.IdEstado");
+                    query.AppendLine("SELECT p.IdEmpleado,p.CedulaEmpleado,p.PrimerNombre,p.PrimerApelldido , p.Telefono , p.Correo,e.IdEstado,e.Descripcion, p.FechaContratacion FROM EMPLEADO p");
+                    query.AppendLine("INNER JOIN ESTADO e ON e.IdEstado = p.IdEstado");
+         
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
                     cmd.CommandType = CommandType.Text;
@@ -42,29 +71,24 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            listaEmpleados.Add(new NEmpleado()
-                            {
-                                ID = Convert.ToInt32(dr["IdProducto"]),
-                                Cedula = dr["CedulaEmpleado"].ToString(),
-                                Nombre = dr["PrimerNombre"].ToString(),
-                                Apellido = dr["PrimerApelldido"].ToString(),
-                                Telefono = dr["Telefono"].ToString(),
-                                Correo = dr["Correo"].ToString(),
-                                PEstado = new NEstado() { IdEstado = Convert.ToInt32(dr["IdEstado"]), Descripcion = dr["Descripcion"].ToString() },
-                                FechaContratacion = Convert.ToDateTime(dr["FechaContratacion"].ToString())
+                            ListaEmpleados.Add(new NEmpleado(dr.GetInt32(0), dr.GetString(1), dr.GetString(2), dr.GetString(3), dr.GetString(4), dr.GetString(5),
 
-                            }) ; ;
+
+
+                                new NEstado() { IdEstado = dr.GetInt32(6), Descripcion = dr.GetString(7) }, dr.GetDateTime(8)));
+                            
+                          
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    listaEmpleados = new List<NEmpleado>();
+                    ListaEmpleados = new List<NEmpleado>();
                 }
             }
-            return listaEmpleados;
-        }
+            return ListaEmpleados;
 
+        }
         public int Registrar(NEmpleado obj, out string Mensaje)
         {
             throw new NotImplementedException();

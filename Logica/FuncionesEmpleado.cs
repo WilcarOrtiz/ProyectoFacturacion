@@ -36,15 +36,15 @@ namespace Logica
 
         public String EmpleadoXId(String id)
         {
-            String cedula = "";
-            foreach (Empleado item in repositorioEmpleado.GetAll())
-            {
-                if (item.ID == id)
-                {
-                    cedula = item.Cedula;
-                }
-            }
-            return cedula;
+            //String cedula = "";
+            //foreach (Empleado item in repositorioEmpleado.GetAll())
+            //{
+            //    if (item.ID == id)
+            //    {
+            //        cedula = item.Cedula;
+            //    }
+            //}
+            return "";
         }
 
         public int GetById()
@@ -73,7 +73,7 @@ namespace Logica
             {
                 if (item.Cedula == cedula)
                 {
-                    ID = item.ID;
+                 //  ID = item.ID;
                 }
             }
             return ID;
@@ -97,7 +97,7 @@ namespace Logica
             int Conta = 1;
             foreach (var item in empleados)
             {
-                item.ID = Conta.ToString();
+                //item.ID = Conta.ToString();
                 Conta++;
             }
             return empleados;
@@ -107,7 +107,7 @@ namespace Logica
         {
             try
             {
-                persona.ID = ID;
+               // persona.ID = ID;
                 persona.Cedula = Cedula;
                 persona.Nombre = Nombre;
                 persona.Apellido = Apellido;

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class FuncionesCliente : IServiciosPersona<Cliente>
+    public class FuncionesCliente : IServiciosPersona<NCliente>
     {
-        List<Cliente> clientes;
+        List<NCliente> clientes;
         RepositorioCliente repositorioCliente = new RepositorioCliente();
 
         public FuncionesCliente()
         {
-            clientes = new List<Cliente>();
+            clientes = new List<NCliente>();
             clientes = repositorioCliente.GetAll();
         }
-        public string Agregar(Cliente persona)
+        public string Agregar(NCliente persona)
         {
             String Mensaje;
             try
@@ -33,27 +33,27 @@ namespace Logica
             return Mensaje;
         }
 
-        public string Editar(string ID, string Cedula, string Nombre, string Apellido, string Telefono, string Correo, Cliente persona)
+        public string Editar(string ID, string Cedula, string Nombre, string Apellido, string Telefono, string Correo, NCliente persona)
         {
             throw new NotImplementedException();
         }
 
-        public List<Cliente> GetAll()
+        public List<NCliente> GetAll()
         {
             return repositorioCliente.GetAll();
         }
 
         public String ClienteXId(String id)
         {
-            String cedula = "";
-            foreach (Cliente item in repositorioCliente.GetAll())
-            {
-                if (item.ID == id)
-                {
-                    cedula = item.Cedula;
-                }
-            }
-            return cedula;
+            //String cedula = "";
+            //foreach (Cliente item in repositorioCliente.GetAll())
+            //{
+            //    if (item.ID == id)
+            //    {
+            //        cedula = item.Cedula;
+            //    }
+            //}
+            return "";
         }
 
         public int GetById()
@@ -64,17 +64,17 @@ namespace Logica
         public String IdXCliente(String cedula)
         {
             String ID = "";
-            foreach (Cliente item in repositorioCliente.GetAll())
+            foreach (NCliente item in repositorioCliente.GetAll())
             {
                 if (item.Cedula == cedula)
                 {
-                    ID = item.ID;
+                    //ID = item.ID;
                 }
             }
             return ID;
         }
 
-        public Cliente ObtenerPorCedula(string cedula)
+        public NCliente ObtenerPorCedula(string cedula)
         {
             foreach (var item in clientes)
             {
@@ -86,12 +86,12 @@ namespace Logica
             return null;
         }
 
-        public List<Cliente> DisminuirId(List<Cliente> clientes)
+        public List<NCliente> DisminuirId(List<NCliente> clientes)
         {
             int Conta = 1;
             foreach (var item in clientes)
             {
-                item.ID = Conta.ToString();
+                //item.ID = Conta.ToString();
                 Conta++;
             }
             return clientes;

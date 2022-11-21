@@ -15,157 +15,125 @@ namespace Presentacion_GUI
 {
     public partial class Facturacion : Form
     {
-        Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
-        Logica.CreacionFactura CreacionFactura = new Logica.CreacionFactura();
+        private Usuario usuario;
+      
+        Logica.NuevasFuncionesFactura CreacionFactura = new Logica.NuevasFuncionesFactura();
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new Logica.NuevasFuncionesProductos();
-        Logica.NuevaFuncionesClientes NuevaFuncionesClientes = new NuevaFuncionesClientes();
+        Logica.NuevasFuncionesCliente NuevaFuncionesClientes = new NuevasFuncionesCliente();
 
         List<String> CodigoProdVendidos;
         List<int> CantProdVendidos;
-        float SubTotal, SubtotalSinDescuento;
-        int Cant;
-
-        public Facturacion()
+        decimal SubTotal, SubtotalSinDescuento;
+        List<NCliente> listaCliente;
+        List<NProducto> listaProducto;
+        public Facturacion(string IdEmpleado)
         {
             InitializeComponent();
+            labelIdEmpleado.Text = IdEmpleado.ToString();
             CodigoProdVendidos = new List<String>();
             CantProdVendidos = new List<int>();
+            listaCliente = NuevaFuncionesClientes.Listar();
+            listaProducto = NuevasFuncionesProductos.Listar();
         }
-
-        void llenadoComboBoxProductos()
-        {
-            foreach (var item in NuevasFuncionesProductos.Listar())
-            {
-                ComboBoxProductos.Items.Add(item.Nombre + "  -  " + item.Descripcion);
-            }
-        }
-
         private void Facturacion_Load(object sender, EventArgs e)
         {
             textFecha.Text = DateTime.Now.ToString();
-            llenadoComboBoxProductos();
+            CargarComboBoxClientes();
         }
-
         public int Cantidad()
         {
             return CreacionFactura.Cantidad(ComboBoxUnidades.Text, (int)ComboBoxCantidad.Value);
         }
-
-        void AgregarProductoGrilla()
-        {
-            int Cant = Cantidad();
-            foreach (var item in NuevasFuncionesProductos.Listar())
-            {
-                if (ComboBoxProductos.Text == (item.Nombre + "  -  " + item.Descripcion))
-                {
-                    DataGrillaProductosVenta.Rows.Add(item.Codigo, item.Nombre, item.Descripcion, Cant, item.PrecioVenta, (item.PrecioVenta * Cant));
-                }
-            }
-        }
         void TextBoxTarifas()
         {
             SubTotal = 0;
-            for (int i = 0; i < (DataGrillaProductosVenta.RowCount) - 1; i++)
+            if (DataGrillaProductosVenta.Rows.Count > 0)
             {
-                SubTotal += float.Parse(DataGrillaProductosVenta.Rows[i].Cells[5].Value.ToString());
-            }
-            txtSubTotal.Text = SubTotal.ToString();
-            txtIva.Text = ((SubTotal * 0.19)).ToString();
-            SubtotalSinDescuento = (float.Parse(txtSubTotal.Text) + float.Parse(txtIva.Text));
-            txtTotalPagar.Text = (SubtotalSinDescuento - (SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text))).ToString();
-        }
-        public Boolean ValidarDisponibilidad()
-        {
-            Cant = Cantidad();
-            foreach (var item in NuevasFuncionesProductos.Listar())
-            {
-                if (ComboBoxProductos.Text == (item.Nombre + "  -  " + item.Descripcion))
+                foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
                 {
-                    if (!CreacionFactura.Stock(item.Codigo, Cant))
-                    {
-                        MessageBox.Show("No hay producto disponible \ninforme al administrador", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return false;
-                    }
+                    SubTotal += decimal.Parse(item.Cells[4].Value.ToString());
+                }
+
+            }
+            txtSubTotal.Text = SubTotal.ToString("0.00");
+            txtIva.Text = (SubTotal * (decimal)0.19).ToString("0.00");
+            SubtotalSinDescuento = (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text));
+            txtTotalPagar.Text = (SubtotalSinDescuento - (SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text))).ToString("0.00");
+        }
+        private void AgregarProducto()
+        {
+            int CantidadLLevar = Cantidad();
+            bool Producto_Agregado = false;
+            if (textBoxIdProducto.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un producto ... ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (ComboBoxUnidades.Text == "")
+            {
+                MessageBox.Show("Debe seleccionatr la medida de compra ... ", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
+            NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text && p.PEstado.Descripcion == "Activo").FirstOrDefault();
+            if (nProducto.Stock < CantidadLLevar)
+            {
+                MessageBox.Show("No hay producto disponible \ninforme al administrador", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
+            {
+                if (item.Cells[0].ToString() == textBoxIdProducto.Text)
+                {
+                    Producto_Agregado = true;
+                    break;
+
                 }
             }
-            return true;
+            if (!Producto_Agregado)
+            {
+                bool respuesta = CreacionFactura.RestarStock(Convert.ToInt32(textBoxIdProducto.Text), CantidadLLevar);
+
+                if (respuesta)
+                {
+                    DataGrillaProductosVenta.Rows.Add(new object[]
+                    {
+                    textBoxIdProducto.Text,
+                    textNombreProducto.Text,
+                    textBoxPrecio.Text,
+                    CantidadLLevar.ToString(),
+                    (CantidadLLevar* decimal.Parse(textBoxPrecio.Text))
+                    });
+                    TextBoxTarifas();
+                    Limpiar();
+                    textBoxBusquedaProducto.Select();
+                }
+            }
+        }
+        public void Limpiar()
+        {
+            textBoxBusquedaProducto.Text = "";
+            ComboBoxUnidades.Text = "";
+            ComboBoxCantidad.Value = 1;
+            textBoxIdProducto.Text = "";
+            textNombreProducto.Text = "";
+            textBoxPrecio.Text = "0";
         }
         private void iconButton3_Click(object sender, EventArgs e)
         {
-            if (ValidarDisponibilidad())
-            {
-                AgregarProductoGrilla();
-                TextBoxTarifas();
-            }
+            AgregarProducto();
         }
-
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            RestarStockVenta();
-            DataGrillaProductosVenta.Rows.Clear();
-        }
-
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            CalcularVueltos();
-        }
-
         void CalcularVueltos()
         {
-            txtCambio.Text = (float.Parse(txtEfectivo.Text) - float.Parse(txtTotalPagar.Text)).ToString();
+            txtCambio.Text = (decimal.Parse(txtEfectivo.Text) - decimal.Parse(txtTotalPagar.Text)).ToString();
         }
-
         private void comboBoxDescuento_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBoxTarifas();
         }
-
-        private void btnNuevoCliente_Click(object sender, EventArgs e)
-        {
-            FrmNuevoCliente nuevoCliente = new FrmNuevoCliente();
-            nuevoCliente.ShowDialog();
-        }
-
-        void RestarStockVenta()
-        {
-            for (int i = 0; i < (DataGrillaProductosVenta.RowCount) - 1; i++)
-            {
-                CantProdVendidos.Add(Convert.ToInt32(this.DataGrillaProductosVenta.Rows[i].Cells[3].Value));
-                CodigoProdVendidos.Add(DataGrillaProductosVenta.Rows[i].Cells[0].Value.ToString());
-            }
-            MessageBox.Show(CreacionFactura.RestarStock(CodigoProdVendidos, CantProdVendidos), "VENTAS", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void ComboBoxUnidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ComboBoxCantidad_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textFecha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         protected override CreateParams CreateParams
         {
             get
@@ -175,21 +143,204 @@ namespace Presentacion_GUI
                 return cp;
             }
         }
+        private void textBoxBusquedaCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                BuscarCliente();
+            }
+        }
+        public struct Datos
+        {
+            public string Cedula;
+
+        }
+        void EnviarInformacionANuevoCliente(String Cedula)
+        {
+            Datos informacion;
+            informacion.Cedula = Cedula;
+            FrmNuevoCliente FPE = new FrmNuevoCliente(informacion);
+            FPE.ShowDialog();
+        }
+        public void BuscarCliente()
+        {
+            String Mensaje = String.Empty;
+            int IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
+            if (IdClienteBuscado == 0)
+            {
+                MessageBox.Show("El cliente no se encuentra en la base de informacion \n registrelo");
+                EnviarInformacionANuevoCliente(textBoxBusquedaCliente.Text.ToString());
+                comboBoxClientes.Text = (textBoxBusquedaCliente.Text);
+                IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
+            }
+            else
+            {
+                comboBoxClientes.Text = (Mensaje);
+            }
+            textBoxIdCliente.Text = IdClienteBuscado.ToString();
+            textBoxBusquedaCliente.Text = "";
+        }
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text
+                && p.PEstado.Descripcion == "Activo").FirstOrDefault();
+                if (nProducto != null)
+                {
+                    textBoxIdProducto.Text = nProducto.IdProducto.ToString();
+                    textNombreProducto.Text = nProducto.Nombre.ToString();
+                    textBoxPrecio.Text = nProducto.PrecioVenta.ToString();
+                }
 
 
+            }
+        }
+        private void txtEfectivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                CalcularVueltos();
+            }
+        }
+        private void DataGrillaProductosVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.DataGrillaProductosVenta.Columns[e.ColumnIndex].Index == 5)
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    bool respuesta = CreacionFactura.AumentarStock(
+                        Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[0].Value.ToString())
+                        ,
+                           Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[3].Value.ToString())
+                        );
 
+                    if (respuesta)
+                    {
+                        DataGrillaProductosVenta.Rows.RemoveAt(index);
+                        TextBoxTarifas();
+                    }
+                }
+            }
+        }
+        private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
 
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (txtEfectivo.TextLength == 0 || (Int32.Parse(txtEfectivo.Text) <= 0))
+                {
+                    MessageBox.Show("Debe ingresar un precio correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+
+        }
+        private void btnGuardarVenta_Click(object sender, EventArgs e)
+        {
+            if (comboBoxClientes.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el documento del cliente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (DataGrillaProductosVenta.Rows.Count < 1)
+            {
+                MessageBox.Show("No puede facturar sin ingresar productos ..", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtEfectivo.Text == "")
+            {
+                MessageBox.Show("Ingrese el monto de pago ..", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DataTable DetalleFactura = new DataTable();
+            DetalleFactura.Columns.Add("IdProducto", typeof(int));
+            DetalleFactura.Columns.Add("Precio", typeof(decimal));
+            DetalleFactura.Columns.Add("Unidades", typeof(int));
+            DetalleFactura.Columns.Add("Importe", typeof(decimal));
+
+            foreach (DataGridViewRow row in DataGrillaProductosVenta.Rows)
+            {
+
+                DetalleFactura.Rows.Add(new object[]
+                {
+                    row.Cells["IdProducto"].Value.ToString(),
+                    row.Cells["Precio"].Value.ToString(),
+                    row.Cells["Unidades"].Value.ToString(),
+                    row.Cells["Importe"].Value.ToString()
+                });
+            }
+
+            int CorrelativoEnBaseFactura = CreacionFactura.ObtenerNumeroFactura();
+            string NumeroFactura = string.Format("{0:00000000}", CorrelativoEnBaseFactura);
+            TextBoxTarifas();
+            NFactura factura = new NFactura()
+            {
+                empleado = new NEmpleado() { ID = Convert.ToInt32(labelIdEmpleado.Text) },
+                cliente = new NCliente() { ID = Convert.ToInt32(textBoxIdCliente.Text) },
+                NumeroFactura = NumeroFactura,
+                Subtotal = Convert.ToDecimal(txtSubTotal.Text),
+                MontoPago = Convert.ToDecimal(txtEfectivo.Text),
+                MontoCambio = Convert.ToDecimal(txtCambio.Text),
+                Iva = Convert.ToDecimal(txtIva.Text),
+                Descuento = Convert.ToDecimal((SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text)).ToString("0.00")),
+                Total = Convert.ToDecimal(txtTotalPagar.Text)
+            };
+
+            string Mensaje = string.Empty;
+            int respuesta = CreacionFactura.RegistrarFacturacion(factura, DetalleFactura, out Mensaje);
+
+            if (respuesta == 1)
+            {
+
+                var result = MessageBox.Show("Numero de factura : \n" + NumeroFactura + "\n ¿Desea copiarlo en portapapeles ?", "Informacion",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Clipboard.SetText(NumeroFactura);
+                }
+                Limpiar();
+                limpiarLuegoVenta();
+            }
+        }
+        void limpiarLuegoVenta()
+        {
+            textBoxIdCliente.Text = "";
+            comboBoxClientes.Text = "";
+            textBoxBusquedaCliente.Text = "";
+            txtSubTotal.Text = "";
+            txtIva.Text = "";
+            comboBoxDescuento.Text = "";
+            txtTotalPagar.Text = "";
+            txtEfectivo.Text = "";
+            txtCambio.Text = "";
+            comboBoxDescuento.Text = ""; 
+            DataGrillaProductosVenta.Rows.Clear();
+        }
         private void CargarComboBoxClientes()
         {
-            List<Cliente> listaCliente = NuevaFuncionesClientes.Listar();
-            foreach (Cliente item in listaCliente)
-            { 
-                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = item.Descripcion });
+            foreach (NCliente item in listaCliente)
+            {
+                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
             }
-            comboBoxClientes.SelectedIndex = 0;
+            //comboBoxClientes.SelectedIndex = 0;
             comboBoxClientes.DisplayMember = "Texto";
             comboBoxClientes.ValueMember = "Valor";
         }
-
     }
 }

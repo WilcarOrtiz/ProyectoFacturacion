@@ -21,7 +21,7 @@ namespace Presentacion_GUI
 {
     public partial class FrmVistaProductos : Form
     {
-        Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
+        
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new NuevasFuncionesProductos();
 
        
@@ -106,12 +106,12 @@ namespace Presentacion_GUI
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 0)
             {
                 String Codigo = GrillaCatalogo.Rows[fila].Cells[2].Value.ToString();
-                MessageBox.Show(funcionesProductos.EliminarProducto(funcionesProductos.ObtenerPorCodigo(Codigo)));
+             //   MessageBox.Show(funcionesProductos.EliminarProducto(funcionesProductos.ObtenerPorCodigo(Codigo)));
                 CargarTabla();
             }
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 1)
             {
-                if (funcionesProductos.GetAllProductos().Count != 0)
+                if (NuevasFuncionesProductos.Listar().Count != 0)
                 {
                     VistaParaProductos(NuevasFuncionesProductos.Listar()[e.RowIndex]);
                     CargarTabla();
@@ -133,9 +133,6 @@ namespace Presentacion_GUI
         {
             GenerarPDF();
         }
-        /// <summary>
-        /// //
-        /// </summary>
         public void GenerarPDF()
         {
             {
@@ -158,7 +155,7 @@ namespace Presentacion_GUI
                     filas += "<td>" + item.PrecioVenta.ToString() + "</td>";
                     filas += "<td>" + item.PrecioCompra.ToString() + "</td>";
                     filas += "</tr>";
-                    total += funcionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
+                   total += NuevasFuncionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
                 }
                 MessageBox.Show(total.ToString());
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);

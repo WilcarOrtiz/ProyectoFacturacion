@@ -30,7 +30,7 @@ namespace Datos
             return "ingreso exitoso";
         }
 
-        public String GuardarClientes(Cliente Persona)
+        public String GuardarClientes(NCliente Persona)
         {
             StreamWriter sw = new StreamWriter(ruta, true);
             sw.WriteLine(Persona.ToString());

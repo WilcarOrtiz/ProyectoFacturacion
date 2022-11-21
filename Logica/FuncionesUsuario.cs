@@ -48,17 +48,5 @@ namespace Logica
             return repositorioUsuario.GetAll();
         }
 
-
-        public bool Login(String usuario, String contra)
-        {
-            foreach (Usuario item in GetAll())
-            {
-                if (usuario == item.Cedula & contra == item.Contraseña)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }

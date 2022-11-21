@@ -19,7 +19,7 @@ namespace Presentacion_GUI
     public partial class FrmProductos : Form
     {
 
-        Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
+    
         NuevasFuncionesProductos procesosProductos = new NuevasFuncionesProductos();
         Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
@@ -89,17 +89,7 @@ namespace Presentacion_GUI
                 {
                     MessageBox.Show("Debe ingresar un codigo correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
-                else
-                {
-                    if (funcionesProductos.ObtenerPorCodigo(txtCodigo.Text) == null)
-                    {
-                        txtNombreProduc.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El codigo ya existe para otro producto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    }
-                }
+
             }
         }
 
@@ -185,24 +175,6 @@ namespace Presentacion_GUI
             }
         }
 
-        void GuardarP()
-        {
-            int Cant = 0;
-            var Articulo = new Entidades.ProductoComprado();
-            Articulo.ID = funcionesProductos.GetById().ToString();
-            Articulo.Codigo = txtCodigo.Text;
-            Articulo.NombreProducto = txtNombreProduc.Text;
-            Articulo.Descripcion = txtDescrip.Text;
-            Cant = (int)Cantidad.Value;
-            Articulo.Unidades = (funcionesProductos.CantidadUnitaria(cmbUnidades.Text.ToString()) * Cant);
-            int Val = Articulo.Unidades;
-            Articulo.PrecioC = float.Parse(txtPrecioC.Text);
-            Articulo.PrecioV = float.Parse(txtPrecioV.Text);
-            var Respuesta = funcionesProductos.AgregarProducto(Articulo);
-            MessageBox.Show(Respuesta, "MESSAGE", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
         public void RestablecerProductos()
         {
             txtCodigo.Text = "";
@@ -231,14 +203,7 @@ namespace Presentacion_GUI
             return false;
         }
 
-        void CargarGrillaProductos()
-        {
-            GrillaProductos.Rows.Clear();
-            foreach (var item in funcionesProductos.GetAllProductos())
-            {
-                GrillaProductos.Rows.Add(item.Codigo, item.NombreProducto, item.Descripcion, item.Unidades, item.PrecioC, item.PrecioV);
-            }
-        }
+
 
 
 
@@ -257,8 +222,6 @@ namespace Presentacion_GUI
             cbnCategoria.DisplayMember = "Texto";
             cbnCategoria.ValueMember = "Valor";
         }
-
-
         private void CargarLisBoxEstado()
         {
             List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
@@ -272,15 +235,11 @@ namespace Presentacion_GUI
         }
 
         #endregion
-
-
         private void FrmProductos_Load(object sender, EventArgs e)
         {
             CargarLisBoxEstado();
             CargarLisBoxCategoria();
         }
-
-
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
@@ -291,35 +250,44 @@ namespace Presentacion_GUI
 
         public void GuardarProducto()
         {
-            String Mensaje = String.Empty;
-            int Cant = 0;
-            Cant = (int)Cantidad.Value;
-            NProducto obj = new NProducto()
+            if (vacioProductos() == true)
             {
-                
-                Codigo = txtCodigo.Text,
-                Nombre = txtNombreProduc.Text,
-                Descripcion = txtDescrip.Text,
-                PCategoria = new NCategoria { IdCategoria = (int)(((OpcionesCombo)cbnCategoria.SelectedItem).Valor) },
-                Stock = (funcionesProductos.CantidadUnitaria(cmbUnidades.Text.ToString()) * Cant),
-                PrecioCompra = decimal.Parse(txtPrecioC.Text),
-                PrecioVenta = decimal.Parse(txtPrecioV.Text),
-                PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstado.SelectedItem).Valor) }
-               
-            };
-            int IdGenerado = procesosProductos.Registrar(obj, out Mensaje);
-            GrillaProductos.Rows.Add("",obj.Codigo,obj.Nombre,obj.Descripcion,cbnCategoria.Text, obj.Stock,obj.PrecioCompra,obj.PrecioVenta);
-            if (IdGenerado == 0)
-            {
-                MessageBox.Show(Mensaje);
+                MessageBox.Show("Algun Campo esta vacio..");
             }
             else
             {
-                MessageBox.Show("Producto ingresado en bodega");
+
+                String Mensaje = String.Empty;
+                int Cant = 0;
+                Cant = (int)Cantidad.Value;
+                NProducto obj = new NProducto()
+                {
+
+                    Codigo = txtCodigo.Text,
+                    Nombre = txtNombreProduc.Text,
+                    Descripcion = txtDescrip.Text,
+                    PCategoria = new NCategoria { IdCategoria = (int)(((OpcionesCombo)cbnCategoria.SelectedItem).Valor) },
+                    Stock = (procesosProductos.CantidadUnitaria(cmbUnidades.Text.ToString()) * Cant),
+                    PrecioCompra = decimal.Parse(txtPrecioC.Text),
+                    PrecioVenta = decimal.Parse(txtPrecioV.Text),
+                    PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstado.SelectedItem).Valor) }
+
+                };
+                int IdGenerado = procesosProductos.Registrar(obj, out Mensaje);
+                if (IdGenerado == 0)
+                {
+                    MessageBox.Show(Mensaje);
+                }
+                else
+                {
+                    GrillaProductos.Rows.Add("", obj.Codigo, obj.Nombre, obj.Descripcion, cbnCategoria.Text, obj.Stock, obj.PrecioCompra, obj.PrecioVenta);
+                    MessageBox.Show("Producto ingresado en bodega");
+                }
             }
         }
-        }
-
 
     }
+
+
+}
 

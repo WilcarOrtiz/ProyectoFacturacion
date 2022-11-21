@@ -13,7 +13,6 @@ namespace Entidades
         public String Nombre { get; set; }
         public String Descripcion { get; set; }
         public NEstado PEstado { get; set; }
-
         public NCategoria PCategoria { get; set; }
         public int Stock { get; set; }
         public decimal PrecioCompra { get; set; }

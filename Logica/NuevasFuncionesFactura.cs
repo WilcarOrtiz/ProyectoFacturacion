@@ -2,38 +2,16 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class CreacionFactura
+    public class NuevasFuncionesFactura
     {
-
-        Logica.FuncionesProducto funcionesProductos = new Logica.FuncionesProducto();
-        Datos.RepositorioProducto RepositorioProducto = new Datos.RepositorioProducto();
-
-        List<ProductoComprado> products;
-
-
-
-        public Boolean Stock( string Codigo,int Cantidad)
-        {
-            foreach (var item in funcionesProductos.GetAllProductos())
-            {
-                if (item.Codigo.Equals(Codigo))
-                {
-                    if (Cantidad <= item.Unidades)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false; 
-        }
-
-
+        private NuevoRespositorioFactura NuevoRespositorioFactura = new NuevoRespositorioFactura(); 
         public int Cantidad(String Unidad, int Cantidad)
         {
             //CALCULA LA CANTIDAD DE PRODUCTO A LLEVAR BASANDOSE EN LA UNIDAD 
@@ -58,10 +36,7 @@ namespace Logica
             }
             return (Cant*Cantidad);
         }
-
-
-
-        public double Descuento(String Descuento)
+        public decimal Descuento(String Descuento)
         {
             //CALCULA EL VALOR DEL DESCUENTO DECIMAL 
            double Desc = 0;
@@ -90,39 +65,24 @@ namespace Logica
                     break;
 
             }
-            return Desc;
+            return (decimal)Desc;
         }
-
-        public string RestarStock(List<string> codigoProdVendidos, List<int> cantProdVendidos)
+        public int RegistrarFacturacion(NFactura obj, DataTable DetellaFactura, out string Mensaje)
         {
-            products = new List<ProductoComprado>();
-            products = funcionesProductos.GetAllProductos();
-            foreach (var item in products)
-            {
-                foreach (var itemCod in codigoProdVendidos)
-                {
-
-                    if (item.Codigo == itemCod)
-                    {
-
-                        foreach (var itemCant in cantProdVendidos)
-                        {
-                            item.Unidades = (item.Unidades - itemCant);
-                            cantProdVendidos.Remove(itemCant);
-                            break;
-                        }
-
-
-                    }
-                    codigoProdVendidos.Remove(itemCod);
-                    break;
-                }
-            }
-            RepositorioProducto.Actualizar(products,false);
-
-            return "Venta realizada con exito";
+            return NuevoRespositorioFactura.RegistrarFacturacion(obj, DetellaFactura, out Mensaje); 
         }
+        public bool AumentarStock(int IdProducto, int Cantidad)
+        {
+            return NuevoRespositorioFactura.AumentarStock( IdProducto,  Cantidad);   
+        }
+        public bool RestarStock(int IdProducto, int Cantidad)
+        {
 
-
+            return NuevoRespositorioFactura.RestarStock(IdProducto, Cantidad);
+        }
+        public int ObtenerNumeroFactura()
+        {
+            return NuevoRespositorioFactura.ObtenerNumeroFactura(); 
+     }
     }
 }

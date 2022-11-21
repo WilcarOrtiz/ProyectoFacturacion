@@ -33,12 +33,12 @@ namespace Datos
             {
                 var empleado = new Empleado();
 
-                empleado.ID = linea.Split(';')[0];    
-                empleado.Cedula = linea.Split(';')[1];
-                empleado.Nombre = linea.Split(';')[2];
-                empleado.Apellido = linea.Split(';')[3];
-                empleado.Telefono = linea.Split(';')[4];
-                empleado.Correo = linea.Split(';')[5];
+                //empleado.ID = linea.Split(';')[0];    
+                //empleado.Cedula = linea.Split(';')[1];
+                //empleado.Nombre = linea.Split(';')[2];
+                //empleado.Apellido = linea.Split(';')[3];
+                //empleado.Telefono = linea.Split(';')[4];
+                //empleado.Correo = linea.Split(';')[5];
 
                 return empleado;
             }

@@ -26,6 +26,35 @@ namespace Datos
             throw new NotImplementedException();
         }
 
+
+        public int Login(String Cedula, string Contraseña, out string Mensaje)
+        {
+            int idUsuario = 0;
+            Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_LOGIN", objconexion);
+                    cmd.Parameters.AddWithValue("Cedula", Cedula);
+                    cmd.Parameters.AddWithValue("Contraseña", Contraseña);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+                    cmd.ExecuteNonQuery();
+                    idUsuario = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idUsuario = 0;
+                Mensaje = EX.Message;
+            }
+            return idUsuario;
+        }
+
         public int Registrar(Usuario obj, out string Mensaje)
         {
             int idEmpleadoGenerado = 0;
