@@ -93,6 +93,40 @@ namespace Datos
         {
             throw new NotImplementedException();
         }
+
+
+        public int UsuarioEmpleado(int Id)
+        {
+            using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    objconexion.Open();
+                    StringBuilder query = new StringBuilder();
+                    query.AppendLine("SELECT IdEmpleado From Empleado");
+                    query.AppendLine(" where F.NumeroFactura = @Id");
+
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.CommandType = System.Data.CommandType.Text;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Id = Convert.ToInt32(dr["IdEmpleado"]); 
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Id = 0; 
+                }
+            }
+            return Id; 
+        }
+
     }
 } 
 

@@ -42,6 +42,9 @@ namespace Logica
            double Desc = 0;
             switch (Descuento)
             {
+                case "0%":
+                    Desc = 0.0;
+                    break;
                 case "4%":
                     Desc = 0.04; 
                     break;

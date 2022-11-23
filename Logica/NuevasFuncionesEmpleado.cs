@@ -26,7 +26,12 @@ namespace Logica
             return repositorioEmpleado.Listar();
         }
 
-        public int Registrar(NEmpleado obj, out string Mensaje)
+
+        public int UsuarioEmpleado(int Id)
+        {
+            return repositorioEmpleado.UsuarioEmpleado(Id); 
+        }
+            public int Registrar(NEmpleado obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }

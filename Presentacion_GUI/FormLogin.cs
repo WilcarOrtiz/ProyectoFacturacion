@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades; 
-
+using Entidades;
+using System.Diagnostics;
 
 namespace Presentacion_GUI
 {
@@ -25,10 +25,10 @@ namespace Presentacion_GUI
 
         Logica.NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario(); 
         FormularioPrincipal principal;
+
         public FormLogin()
         {
             InitializeComponent();
-            btnErroMessage.Visible = false;
         }
 
         public void Acceder()
@@ -36,7 +36,8 @@ namespace Presentacion_GUI
             String Mensaje = String.Empty;
             if (txtContraseña.Text == "" || txtUsuario.Text == "")
             {
-                btnErroMessage.Visible = true; 
+                btnErroMessage.Visible = true;
+                btnErroMessage.Text = "Debe llenar los campos";
             }
             else
             {
@@ -45,24 +46,31 @@ namespace Presentacion_GUI
                 int IdGenerado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
                 if (IdGenerado!=0)
                 {
- 
                     Usuario usuario = new Usuario();
                     usuario.ID = IdGenerado;
                     usuario.Cedula = Usuario;
                     usuario.Contraseña = txtContraseña.Text;
                     principal = new FormularioPrincipal(usuario);
                     principal.Show();
-                    this.Visible = false; 
+                    this.Visible = false;
                     btnErroMessage.Visible = false;
                 }
                 else
                 {
-                    MessageBox.Show("Ususario incorrecto");
+                    btnErroMessage.Visible = true;
+                    btnErroMessage.Text = "Usuario o contraseña incorrectos";
+                    Restablecer();
                 }
             }
         }
 
-        private void btnEmpleado_Click(object sender, EventArgs e)
+        public void Restablecer()
+        {
+            txtUsuario.Text = "";
+            txtContraseña.Text = "" ; 
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
         {
             Acceder();      
         }
@@ -80,8 +88,6 @@ namespace Presentacion_GUI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            //FormularioPrincipal formularioPrincipal = new FormularioPrincipal();
-            //formularioPrincipal.Close();
             Application.Exit();        
         }
 
@@ -92,6 +98,27 @@ namespace Presentacion_GUI
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {  
+                    txtContraseña.Focus();             
+            } 
+        }
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                    btnIngresar.PerformClick();        
             }
         }
     }

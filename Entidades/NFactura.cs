@@ -21,5 +21,6 @@ namespace Entidades
         public decimal MontoCambio { get; set; }
         public decimal MontoPago { get; set; }
         public decimal Total { get; set; }
+        public List<Detalle_Facturas> detalle_Facturas { get; set; }
     }
 }

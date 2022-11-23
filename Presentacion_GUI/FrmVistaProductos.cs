@@ -139,6 +139,10 @@ namespace Presentacion_GUI
                 SaveFileDialog Guardar = new SaveFileDialog();
                 string TituloPdf = DateTime.Now.ToString("REPORTE (dd/MM/yyyy)");
                 Guardar.FileName = TituloPdf + ".pdf";
+                /////////
+                Guardar.Filter = "pd Files|*.pdf";
+                //////
+
                 string PaginaHTML_Texto = Properties.Resources.Plantilla.ToString();
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
                 string filas = string.Empty;
@@ -157,7 +161,6 @@ namespace Presentacion_GUI
                     filas += "</tr>";
                    total += NuevasFuncionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
                 }
-                MessageBox.Show(total.ToString());
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", total.ToString());
 

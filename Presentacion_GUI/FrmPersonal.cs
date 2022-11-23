@@ -44,15 +44,11 @@ namespace Presentacion_GUI
             public NEstado Estado;
         }
 
-
-
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
             CargarTabla();
             CargarLisBoxEstado();
         }
-
-
 
         #region Validaciones
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -308,8 +304,6 @@ namespace Presentacion_GUI
 
         #endregion
 
-
-
         public void EditarEmpleado(NEmpleado empleado)
         {
             Datos informacion;
@@ -323,12 +317,11 @@ namespace Presentacion_GUI
             FrmEditarEmpleado frmEditar = new FrmEditarEmpleado(informacion);
             frmEditar.ShowDialog();
         }
+
         private void GrillaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             posicion = e.RowIndex;
         }
-
-
 
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
@@ -345,6 +338,7 @@ namespace Presentacion_GUI
                     break;
             }
         }
+
         protected override CreateParams CreateParams
         {
             get
@@ -354,6 +348,7 @@ namespace Presentacion_GUI
                 return cp;
             }
         }
+
         private void CargarLisBoxEstado()
         {
             List<NEstado> listaEstados = NuevasFuncionEstado.Listar();
@@ -365,6 +360,7 @@ namespace Presentacion_GUI
             cmbEstado.DisplayMember = "Texto";
             cmbEstado.ValueMember = "Valor";
         }
+
         void CargarTabla()
         {
             Tabla = new DataTable();

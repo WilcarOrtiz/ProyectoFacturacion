@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="FuncionesCliente.cs" />
     <Compile Include="FuncionesEmpleado.cs" />
+    <Compile Include="NuevasFuncionesDetalles_Factura.cs" />
     <Compile Include="NuevasFuncionesFactura.cs" />
     <Compile Include="FuncionesUsuario.cs" />
     <Compile Include="IFacturacion.cs" />

@@ -285,7 +285,6 @@ namespace Presentacion_GUI
                 }
             }
         }
-
     }
 
 

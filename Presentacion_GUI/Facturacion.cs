@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using Entidades;
 using Logica;
 using Presentacion_GUI.Utilidades;
 using System;
@@ -15,14 +16,13 @@ namespace Presentacion_GUI
 {
     public partial class Facturacion : Form
     {
-        private Usuario usuario;
-      
+
+
         Logica.NuevasFuncionesFactura CreacionFactura = new Logica.NuevasFuncionesFactura();
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new Logica.NuevasFuncionesProductos();
         Logica.NuevasFuncionesCliente NuevaFuncionesClientes = new NuevasFuncionesCliente();
 
-        List<String> CodigoProdVendidos;
-        List<int> CantProdVendidos;
+
         decimal SubTotal, SubtotalSinDescuento;
         List<NCliente> listaCliente;
         List<NProducto> listaProducto;
@@ -30,8 +30,6 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
             labelIdEmpleado.Text = IdEmpleado.ToString();
-            CodigoProdVendidos = new List<String>();
-            CantProdVendidos = new List<int>();
             listaCliente = NuevaFuncionesClientes.Listar();
             listaProducto = NuevasFuncionesProductos.Listar();
         }
@@ -77,11 +75,20 @@ namespace Presentacion_GUI
             }
 
 
-            NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text && p.PEstado.Descripcion == "Activo").FirstOrDefault();
-            if (nProducto.Stock < CantidadLLevar)
+            NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text && p.PEstado.Descripcion != "Activo").FirstOrDefault();
+            if (nProducto.Stock <= CantidadLLevar )
             {
-                MessageBox.Show("No hay producto disponible \ninforme al administrador", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                var result = MessageBox.Show("Solo tiene disponible  : \n" + nProducto.Stock + "\n ¿Desea realizar la venta ?", "Informacion",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    CantidadLLevar = nProducto.Stock;
+                }
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+              
             }
 
             foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
@@ -192,8 +199,30 @@ namespace Presentacion_GUI
         {
             if (e.KeyData == Keys.Enter)
             {
-                NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text
-                && p.PEstado.Descripcion == "Activo").FirstOrDefault();
+                NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text).FirstOrDefault();
+
+
+                if (nProducto == null)
+                {
+                    MessageBox.Show("El producto no se encuentra registrado", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (nProducto.Stock == 0)
+                {
+                    MessageBox.Show("No tiene stock de este producto ", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                if (nProducto.PEstado.Descripcion != "Activo")
+                {
+
+                    MessageBox.Show("El producto no se encuentra disponible", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
                 if (nProducto != null)
                 {
                     textBoxIdProducto.Text = nProducto.IdProducto.ToString();
@@ -301,13 +330,10 @@ namespace Presentacion_GUI
                 Descuento = Convert.ToDecimal((SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text)).ToString("0.00")),
                 Total = Convert.ToDecimal(txtTotalPagar.Text)
             };
-
             string Mensaje = string.Empty;
             int respuesta = CreacionFactura.RegistrarFacturacion(factura, DetalleFactura, out Mensaje);
-
             if (respuesta == 1)
             {
-
                 var result = MessageBox.Show("Numero de factura : \n" + NumeroFactura + "\n ¿Desea copiarlo en portapapeles ?", "Informacion",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -329,18 +355,34 @@ namespace Presentacion_GUI
             txtTotalPagar.Text = "";
             txtEfectivo.Text = "";
             txtCambio.Text = "";
-            comboBoxDescuento.Text = ""; 
+            comboBoxDescuento.SelectedIndex=1;
             DataGrillaProductosVenta.Rows.Clear();
         }
-        private void CargarComboBoxClientes()
+
+        private void comboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (NCliente item in listaCliente)
+            NFactura nFactura = new NFactura()
             {
-                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
-            }
-            //comboBoxClientes.SelectedIndex = 0;
-            comboBoxClientes.DisplayMember = "Texto";
-            comboBoxClientes.ValueMember = "Valor";
+                cliente = new NCliente { ID = (int)(((OpcionesCombo)comboBoxClientes.SelectedItem).Valor) }
+            };
+
+
+            textBoxIdCliente.Text = nFactura.cliente.ID.ToString();
         }
+
+
+    
+
+
+    private void CargarComboBoxClientes()
+    {
+        foreach (NCliente item in listaCliente)
+        {
+            comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
+        }
+
+        comboBoxClientes.DisplayMember = "Texto";
+        comboBoxClientes.ValueMember = "Valor";
     }
+}
 }
