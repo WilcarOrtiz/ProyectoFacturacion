@@ -73,6 +73,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelIdEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBoxProductos = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrillaProductosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconFecha)).BeginInit();
             this.panel1.SuspendLayout();
@@ -101,12 +102,12 @@
             this.Unidades,
             this.Importe,
             this.Column7});
-            this.DataGrillaProductosVenta.Location = new System.Drawing.Point(31, 368);
+            this.DataGrillaProductosVenta.Location = new System.Drawing.Point(31, 400);
             this.DataGrillaProductosVenta.Name = "DataGrillaProductosVenta";
             this.DataGrillaProductosVenta.ReadOnly = true;
             this.DataGrillaProductosVenta.RowHeadersWidth = 62;
             this.DataGrillaProductosVenta.RowTemplate.Height = 28;
-            this.DataGrillaProductosVenta.Size = new System.Drawing.Size(810, 270);
+            this.DataGrillaProductosVenta.Size = new System.Drawing.Size(810, 234);
             this.DataGrillaProductosVenta.TabIndex = 19;
             this.DataGrillaProductosVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrillaProductosVenta_CellClick);
             // 
@@ -170,7 +171,7 @@
             this.btnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardarVenta.IconSize = 32;
             this.btnGuardarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarVenta.Location = new System.Drawing.Point(326, 660);
+            this.btnGuardarVenta.Location = new System.Drawing.Point(325, 660);
             this.btnGuardarVenta.Name = "btnGuardarVenta";
             this.btnGuardarVenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuardarVenta.Size = new System.Drawing.Size(234, 40);
@@ -220,7 +221,7 @@
             this.btnAñadir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAñadir.IconSize = 32;
             this.btnAñadir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAñadir.Location = new System.Drawing.Point(515, 272);
+            this.btnAñadir.Location = new System.Drawing.Point(479, 321);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnAñadir.Size = new System.Drawing.Size(197, 44);
@@ -375,7 +376,7 @@
             // 
             // textBoxBusquedaProducto
             // 
-            this.textBoxBusquedaProducto.Location = new System.Drawing.Point(134, 199);
+            this.textBoxBusquedaProducto.Location = new System.Drawing.Point(120, 164);
             this.textBoxBusquedaProducto.Name = "textBoxBusquedaProducto";
             this.textBoxBusquedaProducto.Size = new System.Drawing.Size(147, 26);
             this.textBoxBusquedaProducto.TabIndex = 52;
@@ -391,7 +392,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(132, 149);
+            this.iconButton1.Location = new System.Drawing.Point(115, 111);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton1.Size = new System.Drawing.Size(132, 44);
@@ -404,7 +405,7 @@
             // textBoxPrecio
             // 
             this.textBoxPrecio.Enabled = false;
-            this.textBoxPrecio.Location = new System.Drawing.Point(136, 290);
+            this.textBoxPrecio.Location = new System.Drawing.Point(120, 252);
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.ReadOnly = true;
             this.textBoxPrecio.Size = new System.Drawing.Size(134, 26);
@@ -413,6 +414,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panel1.Controls.Add(this.comboBoxProductos);
             this.panel1.Controls.Add(this.iconFecha);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label11);
@@ -459,7 +461,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Azure;
-            this.label11.Location = new System.Drawing.Point(308, 250);
+            this.label11.Location = new System.Drawing.Point(320, 217);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 20);
@@ -470,7 +472,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.Color.Azure;
-            this.label10.Location = new System.Drawing.Point(138, 251);
+            this.label10.Location = new System.Drawing.Point(122, 215);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 20);
@@ -480,10 +482,10 @@
             // textNombreProducto
             // 
             this.textNombreProducto.Enabled = false;
-            this.textNombreProducto.Location = new System.Drawing.Point(361, 199);
+            this.textNombreProducto.Location = new System.Drawing.Point(375, 164);
             this.textNombreProducto.Name = "textNombreProducto";
             this.textNombreProducto.ReadOnly = true;
-            this.textNombreProducto.Size = new System.Drawing.Size(161, 26);
+            this.textNombreProducto.Size = new System.Drawing.Size(256, 26);
             this.textNombreProducto.TabIndex = 66;
             // 
             // textBoxIdCliente
@@ -528,7 +530,7 @@
             // textBoxIdProducto
             // 
             this.textBoxIdProducto.Enabled = false;
-            this.textBoxIdProducto.Location = new System.Drawing.Point(316, 199);
+            this.textBoxIdProducto.Location = new System.Drawing.Point(330, 164);
             this.textBoxIdProducto.Name = "textBoxIdProducto";
             this.textBoxIdProducto.ReadOnly = true;
             this.textBoxIdProducto.Size = new System.Drawing.Size(34, 26);
@@ -537,7 +539,7 @@
             // ComboBoxCantidad
             // 
             this.ComboBoxCantidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ComboBoxCantidad.Location = new System.Drawing.Point(552, 199);
+            this.ComboBoxCantidad.Location = new System.Drawing.Point(510, 252);
             this.ComboBoxCantidad.Minimum = new decimal(new int[] {
             1,
             0,
@@ -561,7 +563,7 @@
             "UNIDAD",
             "CAJA (24 Unds)",
             "CANASTA (30 Unds)"});
-            this.ComboBoxUnidades.Location = new System.Drawing.Point(306, 287);
+            this.ComboBoxUnidades.Location = new System.Drawing.Point(318, 252);
             this.ComboBoxUnidades.Name = "ComboBoxUnidades";
             this.ComboBoxUnidades.Size = new System.Drawing.Size(140, 28);
             this.ComboBoxUnidades.TabIndex = 60;
@@ -570,7 +572,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Azure;
-            this.label3.Location = new System.Drawing.Point(545, 161);
+            this.label3.Location = new System.Drawing.Point(503, 216);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
@@ -581,7 +583,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Azure;
-            this.label2.Location = new System.Drawing.Point(312, 161);
+            this.label2.Location = new System.Drawing.Point(326, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 20);
             this.label2.TabIndex = 22;
@@ -614,6 +616,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(436, 247);
             this.panel2.TabIndex = 58;
+            // 
+            // comboBoxProductos
+            // 
+            this.comboBoxProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxProductos.FormattingEnabled = true;
+            this.comboBoxProductos.Location = new System.Drawing.Point(120, 330);
+            this.comboBoxProductos.Name = "comboBoxProductos";
+            this.comboBoxProductos.Size = new System.Drawing.Size(310, 28);
+            this.comboBoxProductos.TabIndex = 71;
+            this.comboBoxProductos.SelectedIndexChanged += new System.EventHandler(this.comboBoxProductos_SelectedIndexChanged);
             // 
             // Facturacion
             // 
@@ -685,5 +697,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column7;
         private System.Windows.Forms.TextBox labelIdEmpleado;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxProductos;
     }
 }

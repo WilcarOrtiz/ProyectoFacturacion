@@ -37,6 +37,7 @@ namespace Presentacion_GUI
         {
             textFecha.Text = DateTime.Now.ToString();
             CargarComboBoxClientes();
+            CargarComboBoxProductos();
         }
         public int Cantidad()
         {
@@ -75,8 +76,8 @@ namespace Presentacion_GUI
             }
 
 
-            NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text && p.PEstado.Descripcion != "Activo").FirstOrDefault();
-            if (nProducto.Stock <= CantidadLLevar )
+            NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text && p.PEstado.Descripcion == "Activo").FirstOrDefault();
+            if (nProducto.Stock <= CantidadLLevar)
             {
                 var result = MessageBox.Show("Solo tiene disponible  : \n" + nProducto.Stock + "\n ¿Desea realizar la venta ?", "Informacion",
                   MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -88,7 +89,7 @@ namespace Presentacion_GUI
                 {
                     return;
                 }
-              
+
             }
 
             foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
@@ -122,6 +123,7 @@ namespace Presentacion_GUI
         }
         public void Limpiar()
         {
+            comboBoxProductos.Text = ""; 
             textBoxBusquedaProducto.Text = "";
             ComboBoxUnidades.Text = "";
             ComboBoxCantidad.Value = 1;
@@ -346,8 +348,10 @@ namespace Presentacion_GUI
         }
         void limpiarLuegoVenta()
         {
+            comboBoxProductos.Text = "";
             textBoxIdCliente.Text = "";
             comboBoxClientes.Text = "";
+            comboBoxProductos.Text = "";
             textBoxBusquedaCliente.Text = "";
             txtSubTotal.Text = "";
             txtIva.Text = "";
@@ -355,7 +359,7 @@ namespace Presentacion_GUI
             txtTotalPagar.Text = "";
             txtEfectivo.Text = "";
             txtCambio.Text = "";
-            comboBoxDescuento.SelectedIndex=1;
+            comboBoxDescuento.Text= "";
             DataGrillaProductosVenta.Rows.Clear();
         }
 
@@ -371,18 +375,41 @@ namespace Presentacion_GUI
         }
 
 
-    
-
-
-    private void CargarComboBoxClientes()
-    {
-        foreach (NCliente item in listaCliente)
+        private void CargarComboBoxClientes()
         {
-            comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
+            foreach (NCliente item in listaCliente)
+            {
+                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
+            }
+
+            comboBoxClientes.DisplayMember = "Texto";
+            comboBoxClientes.ValueMember = "Valor";
         }
 
-        comboBoxClientes.DisplayMember = "Texto";
-        comboBoxClientes.ValueMember = "Valor";
+        private void comboBoxProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NProducto nProducto =  new NProducto { 
+                IdProducto = (int)(((OpcionesCombosProductos)comboBoxProductos.SelectedItem).Valor),
+                Nombre = ((OpcionesCombosProductos)comboBoxProductos.SelectedItem).Nombre.ToString(),
+                PrecioVenta = Convert.ToDecimal(((OpcionesCombosProductos)comboBoxProductos.SelectedItem).PrecioVenta),
+                Codigo= ((OpcionesCombosProductos)comboBoxProductos.SelectedItem).Codigo.ToString()
+            };
+
+            textBoxPrecio.Text = nProducto.PrecioVenta.ToString("0.00");
+            textBoxIdProducto.Text = nProducto.IdProducto.ToString();
+            textNombreProducto.Text = nProducto.Nombre.ToString();
+            textBoxBusquedaProducto.Text = nProducto.Codigo.ToString(); 
+
+        }
+
+        private void CargarComboBoxProductos()
+        {
+            foreach (NProducto item in NuevasFuncionesProductos.Listar())
+            {
+                comboBoxProductos.Items.Add(new OpcionesCombosProductos () { Valor = item.IdProducto, Nombre = item.Nombre, Codigo = item.Codigo, PrecioVenta= item.PrecioVenta  });
+            }
+            comboBoxProductos.DisplayMember = "Nombre";
+            comboBoxProductos.ValueMember = "Valor";
+        }
     }
-}
 }
