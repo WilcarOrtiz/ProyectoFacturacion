@@ -74,7 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelIdEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnCancelarVenta = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrillaProductosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconFecha)).BeginInit();
             this.panel1.SuspendLayout();
@@ -172,10 +172,10 @@
             this.btnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardarVenta.IconSize = 32;
             this.btnGuardarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarVenta.Location = new System.Drawing.Point(89, 660);
+            this.btnGuardarVenta.Location = new System.Drawing.Point(98, 653);
             this.btnGuardarVenta.Name = "btnGuardarVenta";
             this.btnGuardarVenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnGuardarVenta.Size = new System.Drawing.Size(234, 40);
+            this.btnGuardarVenta.Size = new System.Drawing.Size(283, 61);
             this.btnGuardarVenta.TabIndex = 39;
             this.btnGuardarVenta.Text = "Registrar Venta";
             this.btnGuardarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -396,7 +396,7 @@
             this.iconButton1.Location = new System.Drawing.Point(115, 111);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton1.Size = new System.Drawing.Size(132, 44);
+            this.iconButton1.Size = new System.Drawing.Size(189, 44);
             this.iconButton1.TabIndex = 53;
             this.iconButton1.Text = "Buscar";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -628,27 +628,28 @@
             this.panel2.Size = new System.Drawing.Size(436, 247);
             this.panel2.TabIndex = 58;
             // 
-            // iconButton2
+            // btnCancelarVenta
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.Green;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.ForeColor = System.Drawing.Color.Azure;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.iconButton2.IconColor = System.Drawing.Color.Azure;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 32;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(510, 660);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton2.Size = new System.Drawing.Size(234, 40);
-            this.iconButton2.TabIndex = 59;
-            this.iconButton2.Text = "Registrar Venta";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.btnCancelarVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelarVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelarVenta.FlatAppearance.BorderSize = 0;
+            this.btnCancelarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVenta.ForeColor = System.Drawing.Color.Azure;
+            this.btnCancelarVenta.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.btnCancelarVenta.IconColor = System.Drawing.Color.Azure;
+            this.btnCancelarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCancelarVenta.IconSize = 32;
+            this.btnCancelarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarVenta.Location = new System.Drawing.Point(442, 653);
+            this.btnCancelarVenta.Name = "btnCancelarVenta";
+            this.btnCancelarVenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnCancelarVenta.Size = new System.Drawing.Size(267, 61);
+            this.btnCancelarVenta.TabIndex = 59;
+            this.btnCancelarVenta.Text = "Cancelar Venta";
+            this.btnCancelarVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelarVenta.UseVisualStyleBackColor = false;
+            this.btnCancelarVenta.Click += new System.EventHandler(this.btnCancelarVenta_Click);
             // 
             // Facturacion
             // 
@@ -656,7 +657,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1441, 726);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.btnCancelarVenta);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DataGrillaProductosVenta);
             this.Controls.Add(this.panel1);
@@ -722,6 +723,6 @@
         private System.Windows.Forms.TextBox labelIdEmpleado;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxProductos;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton btnCancelarVenta;
     }
 }

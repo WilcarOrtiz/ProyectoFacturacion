@@ -128,7 +128,7 @@ namespace Presentacion_GUI
 
 
                 SaveFileDialog Guardar = new SaveFileDialog();
-                Guardar.FileName = String.Format("Compra_{0}.pdf", textBoxBuscarFactura);
+                Guardar.FileName = String.Format("Compra_{0}.pdf", textBoxBuscarFactura.Text);
                 Guardar.Filter = "pdf Files|*.pdf";
                 if (Guardar.ShowDialog() == DialogResult.OK)
                 {
@@ -248,6 +248,7 @@ namespace Presentacion_GUI
             DataGrillaReportesFacturas.Rows.Clear();
             dateTimeFechaInicio.Text = DateTime.Now.ToString(); 
             dateTimeFechaFinal.Text = DateTime.Now.ToString();
+            textBoxTotalGenerado.Text = String.Empty;   
         }
         private void iconButton1_Click(object sender, EventArgs e)
         {

@@ -821,7 +821,7 @@
             this.btnBuscarReportesFiltro.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnBuscarReportesFiltro.Size = new System.Drawing.Size(225, 44);
             this.btnBuscarReportesFiltro.TabIndex = 55;
-            this.btnBuscarReportesFiltro.Text = "Añadir";
+            this.btnBuscarReportesFiltro.Text = "Buscar";
             this.btnBuscarReportesFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarReportesFiltro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarReportesFiltro.UseVisualStyleBackColor = true;

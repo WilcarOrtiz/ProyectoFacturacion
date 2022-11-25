@@ -48,10 +48,12 @@ namespace Presentacion_GUI
             this.btnAdministrador = new FontAwesome.Sharp.IconButton();
             this.btnCerrar = new FontAwesome.Sharp.IconButton();
             this.labelHoras = new System.Windows.Forms.Label();
+            this.iconPictureHora = new FontAwesome.Sharp.IconPictureBox();
             this.paneSubMenuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoFormularioHijoActual)).BeginInit();
             this.PanelSuperior.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureHora)).BeginInit();
             this.SuspendLayout();
             // 
             // panelLogo
@@ -328,10 +330,24 @@ namespace Presentacion_GUI
             this.labelHoras.AutoSize = true;
             this.labelHoras.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHoras.ForeColor = System.Drawing.Color.Azure;
-            this.labelHoras.Location = new System.Drawing.Point(913, 833);
+            this.labelHoras.Location = new System.Drawing.Point(1436, 832);
             this.labelHoras.Name = "labelHoras";
             this.labelHoras.Size = new System.Drawing.Size(0, 37);
             this.labelHoras.TabIndex = 3;
+            // 
+            // iconPictureHora
+            // 
+            this.iconPictureHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconPictureHora.ForeColor = System.Drawing.Color.Azure;
+            this.iconPictureHora.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
+            this.iconPictureHora.IconColor = System.Drawing.Color.Azure;
+            this.iconPictureHora.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureHora.IconSize = 38;
+            this.iconPictureHora.Location = new System.Drawing.Point(1383, 835);
+            this.iconPictureHora.Name = "iconPictureHora";
+            this.iconPictureHora.Size = new System.Drawing.Size(50, 38);
+            this.iconPictureHora.TabIndex = 4;
+            this.iconPictureHora.TabStop = false;
             // 
             // FormularioPrincipal
             // 
@@ -339,6 +355,7 @@ namespace Presentacion_GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1680, 883);
+            this.Controls.Add(this.iconPictureHora);
             this.Controls.Add(this.labelHoras);
             this.Controls.Add(this.PanelSuperior);
             this.Controls.Add(this.PanelContenedor);
@@ -353,6 +370,7 @@ namespace Presentacion_GUI
             this.PanelSuperior.ResumeLayout(false);
             this.PanelSuperior.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureHora)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,5 +407,6 @@ namespace Presentacion_GUI
         private FontAwesome.Sharp.IconButton btnAdministrador;
         private FontAwesome.Sharp.IconButton btnEmpleado;
         private System.Windows.Forms.Label labelHoras;
+        private FontAwesome.Sharp.IconPictureBox iconPictureHora;
     }
 }
