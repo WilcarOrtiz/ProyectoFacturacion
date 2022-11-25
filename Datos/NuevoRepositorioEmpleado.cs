@@ -97,6 +97,7 @@ namespace Datos
 
         public int UsuarioEmpleado(int Id)
         {
+            int IdIngresado = 0; 
             using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
             {
                 try
@@ -104,7 +105,7 @@ namespace Datos
                     objconexion.Open();
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT IdEmpleado From Empleado");
-                    query.AppendLine(" where F.NumeroFactura = @Id");
+                    query.AppendLine(" where IdEmpleado = @Id");
 
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
@@ -115,16 +116,16 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            Id = Convert.ToInt32(dr["IdEmpleado"]); 
+                            IdIngresado  = Convert.ToInt32(dr["IdEmpleado"]); 
                         }
                     }
                 }
                 catch (Exception)
                 {
-                    Id = 0; 
+                    IdIngresado = 0;
                 }
             }
-            return Id; 
+            return IdIngresado;
         }
 
     }

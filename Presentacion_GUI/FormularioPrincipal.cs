@@ -39,6 +39,11 @@ namespace Presentacion_GUI
             {
                 Deshabilitar();
             }
+            else
+            {
+                btnAdministrador.Visible= false;    
+            }
+       
             PersonalizarDiseño();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 60);
@@ -54,7 +59,7 @@ namespace Presentacion_GUI
         }
         private void Deshabilitar()
         {
-            btnAdministrador.Visible = false;
+            btnEmpleado.Visible = false;
         }
         private void AbrirFormEnPanel(object Formhijo)
         {

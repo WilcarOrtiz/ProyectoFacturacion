@@ -186,7 +186,7 @@ namespace Presentacion_GUI
             this.iconoFormularioHijoActual.IconColor = System.Drawing.Color.Azure;
             this.iconoFormularioHijoActual.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconoFormularioHijoActual.IconSize = 46;
-            this.iconoFormularioHijoActual.Location = new System.Drawing.Point(27, 12);
+            this.iconoFormularioHijoActual.Location = new System.Drawing.Point(29, 12);
             this.iconoFormularioHijoActual.Name = "iconoFormularioHijoActual";
             this.iconoFormularioHijoActual.Size = new System.Drawing.Size(53, 46);
             this.iconoFormularioHijoActual.TabIndex = 0;

@@ -59,6 +59,7 @@
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxProductos = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,7 +74,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelIdEmpleado = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBoxProductos = new System.Windows.Forms.ComboBox();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrillaProductosVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconFecha)).BeginInit();
             this.panel1.SuspendLayout();
@@ -171,7 +172,7 @@
             this.btnGuardarVenta.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardarVenta.IconSize = 32;
             this.btnGuardarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarVenta.Location = new System.Drawing.Point(325, 660);
+            this.btnGuardarVenta.Location = new System.Drawing.Point(89, 660);
             this.btnGuardarVenta.Name = "btnGuardarVenta";
             this.btnGuardarVenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuardarVenta.Size = new System.Drawing.Size(234, 40);
@@ -444,6 +445,16 @@
             this.panel1.Size = new System.Drawing.Size(1442, 520);
             this.panel1.TabIndex = 57;
             // 
+            // comboBoxProductos
+            // 
+            this.comboBoxProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxProductos.FormattingEnabled = true;
+            this.comboBoxProductos.Location = new System.Drawing.Point(120, 330);
+            this.comboBoxProductos.Name = "comboBoxProductos";
+            this.comboBoxProductos.Size = new System.Drawing.Size(310, 28);
+            this.comboBoxProductos.TabIndex = 71;
+            this.comboBoxProductos.SelectedIndexChanged += new System.EventHandler(this.comboBoxProductos_SelectedIndexChanged);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -617,15 +628,27 @@
             this.panel2.Size = new System.Drawing.Size(436, 247);
             this.panel2.TabIndex = 58;
             // 
-            // comboBoxProductos
+            // iconButton2
             // 
-            this.comboBoxProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxProductos.FormattingEnabled = true;
-            this.comboBoxProductos.Location = new System.Drawing.Point(120, 330);
-            this.comboBoxProductos.Name = "comboBoxProductos";
-            this.comboBoxProductos.Size = new System.Drawing.Size(310, 28);
-            this.comboBoxProductos.TabIndex = 71;
-            this.comboBoxProductos.SelectedIndexChanged += new System.EventHandler(this.comboBoxProductos_SelectedIndexChanged);
+            this.iconButton2.BackColor = System.Drawing.Color.Green;
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.Azure;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.iconButton2.IconColor = System.Drawing.Color.Azure;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 32;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(510, 660);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton2.Size = new System.Drawing.Size(234, 40);
+            this.iconButton2.TabIndex = 59;
+            this.iconButton2.Text = "Registrar Venta";
+            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = false;
             // 
             // Facturacion
             // 
@@ -633,6 +656,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1441, 726);
+            this.Controls.Add(this.iconButton2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.DataGrillaProductosVenta);
             this.Controls.Add(this.panel1);
@@ -698,5 +722,6 @@
         private System.Windows.Forms.TextBox labelIdEmpleado;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBoxProductos;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }
