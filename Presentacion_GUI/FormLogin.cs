@@ -20,10 +20,10 @@ namespace Presentacion_GUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-  
+
         FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
 
-        Logica.NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario(); 
+        Logica.NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario();
         FormularioPrincipal principal;
 
         public FormLogin()
@@ -43,23 +43,39 @@ namespace Presentacion_GUI
             {
                 String Usuario = txtUsuario.Text;
                 String Contraseña = txtContraseña.Text;
-                int IdGenerado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
+                int IdGenerado = NuevasFuncionesUsuario.Login_Administrador(Usuario, Contraseña, out Mensaje);
+                int IdGeneradoValidandoEstado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
 
-                if (true)
+
+                Usuario usuario = new Usuario();
+                usuario.ID = IdGenerado;
+                usuario.Cedula = Usuario;
+                usuario.Contraseña = txtContraseña.Text;
+
+
+                if (IdGenerado != 0)
                 {
-
-                }
-
-                if (IdGenerado!=0)
-                {
-                    Usuario usuario = new Usuario();
-                    usuario.ID = IdGenerado;
-                    usuario.Cedula = Usuario;
-                    usuario.Contraseña = txtContraseña.Text;
-                    principal = new FormularioPrincipal(usuario);
-                    principal.Show();
-                    this.Visible = false;
-                    btnErroMessage.Visible = false;
+                    if (IdGenerado > 0 && IdGenerado < 3)
+                    {
+                        principal = new FormularioPrincipal(usuario);
+                        principal.Show();
+                        this.Visible = false;
+                        btnErroMessage.Visible = false;
+                        return; 
+                    }
+                    if (IdGeneradoValidandoEstado!=0)
+                    {
+                        principal = new FormularioPrincipal(usuario);
+                        principal.Show();
+                        this.Visible = false;
+                        btnErroMessage.Visible = false;
+                    }
+                    else
+                    {
+                        btnErroMessage.Visible = true;
+                        btnErroMessage.Text = "Se encuentra inactivo";
+                        Restablecer();
+                    }
                 }
                 else
                 {
@@ -67,18 +83,48 @@ namespace Presentacion_GUI
                     btnErroMessage.Text = "Usuario o contraseña incorrectos";
                     Restablecer();
                 }
+
+
+
+
+                //if (IdGenerado > 3)
+                //{
+                //    principal = new FormularioPrincipal(usuario);
+                //    principal.Show();
+                //    this.Visible = false;
+                //    btnErroMessage.Visible = false;
+                //}
+                //else
+                //{
+                //    if (IdGenerado > 0 && IdGenerado < 3)
+                //    {
+
+                //        Usuario usuario = new Usuario();
+                //        usuario.ID = IdGenerado;
+                //        usuario.Cedula = Usuario;
+                //        usuario.Contraseña = txtContraseña.Text;
+                //        principal = new FormularioPrincipal(usuario);
+                //        principal.Show();
+                //        this.Visible = false;
+                //        btnErroMessage.Visible = false;
+                //    }
+     
+
+
+
+                //}
             }
         }
 
         public void Restablecer()
         {
             txtUsuario.Text = "";
-            txtContraseña.Text = "" ; 
+            txtContraseña.Text = "";
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Acceder();      
+            Acceder();
         }
 
         private void txtContraseña_Enter(object sender, EventArgs e)
@@ -94,7 +140,7 @@ namespace Presentacion_GUI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();        
+            Application.Exit();
         }
 
         protected override CreateParams CreateParams
@@ -115,16 +161,16 @@ namespace Presentacion_GUI
             }
 
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {  
-                    txtContraseña.Focus();             
-            } 
+            {
+                txtContraseña.Focus();
+            }
         }
 
         private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                    btnIngresar.PerformClick();        
+                btnIngresar.PerformClick();
             }
         }
     }

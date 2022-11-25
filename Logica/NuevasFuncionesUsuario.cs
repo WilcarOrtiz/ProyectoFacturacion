@@ -28,10 +28,14 @@ namespace Logica
         }
         public int Login(String Cedula, string Contraseña, out string Mensaje)
         {
-            return NuevoRepositorioUsuario.Login( Cedula, Contraseña, out Mensaje);
+            return NuevoRepositorioUsuario.LoginValidado( Cedula, Contraseña, out Mensaje);
         }
 
 
+        public int Login_Administrador(String Cedula, string Contraseña, out string Mensaje)
+        {
+            return NuevoRepositorioUsuario.Login_Administrador(Cedula, Contraseña, out Mensaje);
+        }
 
     }
 }
