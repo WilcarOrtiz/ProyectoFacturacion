@@ -16,22 +16,23 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using Entidades;
+using Presentacion_GUI.Utilidades;
 
 namespace Presentacion_GUI
 {
     public partial class FrmVistaProductos : Form
     {
-        
+
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new NuevasFuncionesProductos();
 
-       
+
 
         int fila;
         DataTable Tabla;
         public FrmVistaProductos()
         {
             InitializeComponent();
-          
+
         }
 
         public struct Datos
@@ -102,11 +103,37 @@ namespace Presentacion_GUI
         }
         public void GrillaCatalogo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            String Mensaje = String.Empty;
             fila = e.RowIndex;
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 0)
             {
-                String Codigo = GrillaCatalogo.Rows[fila].Cells[2].Value.ToString();
-             //   MessageBox.Show(funcionesProductos.EliminarProducto(funcionesProductos.ObtenerPorCodigo(Codigo)));
+
+                NProducto nProducto = new NProducto()
+                {
+                    IdProducto = Convert.ToInt32(GrillaCatalogo.Rows[fila].Cells[2].Value.ToString()),
+                    Codigo = GrillaCatalogo.Rows[fila].Cells[3].Value.ToString(),
+                    Nombre = GrillaCatalogo.Rows[fila].Cells[4].Value.ToString(),
+                    Descripcion = GrillaCatalogo.Rows[fila].Cells[5].Value.ToString(),
+                    PCategoria = new NCategoria { Descripcion = GrillaCatalogo.Rows[fila].Cells[6].Value.ToString() },
+                    Stock = Convert.ToInt32(GrillaCatalogo.Rows[fila].Cells[7].Value.ToString()),
+                    PEstado = new NEstado { Descripcion= GrillaCatalogo.Rows[fila].Cells[8].Value.ToString() },
+                    PrecioCompra = Convert.ToDecimal(GrillaCatalogo.Rows[fila].Cells[9].Value.ToString()),
+                    PrecioVenta = Convert.ToDecimal(GrillaCatalogo.Rows[fila].Cells[10].Value.ToString())
+
+                };
+
+
+                int IdGenerado = NuevasFuncionesProductos.Eliminar(nProducto, out Mensaje);
+                if (IdGenerado == 0)
+                {
+                    MessageBox.Show(Mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Producto desactivado con exito");
+                }
+
+
                 CargarTabla();
             }
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 1)
@@ -126,7 +153,7 @@ namespace Presentacion_GUI
         private void FrmVistaProductos_Load(object sender, EventArgs e)
         {
             CargarTabla();
-           
+
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -159,7 +186,7 @@ namespace Presentacion_GUI
                     filas += "<td>" + item.PrecioVenta.ToString() + "</td>";
                     filas += "<td>" + item.PrecioCompra.ToString() + "</td>";
                     filas += "</tr>";
-                   total += NuevasFuncionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
+                    total += NuevasFuncionesProductos.ValorFinal(item.Stock, item.PrecioCompra);
                 }
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", total.ToString());

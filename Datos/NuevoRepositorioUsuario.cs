@@ -35,7 +35,7 @@ namespace Datos
             {
                 using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("F_LOGIN", objconexion);
+                    SqlCommand cmd = new SqlCommand("F_lOGIN_Validando_Administrador", objconexion);
                     cmd.Parameters.AddWithValue("Cedula", Cedula);
                     cmd.Parameters.AddWithValue("Contraseña", Contraseña);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;

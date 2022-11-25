@@ -18,7 +18,7 @@ namespace Logica
 
         public int Eliminar(NProducto obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+            return nuevoRepositorioProducto.Eliminar(obj, out Mensaje);
         }
 
         public List<NProducto> Listar()
@@ -26,9 +26,9 @@ namespace Logica
             return nuevoRepositorioProducto.Listar();
         }
 
-        public int Registrar( NProducto obj, out string Mensaje)
+        public int Registrar(NProducto obj, out string Mensaje)
         {
-             return nuevoRepositorioProducto.Registrar(obj, out Mensaje);
+            return nuevoRepositorioProducto.Registrar(obj, out Mensaje);
         }
 
 

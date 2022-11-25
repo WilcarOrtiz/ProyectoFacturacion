@@ -13,12 +13,12 @@ namespace Logica
         NuevoRepositorioEmpleado repositorioEmpleado = new NuevoRepositorioEmpleado();
         public int Editar(NEmpleado obj, out string Mensaje)
         {
-            return repositorioEmpleado.Editar(obj, out  Mensaje); 
+            return repositorioEmpleado.Editar(obj, out Mensaje);
         }
 
         public int Eliminar(NEmpleado obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+            return repositorioEmpleado.Eliminar(obj, out Mensaje);
         }
 
         public List<NEmpleado> Listar()
@@ -29,9 +29,9 @@ namespace Logica
 
         public int UsuarioEmpleado(int Id)
         {
-            return repositorioEmpleado.UsuarioEmpleado(Id); 
+            return repositorioEmpleado.UsuarioEmpleado(Id);
         }
-            public int Registrar(NEmpleado obj, out string Mensaje)
+        public int Registrar(NEmpleado obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }

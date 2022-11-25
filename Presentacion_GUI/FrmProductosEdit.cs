@@ -17,6 +17,7 @@ namespace Presentacion_GUI
     public partial class FrmProductosEdit : Form
     {
      
+
         Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
         Logica.NuevasFuncionesProductos nuevasFuncionesProductos = new NuevasFuncionesProductos();
@@ -35,8 +36,6 @@ namespace Presentacion_GUI
             cmbEstadoEdit.Text = informacion.Estado.Descripcion; 
             CantidadI = informacion.Cantidad;
             CantidadInicial.Text = informacion.Cantidad.ToString();
-
-
             CargarLisBoxEstado();
             CargarLisBoxCategoria();
         }

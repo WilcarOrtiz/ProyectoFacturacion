@@ -31,6 +31,7 @@ namespace Logica
             return NuevoRepositorioUsuario.Login( Cedula, Contraseña, out Mensaje);
         }
 
-       
+
+
     }
 }

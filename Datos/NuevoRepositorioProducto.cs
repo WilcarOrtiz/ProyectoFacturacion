@@ -50,7 +50,32 @@ namespace Datos
 
         public int Eliminar(NProducto obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+            int idProductoEliminado = 0;
+            Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_Eliminar_Producto", objconexion);
+                    cmd.Parameters.AddWithValue("IdProducto", obj.IdProducto);
+                    cmd.Parameters.AddWithValue("Codigo", obj.Codigo);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    idProductoEliminado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idProductoEliminado = 0;
+                Mensaje = EX.Message;
+            }
+            return idProductoEliminado;
         }
 
         public List<NProducto> Listar()

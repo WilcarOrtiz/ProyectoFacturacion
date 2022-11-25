@@ -402,11 +402,31 @@ namespace Presentacion_GUI
 
         private void GrillaEmpleados_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            String Mensaje = String.Empty;
             fila = e.RowIndex;
             if (this.GrillaEmpleados.Columns[e.ColumnIndex].Index == 0)
             {
-                String Codigo = GrillaEmpleados.Rows[fila].Cells[2].Value.ToString();
-                // MessageBox.Show(funcionesProductos.EliminarProducto(funcionesProductos.ObtenerPorCodigo(Codigo)));
+
+                NEmpleado nEmpleado = new NEmpleado()
+                {
+                    ID = Convert.ToInt32(GrillaEmpleados.Rows[fila].Cells[2].Value.ToString()),
+                    Cedula = GrillaEmpleados.Rows[fila].Cells[3].Value.ToString(),
+                    Nombre = GrillaEmpleados.Rows[fila].Cells[4].Value.ToString(),
+                    Apellido = GrillaEmpleados.Rows[fila].Cells[5].Value.ToString(),
+                    Telefono = GrillaEmpleados.Rows[fila].Cells[4].Value.ToString(),
+                    Correo = GrillaEmpleados.Rows[fila].Cells[5].Value.ToString(),
+                    PEstado = new NEstado { Descripcion = GrillaEmpleados.Rows[fila].Cells[8].Value.ToString() }
+
+                };
+                int IdGenerado = nuevafuncionesEmpleado.Eliminar(nEmpleado, out Mensaje);
+                if (IdGenerado == 0)
+                {
+                    MessageBox.Show(Mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Empleado desactivado del sistema con exito");
+                }
                 CargarTabla();
             }
             if (this.GrillaEmpleados.Columns[e.ColumnIndex].Index == 1)

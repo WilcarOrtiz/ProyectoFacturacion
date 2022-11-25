@@ -44,6 +44,12 @@ namespace Presentacion_GUI
                 String Usuario = txtUsuario.Text;
                 String Contraseña = txtContraseña.Text;
                 int IdGenerado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
+
+                if (true)
+                {
+
+                }
+
                 if (IdGenerado!=0)
                 {
                     Usuario usuario = new Usuario();

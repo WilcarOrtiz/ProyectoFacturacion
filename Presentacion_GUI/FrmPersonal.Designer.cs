@@ -38,6 +38,7 @@
             this.cmbTipoBusqueda = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.iconPictureNuevoUsuario = new FontAwesome.Sharp.IconPictureBox();
             this.btnGuardarPersonal = new FontAwesome.Sharp.IconButton();
@@ -47,7 +48,6 @@
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconoBuscar)).BeginInit();
@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.label10);
             this.panel1.Location = new System.Drawing.Point(402, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 634);
+            this.panel1.Size = new System.Drawing.Size(1027, 672);
             this.panel1.TabIndex = 2;
             // 
             // GrillaEmpleados
@@ -79,7 +79,7 @@
             this.GrillaEmpleados.Name = "GrillaEmpleados";
             this.GrillaEmpleados.RowHeadersWidth = 62;
             this.GrillaEmpleados.RowTemplate.Height = 28;
-            this.GrillaEmpleados.Size = new System.Drawing.Size(783, 472);
+            this.GrillaEmpleados.Size = new System.Drawing.Size(969, 509);
             this.GrillaEmpleados.TabIndex = 64;
             this.GrillaEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaEmpleados_CellClick_1);
             // 
@@ -112,7 +112,7 @@
             // 
             // textBusqueda
             // 
-            this.textBusqueda.Location = new System.Drawing.Point(396, 35);
+            this.textBusqueda.Location = new System.Drawing.Point(504, 35);
             this.textBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBusqueda.Name = "textBusqueda";
             this.textBusqueda.Size = new System.Drawing.Size(407, 26);
@@ -127,7 +127,7 @@
             "Cedula",
             "Nombre",
             "Estado"});
-            this.cmbTipoBusqueda.Location = new System.Drawing.Point(218, 35);
+            this.cmbTipoBusqueda.Location = new System.Drawing.Point(243, 35);
             this.cmbTipoBusqueda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbTipoBusqueda.Name = "cmbTipoBusqueda";
             this.cmbTipoBusqueda.Size = new System.Drawing.Size(141, 28);
@@ -159,8 +159,19 @@
             this.panel2.Controls.Add(this.txtCedula);
             this.panel2.Location = new System.Drawing.Point(20, 45);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(365, 630);
+            this.panel2.Size = new System.Drawing.Size(365, 669);
             this.panel2.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Azure;
+            this.label1.Location = new System.Drawing.Point(64, 467);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 20);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Estado";
             // 
             // cmbEstado
             // 
@@ -267,24 +278,13 @@
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Azure;
-            this.label1.Location = new System.Drawing.Point(64, 467);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 20);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Estado";
-            // 
             // FrmPersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1260, 742);
+            this.ClientSize = new System.Drawing.Size(1441, 726);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

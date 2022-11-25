@@ -48,7 +48,45 @@ namespace Datos
         }
         public int Eliminar(NEmpleado obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+
+            int idEmpleadoEliminado = 0;
+            Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_Eliminar_Empleado", objconexion);
+                    cmd.Parameters.AddWithValue("IdEmpleado", obj.ID);
+                    cmd.Parameters.AddWithValue("CedulaEmpleado", obj.Cedula);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idEmpleadoEliminado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idEmpleadoEliminado = 0;
+                Mensaje = EX.Message;
+            }
+            return idEmpleadoEliminado;
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
         public List<NEmpleado> Listar()
         {
@@ -61,7 +99,7 @@ namespace Datos
                     StringBuilder query = new StringBuilder();
                     query.AppendLine("SELECT p.IdEmpleado,p.CedulaEmpleado,p.PrimerNombre,p.PrimerApelldido , p.Telefono , p.Correo,e.IdEstado,e.Descripcion, p.FechaContratacion FROM EMPLEADO p");
                     query.AppendLine("INNER JOIN ESTADO e ON e.IdEstado = p.IdEstado");
-         
+
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
                     cmd.CommandType = CommandType.Text;
@@ -76,8 +114,8 @@ namespace Datos
 
 
                                 new NEstado() { IdEstado = dr.GetInt32(6), Descripcion = dr.GetString(7) }, dr.GetDateTime(8)));
-                            
-                          
+
+
                         }
                     }
                 }
@@ -97,17 +135,15 @@ namespace Datos
 
         public int UsuarioEmpleado(int Id)
         {
-            int IdIngresado = 0; 
+            int IdIngresado = 0;
             using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     objconexion.Open();
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("SELECT IdEmpleado From Empleado");
-                    query.AppendLine(" where IdEmpleado = @Id");
-
-
+                    query.AppendLine("  SELECT IdEmpleado \r\nFrom Empleado");
+                    query.AppendLine(" where IdEmpleado =@Id and IdEstado=1");
                     SqlCommand cmd = new SqlCommand(query.ToString(), objconexion);
                     cmd.Parameters.AddWithValue("@Id", Id);
                     cmd.CommandType = System.Data.CommandType.Text;
@@ -116,7 +152,7 @@ namespace Datos
                     {
                         while (dr.Read())
                         {
-                            IdIngresado  = Convert.ToInt32(dr["IdEmpleado"]); 
+                            IdIngresado = Convert.ToInt32(dr["IdEmpleado"]);
                         }
                     }
                 }
@@ -129,5 +165,5 @@ namespace Datos
         }
 
     }
-} 
+}
 
