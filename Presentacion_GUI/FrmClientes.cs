@@ -126,7 +126,7 @@ namespace Presentacion_GUI
                 Guardar.Filter = "pd Files|*.pdf";
                 //////
 
-                string PaginaHTML_Texto = Properties.Resources.Plantilla.ToString();
+                string PaginaHTML_Texto = Properties.Resources.PlantillaListadoClientes.ToString();
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
                 string filas = string.Empty;
                 decimal total = 0;

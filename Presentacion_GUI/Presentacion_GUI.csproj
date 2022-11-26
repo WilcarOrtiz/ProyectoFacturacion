@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlantillaReportesFacturaDetalles.html" />
+    <None Include="Resources\PlantillaListadoClientes.html" />
     <Content Include="SqlServerTypes\readme.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
