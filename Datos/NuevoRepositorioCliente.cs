@@ -13,7 +13,38 @@ namespace Datos
     {
         public int Editar(NCliente obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+
+
+            int idClienteEditado = 0;
+            Mensaje = string.Empty;
+            try
+            {
+                using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("F_Editar_Cliente", objconexion);
+                    cmd.Parameters.AddWithValue("IdCliente", obj.ID);
+                    cmd.Parameters.AddWithValue("CedulaCliente", obj.Cedula);
+                    cmd.Parameters.AddWithValue("PrimerNombre", obj.Nombre);
+                    cmd.Parameters.AddWithValue("PrimerApellido", obj.Apellido);
+                    cmd.Parameters.AddWithValue("Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("IdEstado", obj.PEstado.IdEstado);
+                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 45).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    idClienteEditado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception EX)
+            {
+                idClienteEditado = 0;
+                Mensaje = EX.Message;
+            }
+            return idClienteEditado;
         }
 
         public int Eliminar(NCliente obj, out string Mensaje)

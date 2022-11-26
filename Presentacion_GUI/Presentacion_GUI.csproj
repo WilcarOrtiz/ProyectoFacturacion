@@ -104,6 +104,12 @@
     <Compile Include="Detalle_Factura.Designer.cs">
       <DependentUpon>Detalle_Factura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarCliente.Designer.cs">
+      <DependentUpon>FrmEditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDatosGenerales.resx">
       <DependentUpon>FormDatosGenerales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarCliente.resx">
+      <DependentUpon>FrmEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarEmpleado.resx">
       <DependentUpon>FrmEditarEmpleado.cs</DependentUpon>

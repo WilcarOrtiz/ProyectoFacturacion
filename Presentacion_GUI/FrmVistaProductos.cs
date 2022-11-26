@@ -133,7 +133,6 @@ namespace Presentacion_GUI
                     MessageBox.Show("Producto desactivado con exito");
                 }
 
-
                 CargarTabla();
             }
             if (this.GrillaCatalogo.Columns[e.ColumnIndex].Index == 1)
@@ -229,11 +228,6 @@ namespace Presentacion_GUI
                 cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
                 return cp;
             }
-        }
-
-        private void btnImprimir_Click_1(object sender, EventArgs e)
-        {
-            GenerarPDF();
         }
     }
 }

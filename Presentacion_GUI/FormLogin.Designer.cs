@@ -41,11 +41,13 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.ISalir = new FontAwesome.Sharp.IconPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ISalir)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -107,6 +109,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.ISalir);
             this.panel3.Controls.Add(this.btnSalir);
             this.panel3.Controls.Add(this.btnErroMessage);
             this.panel3.Controls.Add(this.txtContraseña);
@@ -219,6 +222,23 @@
             this.iconPictureBox3.TabIndex = 5;
             this.iconPictureBox3.TabStop = false;
             // 
+            // ISalir
+            // 
+            this.ISalir.BackColor = System.Drawing.Color.White;
+            this.ISalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ISalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ISalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.ISalir.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.ISalir.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.ISalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ISalir.IconSize = 40;
+            this.ISalir.Location = new System.Drawing.Point(1123, 3);
+            this.ISalir.Name = "ISalir";
+            this.ISalir.Size = new System.Drawing.Size(45, 40);
+            this.ISalir.TabIndex = 12;
+            this.ISalir.TabStop = false;
+            this.ISalir.Click += new System.EventHandler(this.ISalir_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -237,6 +257,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ISalir)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,5 +276,6 @@
         private System.Windows.Forms.TextBox txtContraseña;
         private FontAwesome.Sharp.IconButton btnErroMessage;
         private FontAwesome.Sharp.IconPictureBox btnSalir;
+        private FontAwesome.Sharp.IconPictureBox ISalir;
     }
 }

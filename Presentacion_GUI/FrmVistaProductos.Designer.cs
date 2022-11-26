@@ -87,6 +87,7 @@
             // 
             this.GrillaCatalogo.AllowUserToOrderColumns = true;
             this.GrillaCatalogo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GrillaCatalogo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GrillaCatalogo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.GrillaCatalogo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GrillaCatalogo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -191,7 +192,7 @@
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click_1);
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // IconoBuscar
             // 

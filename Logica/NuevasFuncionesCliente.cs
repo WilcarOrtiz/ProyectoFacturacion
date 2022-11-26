@@ -13,7 +13,7 @@ namespace Logica
       NuevoRepositorioCliente NuevoRepositorioCliente = new NuevoRepositorioCliente();
         public int Editar(NCliente obj, out string Mensaje)
         {
-            throw new NotImplementedException();
+           return NuevoRepositorioCliente.Editar(obj, out Mensaje); 
         }
 
         public int Eliminar(NCliente obj, out string Mensaje)

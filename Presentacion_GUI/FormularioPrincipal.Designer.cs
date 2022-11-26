@@ -33,6 +33,7 @@ namespace Presentacion_GUI
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioPrincipal));
             this.panelLogo = new System.Windows.Forms.Panel();
             this.paneSubMenuAdmin = new System.Windows.Forms.Panel();
+            this.BtnClientes = new FontAwesome.Sharp.IconButton();
             this.btnInformacionGeneral = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.BtnPersonal = new FontAwesome.Sharp.IconButton();
@@ -71,6 +72,7 @@ namespace Presentacion_GUI
             // paneSubMenuAdmin
             // 
             this.paneSubMenuAdmin.BackColor = System.Drawing.Color.SlateBlue;
+            this.paneSubMenuAdmin.Controls.Add(this.BtnClientes);
             this.paneSubMenuAdmin.Controls.Add(this.btnInformacionGeneral);
             this.paneSubMenuAdmin.Controls.Add(this.iconButton1);
             this.paneSubMenuAdmin.Controls.Add(this.BtnPersonal);
@@ -82,6 +84,29 @@ namespace Presentacion_GUI
             this.paneSubMenuAdmin.Size = new System.Drawing.Size(241, 558);
             this.paneSubMenuAdmin.TabIndex = 5;
             // 
+            // BtnClientes
+            // 
+            this.BtnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnClientes.FlatAppearance.BorderSize = 0;
+            this.BtnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClientes.ForeColor = System.Drawing.Color.Azure;
+            this.BtnClientes.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            this.BtnClientes.IconColor = System.Drawing.Color.Azure;
+            this.BtnClientes.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClientes.IconSize = 32;
+            this.BtnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClientes.Location = new System.Drawing.Point(0, 282);
+            this.BtnClientes.Name = "BtnClientes";
+            this.BtnClientes.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.BtnClientes.Size = new System.Drawing.Size(241, 54);
+            this.BtnClientes.TabIndex = 9;
+            this.BtnClientes.Text = "Clientes";
+            this.BtnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnClientes.UseVisualStyleBackColor = true;
+            this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
+            // 
             // btnInformacionGeneral
             // 
             this.btnInformacionGeneral.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -89,7 +114,7 @@ namespace Presentacion_GUI
             this.btnInformacionGeneral.FlatAppearance.BorderSize = 0;
             this.btnInformacionGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInformacionGeneral.ForeColor = System.Drawing.Color.Azure;
-            this.btnInformacionGeneral.IconChar = FontAwesome.Sharp.IconChar.ChartSimple; 
+            this.btnInformacionGeneral.IconChar = FontAwesome.Sharp.IconChar.ChartSimple;
             this.btnInformacionGeneral.IconColor = System.Drawing.Color.Azure;
             this.btnInformacionGeneral.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInformacionGeneral.IconSize = 32;
@@ -112,7 +137,7 @@ namespace Presentacion_GUI
             this.iconButton1.FlatAppearance.BorderSize = 0;
             this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton1.ForeColor = System.Drawing.Color.Azure;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListCheck; 
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ListCheck;
             this.iconButton1.IconColor = System.Drawing.Color.Azure;
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
@@ -434,5 +459,6 @@ namespace Presentacion_GUI
         private System.Windows.Forms.Label labelHoras;
         private FontAwesome.Sharp.IconPictureBox iconPictureHora;
         private FontAwesome.Sharp.IconButton btnInformacionGeneral;
+        private FontAwesome.Sharp.IconButton BtnClientes;
     }
 }
