@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.Collections;
 
 namespace Datos
 {
     public class NuevoRepositorioReportes
     {
-    
+
         public NFactura ObtenerFacutra(string numero)
         {
             NFactura factura = new NFactura();
@@ -115,7 +116,7 @@ namespace Datos
         public List<ReportesFacturasPorFecha> ReportesFacturasPorFechas(String FehchaIcnicio, string FechaFinal)
         {
 
-            List<ReportesFacturasPorFecha> listaReportesFacturasPorFechas= new List<ReportesFacturasPorFecha>();
+            List<ReportesFacturasPorFecha> listaReportesFacturasPorFechas = new List<ReportesFacturasPorFecha>();
 
             using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
             {
@@ -142,24 +143,86 @@ namespace Datos
                                 CedulaEmpleado = dr["CedulaEmpleado"].ToString(),
                                 CodigoProducto = dr["Codigo"].ToString(),
                                 NombreProducto = dr["Nombre"].ToString(),
-                                DescripcionProducto = dr["Descripcion"].ToString(),                            
+                                DescripcionProducto = dr["Descripcion"].ToString(),
                                 precioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString())
-                               
-                            }); 
+
+                            });
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    listaReportesFacturasPorFechas  = new List<ReportesFacturasPorFecha>();
+                    listaReportesFacturasPorFechas = new List<ReportesFacturasPorFecha>();
                 }
             }
             return listaReportesFacturasPorFechas;
         }
 
 
+        public void Informacion_General(out string P_total, out string P_CantidadFacturas, out string P_CantidadEmpleado, out string P_CantidadClientes, out string P_CantidadProducto)
+        {
+            using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+            {
+
+                StringBuilder query = new StringBuilder();
+                SqlCommand cmd = new SqlCommand("DatosGenerales", objconexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter total = new SqlParameter("@TotalVentas", 0); total.Direction = ParameterDirection.Output;
+                SqlParameter CantidadFacturas = new SqlParameter("@CantidadFacturas", 0); CantidadFacturas.Direction = ParameterDirection.Output;
+                SqlParameter CantidadEmpleado = new SqlParameter("@CantidadEmpleado", 0); CantidadEmpleado.Direction = ParameterDirection.Output;
+                SqlParameter CantidadClientes = new SqlParameter("@CantidadClientes", 0); CantidadClientes.Direction = ParameterDirection.Output;
+                SqlParameter CantidadProducto = new SqlParameter("@CantidadProducto", 0); CantidadProducto.Direction = ParameterDirection.Output;
+
+                cmd.Parameters.Add(total);
+                cmd.Parameters.Add(CantidadFacturas);
+                cmd.Parameters.Add(CantidadEmpleado);
+                cmd.Parameters.Add(CantidadClientes);
+                cmd.Parameters.Add(CantidadProducto);
+                objconexion.Open();
+                cmd.ExecuteNonQuery();
+
+                P_total = cmd.Parameters["@TotalVentas"].Value.ToString();
+                P_CantidadFacturas = cmd.Parameters["@CantidadFacturas"].Value.ToString();
+                P_CantidadEmpleado = cmd.Parameters["@CantidadEmpleado"].Value.ToString();
+                P_CantidadClientes = cmd.Parameters["@CantidadClientes"].Value.ToString();
+                P_CantidadProducto = cmd.Parameters["@CantidadProducto"].Value.ToString();
+
+            }
+        }
 
 
+        public ArrayList Productos_Preferidos(out ArrayList CantidadProductosPreferidos)
+        {
+            ArrayList NombreProductosPreferidos = new ArrayList();
+            CantidadProductosPreferidos = new ArrayList();
 
+            using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    StringBuilder query = new StringBuilder();
+                    SqlCommand cmd = new SqlCommand("PRODUCTOS_PREFERIDOS", objconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    objconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+
+                            NombreProductosPreferidos.Add(dr.GetString(0));
+                            CantidadProductosPreferidos.Add(dr.GetInt32(1));
+                        }
+                    }
+                }
+                catch
+                {
+
+                }
+
+            }
+            return NombreProductosPreferidos;
+        }
     }
 }
