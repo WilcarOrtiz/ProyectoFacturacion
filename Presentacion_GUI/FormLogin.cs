@@ -151,5 +151,10 @@ namespace Presentacion_GUI
         }
 
         #endregion
+
+        private void ISalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

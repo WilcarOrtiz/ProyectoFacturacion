@@ -235,5 +235,11 @@ namespace Presentacion_GUI
             AbrirFormEnPanel(new FormDatosGenerales());
             OcultarSubMenu();
         }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FrmClientes());
+            OcultarSubMenu();
+        }
     }
 }

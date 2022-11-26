@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.GraficoProductosPreferidos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,19 +63,19 @@
             // 
             // GraficoProductosPreferidos
             // 
-            chartArea2.Name = "ChartArea1";
-            this.GraficoProductosPreferidos.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.GraficoProductosPreferidos.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.GraficoProductosPreferidos.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.GraficoProductosPreferidos.Legends.Add(legend1);
             this.GraficoProductosPreferidos.Location = new System.Drawing.Point(679, 208);
             this.GraficoProductosPreferidos.Name = "GraficoProductosPreferidos";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.IsValueShownAsLabel = true;
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.GraficoProductosPreferidos.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.GraficoProductosPreferidos.Series.Add(series1);
             this.GraficoProductosPreferidos.Size = new System.Drawing.Size(656, 380);
             this.GraficoProductosPreferidos.TabIndex = 1;
             this.GraficoProductosPreferidos.Text = "Productos Preferidos";
@@ -325,6 +325,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.GraficoProductosPreferidos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDatosGenerales";
             this.Text = "FormDatosGenerales";
             this.Load += new System.EventHandler(this.FormDatosGenerales_Load);
