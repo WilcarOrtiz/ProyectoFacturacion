@@ -63,16 +63,6 @@ namespace Presentacion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IconoCervezaPdf {
-            get {
-                object obj = ResourceManager.GetObject("IconoCervezaPdf", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
@@ -82,9 +72,9 @@ namespace Presentacion_GUI.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
-        ///&lt;html&gt;
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;title&gt;Catalogo&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
@@ -103,11 +93,44 @@ namespace Presentacion_GUI.Properties {
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///    &lt;table style=&quot;width:100%&quot;&gt;
-        ///        [resto de la cadena truncado]&quot;;.
+        ///        &lt;tr&gt;
+        ///       [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string PlantillaListadoClientes {
+        internal static string Pdf_Plantilla_Catalogo {
             get {
-                return ResourceManager.GetString("PlantillaListadoClientes", resourceCulture);
+                return ResourceManager.GetString("Pdf_Plantilla_Catalogo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Reporte de Facturas&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///        }
+        ///
+        ///            table.border th {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///
+        ///            table.border td {
+        ///                text-align: center;
+        ///                padding: 5px;
+        ///                border: 1px solid black;
+        ///            }
+        ///    &lt;/style&gt;
+        ///&lt;/head&gt;
+        ///&lt;body&gt;
+        ///     [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string Pdf_Plantilla_Detalles_Ventas {
+            get {
+                return ResourceManager.GetString("Pdf_Plantilla_Detalles_Ventas", resourceCulture);
             }
         }
         
@@ -115,7 +138,7 @@ namespace Presentacion_GUI.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Title of the document&lt;/title&gt;
+        ///    &lt;title&gt;Listado de Clientes&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
@@ -134,43 +157,11 @@ namespace Presentacion_GUI.Properties {
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///    &lt;table style=&quot;width:100%&quot;&gt;
-        ///        [resto de la cadena truncado]&quot;;.
+        ///        &lt; [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string PlantillaListadoClientes {
+        internal static string Pdf_Plantilla_Listado_Cliente {
             get {
-                return ResourceManager.GetString("PlantillaListadoClientes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
-        ///&lt;html&gt;
-        ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
-        ///    &lt;style&gt;
-        ///        table.border {
-        ///            border-collapse: collapse;
-        ///        }
-        ///
-        ///            table.border th {
-        ///                text-align: center;
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///
-        ///            table.border td {
-        ///                text-align: center;
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;tab [resto de la cadena truncado]&quot;;.
-        /// </summary>
-        internal static string PlantillaReportesFacturaDetalles {
-            get {
-                return ResourceManager.GetString("PlantillaReportesFacturaDetalles", resourceCulture);
+                return ResourceManager.GetString("Pdf_Plantilla_Listado_Cliente", resourceCulture);
             }
         }
     }

@@ -98,7 +98,7 @@ namespace Presentacion_GUI
                 return;
             }
             {
-                string Texto_Html = Properties.Resources.PlantillaReportesFacturaDetalles.ToString();
+                string Texto_Html = Properties.Resources.Pdf_Plantilla_Detalles_Ventas.ToString();
 
                 Texto_Html = Texto_Html.Replace("@numerodocumento", textBoxBuscarFactura.Text.ToUpper());
                 Texto_Html = Texto_Html.Replace("@doccliente", textCedulaCliente.Text.ToUpper());

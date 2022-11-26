@@ -178,6 +178,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utilidades\OpcionesCombo.cs" />
     <Compile Include="Utilidades\OpcionesCombosProductos.cs" />
@@ -222,14 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="DiagramaClases_Presentacion.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -247,9 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IconoCervezaPdf.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Plantilla.html" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo.jpeg" />
@@ -270,8 +267,9 @@
     <Folder Include="SqlServerTypes\x86\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PlantillaReportesFacturaDetalles.html" />
-    <None Include="Resources\PlantillaListadoClientes.html" />
+    <None Include="Resources\Pdf_Plantilla_Catalogo.html" />
+    <None Include="Resources\Pdf_Plantilla_Listado_Cliente.html" />
+    <None Include="Resources\Pdf_Plantilla_Detalles_Ventas.html" />
     <Content Include="SqlServerTypes\readme.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
