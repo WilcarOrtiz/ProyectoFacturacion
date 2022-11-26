@@ -230,6 +230,10 @@ namespace Presentacion_GUI
             OcultarSubMenu();
         }
 
-
+        private void btnInformacionGeneral_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormDatosGenerales());
+            OcultarSubMenu();
+        }
     }
 }

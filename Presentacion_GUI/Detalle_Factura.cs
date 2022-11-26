@@ -343,6 +343,8 @@ namespace Presentacion_GUI
         {
             LimpiarTab2();
         }
+
+
     }
 }
 

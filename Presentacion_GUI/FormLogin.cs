@@ -41,11 +41,11 @@ namespace Presentacion_GUI
             }
             else
             {
+
                 String Usuario = txtUsuario.Text;
                 String Contraseña = txtContraseña.Text;
                 int IdGenerado = NuevasFuncionesUsuario.Login_Administrador(Usuario, Contraseña, out Mensaje);
                 int IdGeneradoValidandoEstado = NuevasFuncionesUsuario.Login(Usuario, Contraseña, out Mensaje);
-
 
                 Usuario usuario = new Usuario();
                 usuario.ID = IdGenerado;
@@ -87,35 +87,11 @@ namespace Presentacion_GUI
 
 
 
-                //if (IdGenerado > 3)
-                //{
-                //    principal = new FormularioPrincipal(usuario);
-                //    principal.Show();
-                //    this.Visible = false;
-                //    btnErroMessage.Visible = false;
-                //}
-                //else
-                //{
-                //    if (IdGenerado > 0 && IdGenerado < 3)
-                //    {
-
-                //        Usuario usuario = new Usuario();
-                //        usuario.ID = IdGenerado;
-                //        usuario.Cedula = Usuario;
-                //        usuario.Contraseña = txtContraseña.Text;
-                //        principal = new FormularioPrincipal(usuario);
-                //        principal.Show();
-                //        this.Visible = false;
-                //        btnErroMessage.Visible = false;
-                //    }
-     
-
-
-
-                //}
             }
         }
 
+
+        #region PAARA VALIDACIONES 
         public void Restablecer()
         {
             txtUsuario.Text = "";
@@ -173,5 +149,7 @@ namespace Presentacion_GUI
                 btnIngresar.PerformClick();
             }
         }
+
+        #endregion
     }
 }
