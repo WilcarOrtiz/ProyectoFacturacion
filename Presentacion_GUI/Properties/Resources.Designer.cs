@@ -82,7 +82,7 @@ namespace Presentacion_GUI.Properties {
         
         /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
-        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+        ///&lt;html&gt;
         ///&lt;head&gt;
         ///    &lt;title&gt;Title of the document&lt;/title&gt;
         ///    &lt;style&gt;
@@ -105,9 +105,9 @@ namespace Presentacion_GUI.Properties {
         ///    &lt;table style=&quot;width:100%&quot;&gt;
         ///        [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string Plantilla {
+        internal static string PlantillaListadoClientes {
             get {
-                return ResourceManager.GetString("Plantilla", resourceCulture);
+                return ResourceManager.GetString("PlantillaListadoClientes", resourceCulture);
             }
         }
         

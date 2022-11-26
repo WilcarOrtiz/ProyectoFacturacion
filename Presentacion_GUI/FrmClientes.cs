@@ -55,8 +55,8 @@ namespace Presentacion_GUI
         {
             Tabla = new DataTable();
             Tabla.Columns.Add("Cedula");
-            Tabla.Columns.Add("Primer Nombre");
-            Tabla.Columns.Add("Segundo Nombre");
+            Tabla.Columns.Add("Primer_Nombre");
+            Tabla.Columns.Add("Segundo_Nombre");
             Tabla.Columns.Add("Correo");
             Tabla.Columns.Add("Telefono");
             Tabla.Columns.Add("Estado");
@@ -81,16 +81,16 @@ namespace Presentacion_GUI
             switch (cmbTipoBusqueda.Text)
             {
                 case "Cedula":
-                    Dv.RowFilter = " Cedula LIKE '%" + textBusqueda.Text + "%'";
+                    Dv.RowFilter = " Cedula LIKE '" + textBusqueda.Text + "%'";
                     GrillaClientes.DataSource = Dv;
                     break;
 
                 case "Nombre":
-                    Dv.RowFilter = " Primer Nombre  LIKE '%" + textBusqueda.Text + "%'";
+                    Dv.RowFilter = " Primer_Nombre  LIKE '" + textBusqueda.Text + "%'";
                     GrillaClientes.DataSource = Dv;
                     break;
                 case "Estado":
-                    Dv.RowFilter = " Estado  LIKE '%" + textBusqueda.Text + "%'";
+                    Dv.RowFilter = " Estado  LIKE '" + textBusqueda.Text + "%'";
                     GrillaClientes.DataSource = Dv;
                     break;
             }
@@ -126,10 +126,10 @@ namespace Presentacion_GUI
                 Guardar.Filter = "pd Files|*.pdf";
                 //////
 
-                string PaginaHTML_Texto = Properties.Resources.PlantillaListadoClientes.ToString();
+                string PaginaHTML_Texto = Properties.Resources.PlantillaListadoClientes.ToString(); 
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
                 string filas = string.Empty;
-                decimal total = 0;
+               
                 foreach (var item in funcionesCliente.Listar())
                 {
                     filas += "<tr>";
@@ -143,7 +143,7 @@ namespace Presentacion_GUI
                     
                 }
                 PaginaHTML_Texto = PaginaHTML_Texto.Replace("@FILAS", filas);
-                PaginaHTML_Texto = PaginaHTML_Texto.Replace("@TOTAL", total.ToString());
+      
 
                 if (Guardar.ShowDialog() == DialogResult.OK)
                 {
