@@ -21,7 +21,7 @@ namespace Presentacion_GUI
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
+        
 
         Logica.NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario();
         FormularioPrincipal principal;

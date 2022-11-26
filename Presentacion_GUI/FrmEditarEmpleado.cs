@@ -16,28 +16,31 @@ namespace Presentacion_GUI
 {
     public partial class FrmEditarEmpleado : Form
     {
-
-        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
-        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
-        Logica.NuevasFuncionesEmpleado NuevasFuncionesEmpleado = new NuevasFuncionesEmpleado(); 
-
-
-
-
-        FrmPersonal FrmPersonal = new FrmPersonal();
-        String ID;
-
+        #region MOVIMIENTO DE LA PANTALLA
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
+        private void FrmEditarEmpleado_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+
+        #region INSTANCIAS DE LOGICA
+        Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
+        Logica.NuevasFuncionesEmpleado NuevasFuncionesEmpleado = new NuevasFuncionesEmpleado();
+        #endregion
+
+        FrmPersonal FrmPersonal = new FrmPersonal();
+        String ID;
+
         public FrmEditarEmpleado(FrmPersonal.Datos informacion)
         {
             InitializeComponent();
             CargarLisBoxEstado(); 
-
-
             txtCedulaEditar.Text   = informacion.Cedula;
             txtNombreEditar.Text   = informacion.Nombre;
             txtApellidoEditar.Text = informacion.Apellido;
@@ -72,6 +75,7 @@ namespace Presentacion_GUI
                 MessageBox.Show("Producto actualizado con exito");
             }
         }
+
         public Boolean Vacio()
         {
             if (txtCedulaEditar.Text == "" || txtNombreEditar.Text == "" || txtApellidoEditar.Text == "" || txtTelefonoEditar.Text == "" ||
@@ -84,6 +88,8 @@ namespace Presentacion_GUI
                 return false;
             }
         }
+
+        #region VALIDACIONES
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             switch (Vacio())
@@ -200,13 +206,8 @@ namespace Presentacion_GUI
                 }
             }
         }
-
-        private void FrmEditarEmpleado_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
+        #endregion
+        
         private void CargarLisBoxEstado()
         {
             List<NEstado> listaEstados = NuevasFuncionEstado.Listar();

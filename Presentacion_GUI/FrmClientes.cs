@@ -116,6 +116,7 @@ namespace Presentacion_GUI
         {
             GenerarPDF();
         }
+
         public void GenerarPDF()
         {
             {

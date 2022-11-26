@@ -17,17 +17,19 @@ namespace Presentacion_GUI
 {
     public partial class FrmPersonal : Form
     {
+       
         private int posicion;
         DataTable Tabla;
         int fila;
-        FuncionesEmpleado funcionesEmpleado = new FuncionesEmpleado();
+        
+        #region INSTANCIAS DE LOGICA
         NuevasFuncionesEmpleado nuevafuncionesEmpleado = new NuevasFuncionesEmpleado();
-        FuncionesUsuario funcionesUsuario = new FuncionesUsuario();
-
+        
         NuevasFuncionesUsuario NuevasFuncionesUsuario = new NuevasFuncionesUsuario();
 
-
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
+
+        #endregion
         public FrmPersonal()
         {
             InitializeComponent();
@@ -44,6 +46,20 @@ namespace Presentacion_GUI
             public NEstado Estado;
         }
 
+        public void EditarEmpleado(NEmpleado empleado)
+        {
+            Datos informacion;
+            informacion.ID = empleado.ID;
+            informacion.Cedula = empleado.Cedula;
+            informacion.Nombre = empleado.Nombre;
+            informacion.Apellido = empleado.Apellido;
+            informacion.Telefono = empleado.Telefono;
+            informacion.Correo = empleado.Correo;
+            informacion.Estado = empleado.PEstado;
+            FrmEditarEmpleado frmEditar = new FrmEditarEmpleado(informacion);
+            frmEditar.ShowDialog();
+        }
+
         private void FrmPersonal_Load(object sender, EventArgs e)
         {
             CargarTabla();
@@ -51,6 +67,7 @@ namespace Presentacion_GUI
         }
 
         #region Validaciones
+
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -304,25 +321,6 @@ namespace Presentacion_GUI
 
         #endregion
 
-        public void EditarEmpleado(NEmpleado empleado)
-        {
-            Datos informacion;
-            informacion.ID = empleado.ID;
-            informacion.Cedula = empleado.Cedula;
-            informacion.Nombre = empleado.Nombre;
-            informacion.Apellido = empleado.Apellido;
-            informacion.Telefono = empleado.Telefono;
-            informacion.Correo = empleado.Correo;
-            informacion.Estado = empleado.PEstado;
-            FrmEditarEmpleado frmEditar = new FrmEditarEmpleado(informacion);
-            frmEditar.ShowDialog();
-        }
-
-        private void GrillaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            posicion = e.RowIndex;
-        }
-
         private void iconButton1_Click_1(object sender, EventArgs e)
         {
             switch (vacio())
@@ -400,7 +398,7 @@ namespace Presentacion_GUI
             }
         }
 
-        private void GrillaEmpleados_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void GrillaEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String Mensaje = String.Empty;
             fila = e.RowIndex;

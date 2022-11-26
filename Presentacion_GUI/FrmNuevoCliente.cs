@@ -16,36 +16,26 @@ namespace Presentacion_GUI
 {
     public partial class FrmNuevoCliente : Form
     {
-
+        #region MOVIMIENTO DE LA PAGINA
         Logica.NuevasFuncionesCliente NuevaFuncionesClientes = new NuevasFuncionesCliente();
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        FuncionesCliente funcionesCliente = new FuncionesCliente();
+
+        private void FrmNuevoCliente_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
         public FrmNuevoCliente(Facturacion.Datos informacion)
         {
             InitializeComponent();
-            txtCedula.Text = informacion.Cedula.ToString();     
-         
+            txtCedula.Text = informacion.Cedula.ToString();         
         }
 
-
-
-        public void Guardar()
-        {
-            NCliente cliente = new NCliente();
-            cliente.Cedula = txtCedula.Text;
-            cliente.Nombre = txtNombre.Text;
-            cliente.Apellido = txtApellido.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Correo = txtCorreo.Text;
-
-            var resp = funcionesCliente.Agregar(cliente);
-
-            MessageBox.Show(resp);
-        }
-
+        #region VALIDACIONES
         public void RestablecerCampos()
         {
             txtNombre.Text = "";
@@ -97,11 +87,7 @@ namespace Presentacion_GUI
 
 
         }
-        private void FrmNuevoCliente_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+       
 
         private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -198,7 +184,7 @@ namespace Presentacion_GUI
                 }
             }
         }
-
+        #endregion
 
         private void BtnCancelarEdit_Click(object sender, EventArgs e)
         {
@@ -222,7 +208,6 @@ namespace Presentacion_GUI
                     break;
             }
         }
-
 
         protected override CreateParams CreateParams
         {

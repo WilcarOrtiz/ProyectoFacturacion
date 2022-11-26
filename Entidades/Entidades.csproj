@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Detalle_Facturas.cs" />
     <Compile Include="NCliente.cs" />
-    <Compile Include="Empleado.cs" />
     <Compile Include="NFactura.cs" />
     <Compile Include="NCategoria.cs" />
     <Compile Include="NEmpleado.cs" />
