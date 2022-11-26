@@ -106,7 +106,7 @@
             this.BtnGuardarEdit.Location = new System.Drawing.Point(96, 607);
             this.BtnGuardarEdit.Name = "BtnGuardarEdit";
             this.BtnGuardarEdit.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnGuardarEdit.Size = new System.Drawing.Size(168, 40);
+            this.BtnGuardarEdit.Size = new System.Drawing.Size(202, 40);
             this.BtnGuardarEdit.TabIndex = 60;
             this.BtnGuardarEdit.Text = "Editar";
             this.BtnGuardarEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -124,10 +124,10 @@
             this.BtnCancelarEdit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCancelarEdit.IconSize = 32;
             this.BtnCancelarEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelarEdit.Location = new System.Drawing.Point(430, 607);
+            this.BtnCancelarEdit.Location = new System.Drawing.Point(414, 607);
             this.BtnCancelarEdit.Name = "BtnCancelarEdit";
             this.BtnCancelarEdit.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnCancelarEdit.Size = new System.Drawing.Size(168, 40);
+            this.BtnCancelarEdit.Size = new System.Drawing.Size(232, 40);
             this.BtnCancelarEdit.TabIndex = 61;
             this.BtnCancelarEdit.Text = "Cancelar";
             this.BtnCancelarEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
