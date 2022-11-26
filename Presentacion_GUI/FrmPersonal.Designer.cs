@@ -83,7 +83,7 @@
             this.GrillaEmpleados.RowTemplate.Height = 28;
             this.GrillaEmpleados.Size = new System.Drawing.Size(969, 509);
             this.GrillaEmpleados.TabIndex = 64;
-            this.GrillaEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaEmpleados_CellClick_1);
+            this.GrillaEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaEmpleados_CellClick);
             // 
             // Column1
             // 
@@ -182,7 +182,7 @@
             this.cmbEstado.Location = new System.Drawing.Point(160, 459);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(136, 28);
-            this.cmbEstado.TabIndex = 71;
+            this.cmbEstado.TabIndex = 7;
             // 
             // iconPictureNuevoUsuario
             // 
@@ -212,7 +212,7 @@
             this.btnGuardarPersonal.Name = "btnGuardarPersonal";
             this.btnGuardarPersonal.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.btnGuardarPersonal.Size = new System.Drawing.Size(63, 40);
-            this.btnGuardarPersonal.TabIndex = 63;
+            this.btnGuardarPersonal.TabIndex = 7;
             this.btnGuardarPersonal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarPersonal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardarPersonal.UseVisualStyleBackColor = true;
@@ -223,9 +223,10 @@
             this.txtContraseña.Location = new System.Drawing.Point(68, 398);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(228, 26);
-            this.txtContraseña.TabIndex = 15;
+            this.txtContraseña.TabIndex = 6;
             this.txtContraseña.Text = "Contraseña";
             this.txtContraseña.Enter += new System.EventHandler(this.txtContraseña_Enter);
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             this.txtContraseña.Leave += new System.EventHandler(this.txtContraseña_Leave);
             // 
             // txtTelefono
@@ -234,9 +235,10 @@
             this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(228, 26);
-            this.txtTelefono.TabIndex = 14;
+            this.txtTelefono.TabIndex = 4;
             this.txtTelefono.Text = "Telefono";
             this.txtTelefono.Enter += new System.EventHandler(this.txtTelefono_Enter);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             this.txtTelefono.Leave += new System.EventHandler(this.txtTelefono_Leave);
             // 
             // txtCorreo
@@ -244,9 +246,10 @@
             this.txtCorreo.Location = new System.Drawing.Point(68, 344);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(228, 26);
-            this.txtCorreo.TabIndex = 13;
+            this.txtCorreo.TabIndex = 5;
             this.txtCorreo.Text = "Correo";
             this.txtCorreo.Enter += new System.EventHandler(this.txtCorreo_Enter);
+            this.txtCorreo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCorreo_KeyPress);
             this.txtCorreo.Leave += new System.EventHandler(this.txtCorreo_Leave);
             // 
             // txtApellidos
@@ -254,9 +257,10 @@
             this.txtApellidos.Location = new System.Drawing.Point(68, 241);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(228, 26);
-            this.txtApellidos.TabIndex = 12;
+            this.txtApellidos.TabIndex = 3;
             this.txtApellidos.Text = "Apellidos";
             this.txtApellidos.Enter += new System.EventHandler(this.txtApellidos_Enter);
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidos_KeyPress);
             this.txtApellidos.Leave += new System.EventHandler(this.txtApellidos_Leave);
             // 
             // txtNombres
@@ -264,9 +268,10 @@
             this.txtNombres.Location = new System.Drawing.Point(68, 188);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(228, 26);
-            this.txtNombres.TabIndex = 11;
+            this.txtNombres.TabIndex = 2;
             this.txtNombres.Text = "Nombres";
             this.txtNombres.Enter += new System.EventHandler(this.txtNombres_Enter);
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombres_KeyPress);
             this.txtNombres.Leave += new System.EventHandler(this.txtNombres_Leave);
             // 
             // txtCedula
@@ -275,9 +280,10 @@
             this.txtCedula.MaxLength = 10;
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(228, 26);
-            this.txtCedula.TabIndex = 10;
+            this.txtCedula.TabIndex = 1;
             this.txtCedula.Text = "Cedula";
             this.txtCedula.Enter += new System.EventHandler(this.txtCedula_Enter);
+            this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
             this.txtCedula.Leave += new System.EventHandler(this.txtCedula_Leave);
             // 
             // FrmPersonal

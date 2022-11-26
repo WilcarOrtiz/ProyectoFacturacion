@@ -41,14 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FuncionesCliente.cs" />
-    <Compile Include="FuncionesEmpleado.cs" />
     <Compile Include="NuevasFuncionesDetalles_Factura.cs" />
     <Compile Include="NuevasFuncionesFactura.cs" />
-    <Compile Include="FuncionesUsuario.cs" />
-    <Compile Include="IFacturacion.cs" />
     <Compile Include="IProcesos.cs" />
-    <Compile Include="IServiciosPersona.cs" />
     <Compile Include="NuevaFuncionesCategoria.cs" />
     <Compile Include="NuevasFuncionesCliente.cs" />
     <Compile Include="NuevasFuncionesEmpleado.cs" />

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Usuario : Empleado
+    public class Usuario : NEmpleado
     {
+        
         public String Contraseña { get; set; }
 
-        public override string ToString()
-        {
-            return Cedula + ";" + Contraseña;
-        }
+        public override string ToString(){
+            return Cedula + " " + Contraseña;
+         }
+
+
     }
 }

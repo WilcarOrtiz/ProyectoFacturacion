@@ -20,7 +20,7 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
         }
-
+        #region MOVIMIENTO DE LA PAGINA
         NuevasFuncionEstado funcionEstado = new NuevasFuncionEstado(); 
         NuevasFuncionesCliente funcionesCliente = new NuevasFuncionesCliente();
 
@@ -28,7 +28,12 @@ namespace Presentacion_GUI
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
+        private void FrmEditarEmpleado_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
         public FrmEditarCliente(FrmClientes.Datos informacion)
         {
             InitializeComponent();
@@ -68,19 +73,6 @@ namespace Presentacion_GUI
             }
         }
 
-        public Boolean Vacio()
-        {
-            if (txtCedulaEditar.Text == "" || txtNombreEditar.Text == "" || txtApellidoEditar.Text == "" || txtTelefonoEditar.Text == "" ||
-                txtCorreoEditar.Text == "")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
             switch (Vacio())
@@ -97,11 +89,25 @@ namespace Presentacion_GUI
                     break;
             }
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        #region VALIDACIONES
+        public Boolean Vacio()
+        {
+            if (txtCedulaEditar.Text == "" || txtNombreEditar.Text == "" || txtApellidoEditar.Text == "" || txtTelefonoEditar.Text == "" ||
+                txtCorreoEditar.Text == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void txtCedulaEditar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -196,13 +202,8 @@ namespace Presentacion_GUI
                 }
             }
         }
-
-        private void FrmEditarEmpleado_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
+        #endregion
+       
         private void CargarLisBoxEstado()
         {
             List<NEstado> listaEstados = funcionEstado.Listar();
