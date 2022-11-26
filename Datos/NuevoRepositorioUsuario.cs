@@ -26,7 +26,6 @@ namespace Datos
             throw new NotImplementedException();
         }
 
-
         public int LoginValidado(String Cedula, string Contraseña, out string Mensaje)
         {
 
@@ -56,10 +55,6 @@ namespace Datos
             }
             return idUsuario;
         }
-
-
-
-
 
         public int Login_Administrador(String Cedula, string Contraseña, out string Mensaje)
         {

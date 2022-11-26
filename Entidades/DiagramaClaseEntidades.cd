@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entidades.Detalle_Facturas">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAUAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Detalle_Facturas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NCategoria">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NCategoria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NCliente">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NCliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NEmpleado">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NEmpleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NEstado">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>NEstado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NFactura">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAEAAEQQAAAAgAAAAAgAAAQAAAAAIiAAAAAAA=</HashCode>
+      <FileName>NFactura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.NProducto">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAQAQAAAAAAAAgAAFgAAAIAAAAAAAAAAAEAA=</HashCode>
+      <FileName>NProducto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Persona">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAIEAAAAgAAAAIAAIAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.ReportesFacturasPorFecha">
+    <Position X="8.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAABAAQAgAAAAAAAEAADACAAAAAAAAQAA=</HashCode>
+      <FileName>ReportesFacturasPorFecha.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Usuario">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

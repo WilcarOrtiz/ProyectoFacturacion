@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Logica.NuevaFuncionesCategoria" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAkQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>NuevaFuncionesCategoria.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Logica.NuevasFuncionesCliente" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAIABAAQAAQ=</HashCode>
+      <FileName>NuevasFuncionesCliente.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Logica.NuevasFuncionesDetalles_Factura">
+    <Position X="9.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAEAACAACAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NuevasFuncionesDetalles_Factura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logica.NuevasFuncionesEmpleado" BaseTypeListCollapsed="true">
+    <Position X="5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEQAAAAAAAAAEAAAAAAAAAAAAAAQAAAQAAQ=</HashCode>
+      <FileName>NuevasFuncionesEmpleado.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Logica.NuevasFuncionesFactura">
+    <Position X="9.75" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAIAACAAAAgAABAAAAAAAAAACAAAAABA=</HashCode>
+      <FileName>NuevasFuncionesFactura.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logica.NuevasFuncionesProductos" BaseTypeListCollapsed="true">
+    <Position X="5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIEQAAgAAAAAAAAAAAAAAAAAAAAAAAACQAAQ=</HashCode>
+      <FileName>NuevasFuncionesProductos.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Logica.NuevasFuncionEstado" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>NuevasFuncionEstado.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Logica.NuevasFuncionesUsuario" BaseTypeListCollapsed="true">
+    <Position X="2.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEQAAABAAAAAAAAAAAAAAAAAAAAQAAQQAAQ=</HashCode>
+      <FileName>NuevasFuncionesUsuario.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Logica.IProcesos&lt;T&gt;">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAQ=</HashCode>
+      <FileName>IProcesos.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

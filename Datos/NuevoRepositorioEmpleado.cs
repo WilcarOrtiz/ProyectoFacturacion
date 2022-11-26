@@ -14,7 +14,6 @@ namespace Datos
         public int Editar(NEmpleado obj, out string Mensaje)
         {
 
-
             int idEmpleadoEditado = 0;
             Mensaje = string.Empty;
             try
@@ -131,8 +130,6 @@ namespace Datos
         {
             throw new NotImplementedException();
         }
-
-
         public int UsuarioEmpleado(int Id)
         {
             int IdIngresado = 0;
@@ -163,7 +160,6 @@ namespace Datos
             }
             return IdIngresado;
         }
-
     }
 }
 

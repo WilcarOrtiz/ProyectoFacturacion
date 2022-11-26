@@ -10,7 +10,6 @@ namespace Presentacion_GUI.Utilidades
     {
         public string Nombre { get; set; }
         public object Valor { get; set; }
-
         public string Codigo { get; set; }
         public decimal PrecioVenta { get; set; }
 

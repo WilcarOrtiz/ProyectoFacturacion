@@ -13,8 +13,6 @@ namespace Datos
     {
         public int Editar(NCliente obj, out string Mensaje)
         {
-
-
             int idClienteEditado = 0;
             Mensaje = string.Empty;
             try
@@ -46,12 +44,10 @@ namespace Datos
             }
             return idClienteEditado;
         }
-
         public int Eliminar(NCliente obj, out string Mensaje)
         {
             throw new NotImplementedException();
         }
-
         public List<NCliente> Listar()
         {
             List<NCliente> ListaClientes = new List<NCliente>();
@@ -82,7 +78,6 @@ namespace Datos
             }
             return ListaClientes;
         }
-
         public int Registrar(NCliente obj, out string Mensaje)
         {
             int idClienteGenerado = 0;

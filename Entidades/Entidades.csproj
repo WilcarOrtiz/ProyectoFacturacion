@@ -54,7 +54,7 @@
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DiagramaClases_Entidades.cd" />
+    <None Include="DiagramaClaseEntidades.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
