@@ -164,7 +164,7 @@
             this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEliminar.UseVisualStyleBackColor = true;
-            this.BtnEliminar.Click += new System.EventHandler(this.iconButton3_Click_1);
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnBuscar
             // 
@@ -659,7 +659,7 @@
             this.DescargarExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DescargarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.DescargarExcel.UseVisualStyleBackColor = true;
-            this.DescargarExcel.Click += new System.EventHandler(this.iconButton1_Click);
+            this.DescargarExcel.Click += new System.EventHandler(this.DescargarExcel_Click);
             // 
             // textBoxBusquedaFiltro
             // 

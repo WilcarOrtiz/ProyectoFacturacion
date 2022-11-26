@@ -18,14 +18,13 @@ using iTextSharp.tool.xml;
 using Entidades;
 using Presentacion_GUI.Utilidades;
 
+
 namespace Presentacion_GUI
 {
     public partial class FrmVistaProductos : Form
     {
 
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new NuevasFuncionesProductos();
-
-
 
         int fila;
         DataTable Tabla;
@@ -35,8 +34,10 @@ namespace Presentacion_GUI
 
         }
 
+        //Estructuira para pasar informacion entre form
         public struct Datos
         {
+         
             public string Codigo;
             public int ID;
             public string NombreProducto;
@@ -47,6 +48,8 @@ namespace Presentacion_GUI
             public NEstado Estado;
             public NCategoria Categoria;
         }
+       
+        //llenado de la estructura Datos
         void VistaParaProductos(Entidades.NProducto Articulo)
         {
             Datos informacion;
@@ -81,8 +84,11 @@ namespace Presentacion_GUI
             }
             GrillaCatalogo.DataSource = Tabla;
         }
+
+        //Evento para hacer el filtrado de busqueda
         private void textBusqueda_TextChanged(object sender, EventArgs e)
         {
+            
             DataView Dv = Tabla.DefaultView;
             switch (cmbTipoBusqueda.Text)
             {
@@ -101,6 +107,8 @@ namespace Presentacion_GUI
                     break;
             }
         }
+
+        //Evento click para eliminar o editar producto
         public void GrillaCatalogo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             String Mensaje = String.Empty;
@@ -148,13 +156,10 @@ namespace Presentacion_GUI
                 }
             }
         }
-
         private void FrmVistaProductos_Load(object sender, EventArgs e)
         {
             CargarTabla();
-
         }
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             GenerarPDF();

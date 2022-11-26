@@ -16,13 +16,15 @@ namespace Presentacion_GUI
 {
     public partial class FrmProductosEdit : Form
     {
-     
+
+        #region INSTANCIAS DE LOGICA
 
         Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
         Logica.NuevasFuncionesProductos nuevasFuncionesProductos = new NuevasFuncionesProductos();
 
-        int CantidadI;   
+        #endregion 
+        int CantidadI;
         public FrmProductosEdit(FrmVistaProductos.Datos informacion)
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Presentacion_GUI
             txtPrecioCEdit.Text = informacion.PrecioC.ToString();
             txtPrecioVEdit.Text = informacion.PrecioV.ToString();
             cbnCategoriaEdit.Text = informacion.Categoria.Descripcion;
-            cmbEstadoEdit.Text = informacion.Estado.Descripcion; 
+            cmbEstadoEdit.Text = informacion.Estado.Descripcion;
             CantidadI = informacion.Cantidad;
             CantidadInicial.Text = informacion.Cantidad.ToString();
             CargarLisBoxEstado();
@@ -41,7 +43,7 @@ namespace Presentacion_GUI
         }
         public Boolean vacio()
         {
-            if (txtNombreProducEditar.Text == "" || txtDescripEditar.Text == "" || cmbUnidadesEdit.Text == "" || textCodigoEditar.Text == "" || txtPrecioCEdit.Text == "" || txtPrecioVEdit.Text == "")
+            if (txtNombreProducEditar.Text == "" || textCodigoEditar.Text == "" || txtPrecioCEdit.Text == "" || txtPrecioVEdit.Text == "")
             {
                 MessageBox.Show("Falta informacion", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
@@ -50,10 +52,6 @@ namespace Presentacion_GUI
         }
         void CapturarActualizacion()
         {
-
-
-
-
             String Mensaje = String.Empty;
             int Cant = 0;
             Cant = (int)CantidadEdit.Value;
@@ -70,18 +68,21 @@ namespace Presentacion_GUI
                 PEstado = new NEstado { IdEstado = (int)(((OpcionesCombo)cmbEstadoEdit.SelectedItem).Valor) }
 
             };
-            int IdGenerado = nuevasFuncionesProductos.Editar(obj, out Mensaje);
-            if (IdGenerado == 0)
+            if (!vacio())
             {
-                MessageBox.Show(Mensaje);
-            }
-            else
-            {
-                MessageBox.Show("Producto actualizado con exito");
+                int IdGenerado = nuevasFuncionesProductos.Editar(obj, out Mensaje);
+                if (IdGenerado == 0)
+                {
+                    MessageBox.Show(Mensaje);
+                }
+                else
+                {
+                    MessageBox.Show("Producto actualizado con exito");
+                }
             }
         }
 
-
+        #region VALIDACIONES DENTRO DE LOS EVENTOS
         private void txtPrecioCEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -183,8 +184,8 @@ namespace Presentacion_GUI
 
         private void BtnGuardarEdit_Click_1(object sender, EventArgs e)
         {
-             CapturarActualizacion();
-            this.Close(); 
+            CapturarActualizacion();
+            this.Close();
         }
 
         private void BtnCancelarEdit_Click(object sender, EventArgs e)
@@ -192,18 +193,9 @@ namespace Presentacion_GUI
             this.Close();
         }
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
-                return cp;
-            }
-        }
+        #endregion
 
-
-
+        #region METODOS PARA CARGAR COMBOBOX BASADOS EN CLASES
         private void CargarLisBoxCategoria()
         {
             List<NCategoria> listaCategorias = NuevaFuncionesCategoria.Listar();
@@ -215,7 +207,6 @@ namespace Presentacion_GUI
             cbnCategoriaEdit.DisplayMember = "Texto";
             cbnCategoriaEdit.ValueMember = "Valor";
         }
-
 
         private void CargarLisBoxEstado()
         {
@@ -229,10 +220,16 @@ namespace Presentacion_GUI
             cmbEstadoEdit.ValueMember = "Valor";
         }
 
+        #endregion
 
-        private void label15_Click(object sender, EventArgs e)
+        protected override CreateParams CreateParams
         {
-
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
     }
 }

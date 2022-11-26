@@ -26,57 +26,34 @@ namespace Presentacion_GUI
             InitializeComponent();
         }
 
+        #region PRIMER TAB DETALLES 
 
-        //   #region Primer Tab
-        public void RealizarBusqueda()
+
+        #region EVENTOS 
+        private void Detalle_Factura_Load(object sender, EventArgs e)
         {
-            NFactura nFactura = NuevasFuncionesDetalles_Factura.ObtenerFacutra(textBoxBuscarFactura.Text.ToString());
-
-            if (nFactura.IdFactura != 0)
+            foreach (DataGridViewColumn column in DataGrillaReportesFacturas.Columns)
             {
-                textFechaFacturacion.Text = nFactura.FechaFacturacion.ToShortDateString();
-                textCedulaEmpleado.Text = nFactura.empleado.Cedula.ToString();
-                textNombreEmpleado.Text = (nFactura.empleado.Nombre + " " + nFactura.empleado.Apellido).ToString();
-                textCedulaCliente.Text = nFactura.cliente.Cedula.ToString();
-                textNombreCliente.Text = (nFactura.cliente.Nombre + " " + nFactura.cliente.Apellido).ToString();
-                DataGrillaProductosDetalleFacutra.Rows.Clear();
-                foreach (Detalle_Facturas dv in nFactura.detalle_Facturas)
-                {
-                    DataGrillaProductosDetalleFacutra.Rows.Add(new object[] { dv.DF_producto.Nombre, dv.DF_PrecioVenta, dv.DF_Cantidad, dv.DF_Subtotal });
-                }
-                textMontoPago.Text = nFactura.MontoPago.ToString("0.00");
-                textDescuento.Text = nFactura.Descuento.ToString("0.00");
-                textIva.Text = nFactura.Iva.ToString("0.00");
-                textCambio.Text = nFactura.MontoCambio.ToString("0.00");
-                textTotal.Text = nFactura.Total.ToString("0.00");
-
+                comboBoxBusqueda.Items.Add(new OpcionesCombo() { Valor = column.Name, Texto = column.HeaderText });
             }
+            comboBoxBusqueda.SelectedIndex = 0;
+            comboBoxBusqueda.DisplayMember = "Texto";
+            comboBoxBusqueda.ValueMember = "Valor";
 
         }
-        private void BuscarFactura_Click(object sender, EventArgs e)
+
+        private void BtnGenerarPdf_Click(object sender, EventArgs e)
+        {
+            GenerarPDF();
+            Limpiar();
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
             RealizarBusqueda();
-
         }
-        private void Limpiar()
-        {
-            textBoxBuscarFactura.Focus();
-            textBoxBuscarFactura.Text = string.Empty;
-            DataGrillaProductosDetalleFacutra.Rows.Clear();
-            textBoxBuscarFactura.Text = string.Empty;
-            textFechaFacturacion.Text = string.Empty;
-            textNombreEmpleado.Text = string.Empty;
-            textCedulaCliente.Text = string.Empty;
-            textCedulaEmpleado.Text = string.Empty;
-            textNombreCliente.Text = string.Empty;
-            textMontoPago.Text = string.Empty;
-            textDescuento.Text = string.Empty;
-            textIva.Text = string.Empty;
-            textCambio.Text = string.Empty;
-            textTotal.Text = string.Empty;
 
-        }
-        private void iconButton2_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
@@ -86,10 +63,8 @@ namespace Presentacion_GUI
             Limpiar();
         }
 
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-           
-        }
+
+        #endregion
         public void GenerarPDF()
         {
             if (textBoxBuscarFactura.Text == "")
@@ -161,26 +136,58 @@ namespace Presentacion_GUI
             }
         }
 
-
-        //   #endregion
-
-
-
-
-
-        private void Detalle_Factura_Load(object sender, EventArgs e)
+        #region METODOS CREADOS PARA LIMPIEZA, BUSQUEDA Y DE MAS
+        private void Limpiar()
         {
-            foreach (DataGridViewColumn column in DataGrillaReportesFacturas.Columns)
-            {
-                comboBoxBusqueda.Items.Add(new OpcionesCombo() { Valor = column.Name, Texto = column.HeaderText });
-            }
-            comboBoxBusqueda.SelectedIndex = 0;
-            comboBoxBusqueda.DisplayMember = "Texto";
-            comboBoxBusqueda.ValueMember = "Valor";
+            textBoxBuscarFactura.Focus();
+            textBoxBuscarFactura.Text = string.Empty;
+            DataGrillaProductosDetalleFacutra.Rows.Clear();
+            textBoxBuscarFactura.Text = string.Empty;
+            textFechaFacturacion.Text = string.Empty;
+            textNombreEmpleado.Text = string.Empty;
+            textCedulaCliente.Text = string.Empty;
+            textCedulaEmpleado.Text = string.Empty;
+            textNombreCliente.Text = string.Empty;
+            textMontoPago.Text = string.Empty;
+            textDescuento.Text = string.Empty;
+            textIva.Text = string.Empty;
+            textCambio.Text = string.Empty;
+            textTotal.Text = string.Empty;
 
         }
 
+        //EN ESTE METODO SE INSTANCIA UNA NUEVA FACTURA CUYA INFORMACION ES OBTENIDA DESDE LA FUNCION
+        public void RealizarBusqueda()
+        {
+            NFactura nFactura = NuevasFuncionesDetalles_Factura.ObtenerFacutra(textBoxBuscarFactura.Text.ToString());
 
+            if (nFactura.IdFactura != 0)
+            {
+                textFechaFacturacion.Text = nFactura.FechaFacturacion.ToShortDateString();
+                textCedulaEmpleado.Text = nFactura.empleado.Cedula.ToString();
+                textNombreEmpleado.Text = (nFactura.empleado.Nombre + " " + nFactura.empleado.Apellido).ToString();
+                textCedulaCliente.Text = nFactura.cliente.Cedula.ToString();
+                textNombreCliente.Text = (nFactura.cliente.Nombre + " " + nFactura.cliente.Apellido).ToString();
+                DataGrillaProductosDetalleFacutra.Rows.Clear();
+                foreach (Detalle_Facturas dv in nFactura.detalle_Facturas)
+                {
+                    DataGrillaProductosDetalleFacutra.Rows.Add(new object[] { dv.DF_producto.Nombre, dv.DF_PrecioVenta, dv.DF_Cantidad, dv.DF_Subtotal });
+                }
+                textMontoPago.Text = nFactura.MontoPago.ToString("0.00");
+                textDescuento.Text = nFactura.Descuento.ToString("0.00");
+                textIva.Text = nFactura.Iva.ToString("0.00");
+                textCambio.Text = nFactura.MontoCambio.ToString("0.00");
+                textTotal.Text = nFactura.Total.ToString("0.00");
+
+            }
+
+        }
+        #endregion
+
+        #endregion
+
+        #region SEGUNDO TAB REPORTES
+        #region EVENTOS
 
         private void btnBuscarPorFechas_Click(object sender, EventArgs e)
         {
@@ -206,7 +213,6 @@ namespace Presentacion_GUI
                 CalcularGananciaGenerada();
             }
         }
-
         private void btnBuscarReportesFiltro_Click(object sender, EventArgs e)
         {
             string ColumnaFiltro = ((OpcionesCombo)comboBoxBusqueda.SelectedItem).Valor.ToString();
@@ -218,7 +224,7 @@ namespace Presentacion_GUI
                     if (item.Cells[ColumnaFiltro].Value.ToString().Trim().ToUpper().Contains(textBoxBusquedaFiltro.Text.Trim().ToUpper()))
                     {
                         item.Visible = true;
-                      
+
                     }
                     else
                     {
@@ -229,7 +235,6 @@ namespace Presentacion_GUI
 
             }
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             textBoxBusquedaFiltro.Text = String.Empty;
@@ -242,25 +247,15 @@ namespace Presentacion_GUI
 
 
         }
-        public void LimpiarTab2()
-        {
-            textBoxBusquedaFiltro.Text = String.Empty;
-            DataGrillaReportesFacturas.Rows.Clear();
-            dateTimeFechaInicio.Text = DateTime.Now.ToString(); 
-            dateTimeFechaFinal.Text = DateTime.Now.ToString();
-            textBoxTotalGenerado.Text = String.Empty;   
-        }
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
 
+
+        //METODO CREADO PARA DESCARGAR EN EXCEL LA INFORMACION DE LA GRILLA DE REPORTES FACTURAS
+        private void DescargarExcel_Click(object sender, EventArgs e)
+        {
             decimal Suma = 0;
-
-
             if (DataGrillaReportesFacturas.Rows.Count < 1)
             {
-
                 MessageBox.Show("No se tiene el registro a guardar..", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
             }
             else
             {
@@ -286,11 +281,13 @@ namespace Presentacion_GUI
                             item.Cells[8].Value.ToString(),
                     });
                     }
-                   
+
                 }
                 SaveFileDialog Guardar = new SaveFileDialog();
                 Guardar.FileName = String.Format("ReporteFactura_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss"));
                 Guardar.Filter = "Excel Files|*.xlsx";
+
+                //genera el excel
                 if (Guardar.ShowDialog() == DialogResult.OK)
                 {
 
@@ -310,12 +307,25 @@ namespace Presentacion_GUI
                 }
             }
         }
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            LimpiarTab2();
+        }
+
+        #endregion
+
+
+
+
+
+
+        #region METODOS CREADOS PARA CALCULAR GANANCIA Y LIMPIAR 
         public void CalcularGananciaGenerada()
         {
             decimal Suma = 0;
             foreach (DataGridViewRow item in DataGrillaReportesFacturas.Rows)
             {
-                if (item.Visible==true)
+                if (item.Visible == true)
                 {
                     Suma += decimal.Parse(item.Cells[8].Value.ToString());
                 }
@@ -323,27 +333,17 @@ namespace Presentacion_GUI
             textBoxTotalGenerado.Text = Suma.ToString("0.00");
         }
 
-        private void BtnGenerarPdf_Click(object sender, EventArgs e)
+        public void LimpiarTab2()
         {
-            GenerarPDF();
-            Limpiar();
+            textBoxBusquedaFiltro.Text = String.Empty;
+            DataGrillaReportesFacturas.Rows.Clear();
+            dateTimeFechaInicio.Text = DateTime.Now.ToString();
+            dateTimeFechaFinal.Text = DateTime.Now.ToString();
+            textBoxTotalGenerado.Text = String.Empty;
         }
+        #endregion
 
-        private void BtnBuscar_Click(object sender, EventArgs e)
-        {
-            RealizarBusqueda();
-        }
-
-        private void iconButton3_Click_1(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
-
-        private void tabControl1_Selected(object sender, TabControlEventArgs e)
-        {
-            LimpiarTab2();
-        }
-
+        #endregion
 
     }
 }

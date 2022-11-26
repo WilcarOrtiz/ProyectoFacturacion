@@ -67,7 +67,6 @@ namespace Datos
             }
             return factura;
         }
-
         public List<Detalle_Facturas> ObtenerDetallesFactura(int IdFactura)
         {
             List<Detalle_Facturas> DetalleFactura = new List<Detalle_Facturas>();
@@ -111,7 +110,6 @@ namespace Datos
             }
             return DetalleFactura;
         }
-
 
         public List<ReportesFacturasPorFecha> ReportesFacturasPorFechas(String FehchaIcnicio, string FechaFinal)
         {
@@ -157,8 +155,8 @@ namespace Datos
             }
             return listaReportesFacturasPorFechas;
         }
-
-
+        
+        //ESTA RETORNA DATOS SOBRE EL N° DE CLIENTES, PRODUCTOS, FACTURA Y DEMAS 
         public void Informacion_General(out string P_total, out string P_CantidadFacturas, out string P_CantidadEmpleado, out string P_CantidadClientes, out string P_CantidadProducto)
         {
             using (SqlConnection objconexion = new SqlConnection(Conexion.cadena))
@@ -190,8 +188,6 @@ namespace Datos
 
             }
         }
-
-
         public ArrayList Productos_Preferidos(out ArrayList CantidadProductosPreferidos)
         {
             ArrayList NombreProductosPreferidos = new ArrayList();

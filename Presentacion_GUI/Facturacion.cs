@@ -20,15 +20,20 @@ namespace Presentacion_GUI
     public partial class Facturacion : Form
     {
 
-
+        #region INSTANCIAS DE FUNCIONES DESDE LOGICA
         Logica.NuevasFuncionesFactura CreacionFactura = new Logica.NuevasFuncionesFactura();
         Logica.NuevasFuncionesProductos NuevasFuncionesProductos = new Logica.NuevasFuncionesProductos();
         Logica.NuevasFuncionesCliente NuevaFuncionesClientes = new NuevasFuncionesCliente();
 
+        #endregion
 
+        #region DECLARACION DE VARIABLES LOCALES 
         decimal SubTotal, SubtotalSinDescuento;
         List<NCliente> listaCliente;
         List<NProducto> listaProducto;
+
+        #endregion
+
         public Facturacion(string IdEmpleado)
         {
             InitializeComponent();
@@ -43,26 +48,8 @@ namespace Presentacion_GUI
             CargarComboBoxProductos();
             comboBoxDescuento.SelectedIndex = 0;
         }
-        public int Cantidad()
-        {
-            return CreacionFactura.Cantidad(ComboBoxUnidades.Text, (int)ComboBoxCantidad.Value);
-        }
-        void TextBoxTarifas()
-        {
-            SubTotal = 0;
-            if (DataGrillaProductosVenta.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
-                {
-                    SubTotal += decimal.Parse(item.Cells[4].Value.ToString());
-                }
 
-            }
-            txtSubTotal.Text = SubTotal.ToString("0.00");
-            txtIva.Text = (SubTotal * (decimal)0.19).ToString("0.00");
-            SubtotalSinDescuento = (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text));
-            txtTotalPagar.Text = (SubtotalSinDescuento - (SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text))).ToString("0.00");
-        }
+        #region VALIDACIONES ANTES DE AGREGAR EL PRODUCTO A LA GRILLA 
         private void AgregarProducto()
         {
             int CantidadLLevar = Cantidad();
@@ -102,7 +89,6 @@ namespace Presentacion_GUI
                 }
 
             }
-
             foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
             {
                 if (item.Cells[0].Value.ToString().Equals(textBoxIdProducto.Text))
@@ -134,37 +120,16 @@ namespace Presentacion_GUI
                 }
             }
         }
-        public void Limpiar()
-        {
-            comboBoxProductos.Text = "";
-            textBoxBusquedaProducto.Text = "";
+        #endregion
 
-            ComboBoxCantidad.Value = 1;
-            textBoxIdProducto.Text = "";
-            textNombreProducto.Text = "";
-            textBoxPrecio.Text = "0";
-            ComboBoxUnidades.SelectedIndex = 0;
-        }
+        #region EVENTOS CLICK'S, SELECT'S Y DE MAS DE LAS HERRAMIENTAS UTILIZAS CON SUS PROPIAS ACCIONES
         private void iconButton3_Click(object sender, EventArgs e)
         {
             AgregarProducto();
         }
-        void CalcularVueltos()
-        {
-            txtCambio.Text = (decimal.Parse(txtEfectivo.Text) - decimal.Parse(txtTotalPagar.Text)).ToString();
-        }
         private void comboBoxDescuento_SelectedIndexChanged(object sender, EventArgs e)
         {
             TextBoxTarifas();
-        }
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
-                return cp;
-            }
         }
         private void textBoxBusquedaCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -177,42 +142,9 @@ namespace Presentacion_GUI
                 BuscarCliente();
             }
         }
-        public struct Datos
-        {
-            public string Cedula;
-
-        }
-        void EnviarInformacionANuevoCliente(String Cedula)
-        {
-            Datos informacion;
-            informacion.Cedula = Cedula;
-            FrmNuevoCliente FPE = new FrmNuevoCliente(informacion);
-            FPE.ShowDialog();
-        }
-        public void BuscarCliente()
-        {
-            String Mensaje = String.Empty;
-            int IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
-            if (IdClienteBuscado == 0)
-            {
-                MessageBox.Show("El cliente no se encuentra en la base de informacion \n registrelo");
-                EnviarInformacionANuevoCliente(textBoxBusquedaCliente.Text.ToString());
-                comboBoxClientes.Text = (textBoxBusquedaCliente.Text);
-                IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
-            }
-            else
-            {
-                comboBoxClientes.Text = (Mensaje);
-            }
-            textBoxIdCliente.Text = IdClienteBuscado.ToString();
-            textBoxBusquedaCliente.Text = "";
-        }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
         {
+            #region Validaciones necesaria al realizar enter en el text box de buscar por codigo
             if (e.KeyData == Keys.Enter)
             {
                 NProducto nProducto = NuevasFuncionesProductos.Listar().Where(p => p.Codigo == textBoxBusquedaProducto.Text).FirstOrDefault();
@@ -245,6 +177,7 @@ namespace Presentacion_GUI
 
 
             }
+            #endregion
         }
         private void txtEfectivo_KeyDown(object sender, KeyEventArgs e)
         {
@@ -253,31 +186,6 @@ namespace Presentacion_GUI
                 CalcularVueltos();
             }
         }
-        private void DataGrillaProductosVenta_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (this.DataGrillaProductosVenta.Columns[e.ColumnIndex].Index == 5)
-            {
-                int index = e.RowIndex;
-                if (index >= 0)
-                {
-                    bool respuesta = CreacionFactura.AumentarStock(
-                        Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[0].Value.ToString())
-                        ,
-                           Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[3].Value.ToString())
-                        );
-
-                    if (respuesta)
-                    {
-                        DataGrillaProductosVenta.Rows.RemoveAt(index);
-                        TextBoxTarifas();
-                    }
-                }
-            }
-        }
-
-
-
-
         private void txtEfectivo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -294,8 +202,10 @@ namespace Presentacion_GUI
             }
 
         }
+
         private void btnGuardarVenta_Click(object sender, EventArgs e)
         {
+            #region VALIDACIONES ANTES DE LA VENTA
             if (txtEfectivo.Text == "")
             {
                 MessageBox.Show("Ingrese el monto de pago ..", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -318,9 +228,14 @@ namespace Presentacion_GUI
                 MessageBox.Show("No puede facturar sin ingresar productos ..", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            #endregion
+
             TextBoxTarifas();
 
-           DataTable DetalleFactura = new DataTable();
+            #region SE CREA LA TABLA DE DETALLES FACTURA ADEMAS DE SU LLENADO
+
+            DataTable DetalleFactura = new DataTable();
             DetalleFactura.Columns.Add("IdProducto", typeof(int));
             DetalleFactura.Columns.Add("Precio", typeof(decimal));
             DetalleFactura.Columns.Add("Unidades", typeof(int));
@@ -337,7 +252,9 @@ namespace Presentacion_GUI
                     row.Cells["Importe"].Value.ToString()
                 });
             }
+            #endregion
 
+            #region SE INSTANCIA UNA NUEVA FACTURA Y SE GUARDA 
             int CorrelativoEnBaseFactura = CreacionFactura.ObtenerNumeroFactura();
             string NumeroFactura = string.Format("{0:00000000}", CorrelativoEnBaseFactura);
             TextBoxTarifas();
@@ -353,6 +270,8 @@ namespace Presentacion_GUI
                 Descuento = Convert.ToDecimal((SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text)).ToString("0.00")),
                 Total = Convert.ToDecimal(txtTotalPagar.Text)
             };
+
+
             string Mensaje = string.Empty;
             int respuesta = CreacionFactura.RegistrarFacturacion(factura, DetalleFactura, out Mensaje);
             if (respuesta == 1)
@@ -366,44 +285,21 @@ namespace Presentacion_GUI
                 Limpiar();
                 limpiarLuegoVenta();
             }
+
+            #endregion
         }
-        void limpiarLuegoVenta()
-        {
-            DataGrillaProductosVenta.Rows.Clear();
-            comboBoxProductos.Text = "";
-            textBoxIdCliente.Text = "";
-            comboBoxClientes.Text = "";
-            comboBoxProductos.Text = "";
-            textBoxBusquedaCliente.Text = "";
-            txtSubTotal.Text = "";
-            txtIva.Text = "";
-            txtTotalPagar.Text = "";
-            txtEfectivo.Text = "";
-            txtCambio.Text = "";
-            comboBoxClientes.Text = ""; 
-            comboBoxDescuento.SelectedIndex = 0;
-            ComboBoxUnidades.SelectedIndex = 0;
-        }
+
+        //PONE EL ID DEL CLIENTE EN EL TEXTBOX CUANDO SE SELECCIONA DESDE EL COMBOBOX
         private void comboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             NFactura nFactura = new NFactura()
             {
                 cliente = new NCliente { ID = (int)(((OpcionesCombo)comboBoxClientes.SelectedItem).Valor) }
             };
-
-
             textBoxIdCliente.Text = nFactura.cliente.ID.ToString();
         }
-        private void CargarComboBoxClientes()
-        {
-            foreach (NCliente item in listaCliente)
-            {
-                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
-            }
 
-            comboBoxClientes.DisplayMember = "Texto";
-            comboBoxClientes.ValueMember = "Valor";
-        }
+        //PONE EL LA INFORMACION DEL PRODUCTO CUANDO SE SELECCIONA DESDE EL COMBOBOX
         private void comboBoxProductos_SelectedIndexChanged(object sender, EventArgs e)
         {
             NProducto nProducto = new NProducto
@@ -413,17 +309,35 @@ namespace Presentacion_GUI
                 PrecioVenta = Convert.ToDecimal(((OpcionesCombosProductos)comboBoxProductos.SelectedItem).PrecioVenta),
                 Codigo = ((OpcionesCombosProductos)comboBoxProductos.SelectedItem).Codigo.ToString()
             };
-
-
-
-
-
-
             textBoxPrecio.Text = nProducto.PrecioVenta.ToString("0.00");
             textBoxIdProducto.Text = nProducto.IdProducto.ToString();
             textNombreProducto.Text = nProducto.Nombre.ToString();
             textBoxBusquedaProducto.Text = nProducto.Codigo.ToString();
 
+        }
+
+        //EVENTO PARA CUANDO SE ELIMINA UN PRODUCTO AGREGADO EL LA GRILA
+        private void DataGrillaProductosVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (this.DataGrillaProductosVenta.Columns[e.ColumnIndex].Index == 5)
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    bool respuesta = CreacionFactura.AumentarStock(
+                        Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[0].Value.ToString())
+                        ,
+                           Convert.ToInt32(DataGrillaProductosVenta.Rows[index].Cells[3].Value.ToString())
+                        );
+
+                    if (respuesta)
+                    {
+                        DataGrillaProductosVenta.Rows.RemoveAt(index);
+                        TextBoxTarifas();
+                    }
+                }
+            }
         }
 
         private void btnCancelarVenta_Click(object sender, EventArgs e)
@@ -441,6 +355,103 @@ namespace Presentacion_GUI
             limpiarLuegoVenta();
         }
 
+        #endregion
+
+        #region METODO CREADO PARA CUANDO NO EXISTE EL CLIENTE EN LA BASE INGRESARLO 
+        void EnviarInformacionANuevoCliente(String Cedula)
+        {
+            Datos informacion;
+            informacion.Cedula = Cedula;
+            FrmNuevoCliente FPE = new FrmNuevoCliente(informacion);
+            FPE.ShowDialog();
+        }
+
+        public struct Datos
+        {
+            public string Cedula;
+        }
+
+        #endregion
+
+        #region FUNCIONES CREADAS NECESARIAS PARA EL CORRECTO FUNCIONAMIENTO 
+
+        void limpiarLuegoVenta()
+        {
+            DataGrillaProductosVenta.Rows.Clear();
+            comboBoxProductos.Text = "";
+            textBoxIdCliente.Text = "";
+            comboBoxClientes.Text = "";
+            comboBoxProductos.Text = "";
+            textBoxBusquedaCliente.Text = "";
+            txtSubTotal.Text = "";
+            txtIva.Text = "";
+            txtTotalPagar.Text = "";
+            txtEfectivo.Text = "";
+            txtCambio.Text = "";
+            comboBoxClientes.Text = "";
+            comboBoxDescuento.SelectedIndex = 0;
+            ComboBoxUnidades.SelectedIndex = 0;
+        }
+        public void Limpiar()
+        {
+            comboBoxProductos.Text = "";
+            textBoxBusquedaProducto.Text = "";
+            ComboBoxCantidad.Value = 1;
+            textBoxIdProducto.Text = "";
+            textNombreProducto.Text = "";
+            textBoxPrecio.Text = "0";
+            ComboBoxUnidades.SelectedIndex = 0;
+        }
+        //ESTE SE UTILIZA PARA HACER LOS CALCULOS DEL IVA, DESCUENTO , ETC...
+        void TextBoxTarifas()
+        {
+            SubTotal = 0;
+            if (DataGrillaProductosVenta.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow item in DataGrillaProductosVenta.Rows)
+                {
+                    SubTotal += decimal.Parse(item.Cells[4].Value.ToString());
+                }
+
+            }
+            txtSubTotal.Text = SubTotal.ToString("0.00");
+            txtIva.Text = (SubTotal * (decimal)0.19).ToString("0.00");
+            SubtotalSinDescuento = (decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIva.Text));
+            txtTotalPagar.Text = (SubtotalSinDescuento - (SubtotalSinDescuento * CreacionFactura.Descuento(comboBoxDescuento.Text))).ToString("0.00");
+        }
+        void CalcularVueltos()
+        {
+            txtCambio.Text = (decimal.Parse(txtEfectivo.Text) - decimal.Parse(txtTotalPagar.Text)).ToString();
+        }
+
+        //METODO CREADO PARA LA BUSQUEDA DEL CLIENTE CUANDO SE INGRESA LA CEDULA POR EL TEXTBOX DE BUSQUEDA CLIENTE
+        public void BuscarCliente()
+        {
+            String Mensaje = String.Empty;
+            int IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
+            if (IdClienteBuscado == 0)
+            {
+                MessageBox.Show("El cliente no se encuentra en la base de informacion \n registrelo");
+                EnviarInformacionANuevoCliente(textBoxBusquedaCliente.Text.ToString());
+                comboBoxClientes.Text = (textBoxBusquedaCliente.Text);
+                IdClienteBuscado = NuevaFuncionesClientes.BuscarCliente(textBoxBusquedaCliente.Text, out Mensaje);
+            }
+            else
+            {
+                comboBoxClientes.Text = (Mensaje);
+            }
+            textBoxIdCliente.Text = IdClienteBuscado.ToString();
+            textBoxBusquedaCliente.Text = "";
+        }
+        //METODO PARA OBTENER LA CANTIDAD A COMPRAR BASANDOSE EN LA MEDIDA SIXPACK, DOCEPACK, ETC ... Y LA CANTIDA DE ELLOS 
+        public int Cantidad()
+        {
+            return CreacionFactura.Cantidad(ComboBoxUnidades.Text, (int)ComboBoxCantidad.Value);
+        }
+
+        #endregion
+
+        #region METODOS PARA CARGAR LOS COMBOBOX 
         private void CargarComboBoxProductos()
         {
             foreach (NProducto item in NuevasFuncionesProductos.Listar())
@@ -452,6 +463,27 @@ namespace Presentacion_GUI
             }
             comboBoxProductos.DisplayMember = "Nombre";
             comboBoxProductos.ValueMember = "Valor";
+        }
+        private void CargarComboBoxClientes()
+        {
+            foreach (NCliente item in listaCliente)
+            {
+                comboBoxClientes.Items.Add(new OpcionesCombo() { Valor = item.ID, Texto = (item.Nombre + " " + item.Apellido) });
+            }
+
+            comboBoxClientes.DisplayMember = "Texto";
+            comboBoxClientes.ValueMember = "Valor";
+        }
+
+        #endregion
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
         }
     }
 }

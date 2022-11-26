@@ -18,15 +18,12 @@ namespace Presentacion_GUI
         {
             InitializeComponent();
         }
-
         private void FormDatosGenerales_Load(object sender, EventArgs e)
         {
             GraficaProductosPreferidos();
             CargarTextBoxInformacionGeneral();
 
         }
-
-
         private void GraficaProductosPreferidos()
         {
             ArrayList CantidadProductosPreferidos = new ArrayList();
@@ -34,7 +31,6 @@ namespace Presentacion_GUI
             GraficoProductosPreferidos.Series[0].Points.DataBindXY(NombreProductosPreferidos, CantidadProductosPreferidos);
 
         }
-
 
         private void CargarTextBoxInformacionGeneral()
         {

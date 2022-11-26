@@ -31,7 +31,7 @@ namespace Logica
             return nuevoRepositorioProducto.Registrar(obj, out Mensaje);
         }
 
-
+        //SE UTILIZA PARA SABER LAS UNIDADES DEL PRODUCTO BASANDOSE EN LA CANTIDAD Y MEDIDA 
         public int CantidadUnitaria(String Unidad)
         {
             int Cant = 0;
@@ -50,7 +50,6 @@ namespace Logica
             return Cant;
 
         }
-
         public decimal ValorFinal(int Unidades, decimal Precio)
         {
             return (Precio * Unidades);

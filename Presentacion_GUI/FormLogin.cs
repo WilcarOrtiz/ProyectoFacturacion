@@ -90,8 +90,6 @@ namespace Presentacion_GUI
             }
         }
 
-
-        #region PAARA VALIDACIONES 
         public void Restablecer()
         {
             txtUsuario.Text = "";
@@ -149,8 +147,6 @@ namespace Presentacion_GUI
                 btnIngresar.PerformClick();
             }
         }
-
-        #endregion
 
         private void ISalir_Click(object sender, EventArgs e)
         {

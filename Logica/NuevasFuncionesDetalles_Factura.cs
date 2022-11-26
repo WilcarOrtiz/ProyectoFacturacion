@@ -27,13 +27,10 @@ namespace Logica
             return NuevoRepositorioReportes.ReportesFacturasPorFechas(FehchaIcnicio, FechaFinal);
 
         }
-
-
         public ArrayList Productos_Preferidos(out ArrayList CantidadProductosPreferidos)
         {
             return NuevoRepositorioReportes.Productos_Preferidos(out CantidadProductosPreferidos);
         }
-
         public void Informacion_General(out string P_total, out string P_CantidadFacturas, out string P_CantidadEmpleado, out string P_CantidadClientes, out string P_CantidadProducto)
         {
             NuevoRepositorioReportes.Informacion_General(out P_total, out P_CantidadFacturas, out P_CantidadEmpleado, out P_CantidadClientes, out P_CantidadProducto);

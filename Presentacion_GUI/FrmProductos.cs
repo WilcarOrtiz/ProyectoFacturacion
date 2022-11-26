@@ -12,18 +12,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static iTextSharp.tool.xml.html.HTML;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Presentacion_GUI.Utilidades;
 
 namespace Presentacion_GUI
 {
     public partial class FrmProductos : Form
     {
 
-    
+        #region INSTACIAS DE FUNCIONES DE LA LOGICA
         NuevasFuncionesProductos procesosProductos = new NuevasFuncionesProductos();
         Logica.NuevaFuncionesCategoria NuevaFuncionesCategoria = new NuevaFuncionesCategoria();
         Logica.NuevasFuncionEstado NuevasFuncionEstado = new NuevasFuncionEstado();
 
+        #endregion
 
         public FrmProductos()
         {
@@ -39,9 +39,7 @@ namespace Presentacion_GUI
             }
         }
 
-
-
-
+        #region METODOS PARA BLOQUEAR,RESTABLECER, DESBLOQUEAR LOS CAMPOS Y VALIAR SI ESTAN VACIOS
 
         public void BloqueoProduct()
         {
@@ -51,7 +49,6 @@ namespace Presentacion_GUI
             txtCodigo.Enabled = false;
             txtPrecioV.Enabled = false;
             Cantidad.Enabled = false;
-
         }
 
         public void DesbloqueoProduct()
@@ -75,7 +72,37 @@ namespace Presentacion_GUI
                 DesbloqueoProduct();
             }
         }
+        public void RestablecerProductos()
+        {
+            txtCodigo.Text = "";
+            txtNombreProduc.Text = "";
+            txtDescrip.Text = "";
+            Cantidad.Value = 1;
+            txtPrecioC.Text = "";
+            txtPrecioV.Text = "";
+            cmbUnidades.SelectedIndex = 0;
+            cbnCategoria.SelectedIndex = 0;
+            cbnCategoria.DisplayMember = "Texto";
+            cbnCategoria.ValueMember = "Valor";
+            cmbEstado.SelectedIndex = 0;
+            cmbEstado.DisplayMember = "Texto";
+            cmbEstado.ValueMember = "Valor";
 
+        }
+
+        public Boolean vacioProductos()
+        {
+            if (txtCodigo.Text == "" || txtNombreProduc.Text == "" || Cantidad.Value == 0
+                || cmbUnidades.Text == "" || txtPrecioC.Text == "" || txtPrecioV.Text == "")
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region VALIDACIONES DE LOS EVENTOS DE TEXTBOX
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -92,7 +119,6 @@ namespace Presentacion_GUI
 
             }
         }
-
         private void txtNombreProduc_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar) && txtNombreProduc.TextLength == 0)
@@ -145,16 +171,6 @@ namespace Presentacion_GUI
             }
         }
 
-        private void cmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SeleccionUnidades();
-        }
-
-        private void Cantidad_SelectedItemChanged(object sender, EventArgs e)
-        {
-            Cantidad.UpButton();
-        }
-
         private void txtPrecioV_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -175,39 +191,16 @@ namespace Presentacion_GUI
             }
         }
 
-        public void RestablecerProductos()
+        #endregion
+        private void cmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCodigo.Text = "";
-            txtNombreProduc.Text = "";
-            txtDescrip.Text = "";
-            Cantidad.Value = 1;
-            txtPrecioC.Text = "";
-            txtPrecioV.Text = "";
-            cmbUnidades.SelectedIndex = 0;
-            cbnCategoria.SelectedIndex = 0;
-            cbnCategoria.DisplayMember = "Texto";
-            cbnCategoria.ValueMember = "Valor";
-            cmbEstado.SelectedIndex = 0;
-            cmbEstado.DisplayMember = "Texto";
-            cmbEstado.ValueMember = "Valor";
-
+            SeleccionUnidades();
         }
 
-        public Boolean vacioProductos()
+        private void Cantidad_SelectedItemChanged(object sender, EventArgs e)
         {
-            if (txtCodigo.Text == "" || txtNombreProduc.Text == "" || txtDescrip.Text == "" || Cantidad.Value == 0
-                || cmbUnidades.Text == "" || txtPrecioC.Text == "" || txtPrecioV.Text == "")
-            {
-                return true;
-            }
-            return false;
+            Cantidad.UpButton();
         }
-
-
-
-
-
-
 
 
         #region MEODO PARA CARGAR LOS LISTBOX DESDE LA BASE
@@ -247,7 +240,7 @@ namespace Presentacion_GUI
             RestablecerProductos();
         }
 
-
+        //Metodo para guardar el producto en la base de datos
         public void GuardarProducto()
         {
             if (vacioProductos() == true)
