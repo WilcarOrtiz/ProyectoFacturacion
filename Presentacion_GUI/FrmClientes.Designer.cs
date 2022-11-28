@@ -128,7 +128,7 @@
             this.cmbTipoBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoBusqueda.FormattingEnabled = true;
             this.cmbTipoBusqueda.Items.AddRange(new object[] {
-            "Codigo",
+            "Cedula",
             "Nombre",
             "Estado"});
             this.cmbTipoBusqueda.Location = new System.Drawing.Point(380, 94);

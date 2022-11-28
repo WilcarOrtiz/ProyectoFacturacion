@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarCliente));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.btnGuardarCambios = new FontAwesome.Sharp.IconButton();
+            this.BtnCancelar = new FontAwesome.Sharp.IconButton();
             this.textBoxClienteEditar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbEstadoEdit = new System.Windows.Forms.ComboBox();
@@ -39,9 +42,6 @@
             this.txtTelefonoEditar = new System.Windows.Forms.TextBox();
             this.txtCorreoEditar = new System.Windows.Forms.TextBox();
             this.txtCedulaEditar = new System.Windows.Forms.TextBox();
-            this.btnGuardarCambios = new FontAwesome.Sharp.IconButton();
-            this.BtnCancelar = new FontAwesome.Sharp.IconButton();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,61 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 606);
             this.panel1.TabIndex = 9;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.Azure;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Whmcs;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.Azure;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.Location = new System.Drawing.Point(114, 67);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(38, 32);
+            this.iconPictureBox1.TabIndex = 83;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // btnGuardarCambios
+            // 
+            this.btnGuardarCambios.FlatAppearance.BorderSize = 0;
+            this.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCambios.ForeColor = System.Drawing.Color.Azure;
+            this.btnGuardarCambios.IconChar = FontAwesome.Sharp.IconChar.UserPen;
+            this.btnGuardarCambios.IconColor = System.Drawing.Color.Azure;
+            this.btnGuardarCambios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGuardarCambios.IconSize = 32;
+            this.btnGuardarCambios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarCambios.Location = new System.Drawing.Point(27, 534);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btnGuardarCambios.Size = new System.Drawing.Size(213, 52);
+            this.btnGuardarCambios.TabIndex = 82;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardarCambios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.FlatAppearance.BorderSize = 0;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.ForeColor = System.Drawing.Color.Azure;
+            this.BtnCancelar.IconChar = FontAwesome.Sharp.IconChar.Ban;
+            this.BtnCancelar.IconColor = System.Drawing.Color.Azure;
+            this.BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCancelar.IconSize = 32;
+            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.Location = new System.Drawing.Point(297, 540);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.BtnCancelar.Size = new System.Drawing.Size(145, 40);
+            this.BtnCancelar.TabIndex = 81;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // textBoxClienteEditar
             // 
@@ -142,61 +197,6 @@
             this.txtCedulaEditar.Size = new System.Drawing.Size(269, 26);
             this.txtCedulaEditar.TabIndex = 1;
             this.txtCedulaEditar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedulaEditar_KeyPress);
-            // 
-            // btnGuardarCambios
-            // 
-            this.btnGuardarCambios.FlatAppearance.BorderSize = 0;
-            this.btnGuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarCambios.ForeColor = System.Drawing.Color.Azure;
-            this.btnGuardarCambios.IconChar = FontAwesome.Sharp.IconChar.UserPen;
-            this.btnGuardarCambios.IconColor = System.Drawing.Color.Azure;
-            this.btnGuardarCambios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGuardarCambios.IconSize = 32;
-            this.btnGuardarCambios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarCambios.Location = new System.Drawing.Point(51, 504);
-            this.btnGuardarCambios.Name = "btnGuardarCambios";
-            this.btnGuardarCambios.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnGuardarCambios.Size = new System.Drawing.Size(213, 52);
-            this.btnGuardarCambios.TabIndex = 82;
-            this.btnGuardarCambios.Text = "Guardar Cambios";
-            this.btnGuardarCambios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardarCambios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardarCambios.UseVisualStyleBackColor = true;
-            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.ForeColor = System.Drawing.Color.Azure;
-            this.BtnCancelar.IconChar = FontAwesome.Sharp.IconChar.Ban;
-            this.BtnCancelar.IconColor = System.Drawing.Color.Azure;
-            this.BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCancelar.IconSize = 32;
-            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.Location = new System.Drawing.Point(260, 510);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.BtnCancelar.Size = new System.Drawing.Size(145, 40);
-            this.BtnCancelar.TabIndex = 81;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCancelar.UseVisualStyleBackColor = true;
-            this.BtnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.Azure;
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Whmcs;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.Azure;
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.Location = new System.Drawing.Point(114, 67);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(38, 32);
-            this.iconPictureBox1.TabIndex = 83;
-            this.iconPictureBox1.TabStop = false;
             // 
             // FrmEditarCliente
             // 

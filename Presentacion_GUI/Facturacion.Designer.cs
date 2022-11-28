@@ -572,6 +572,8 @@
             this.ComboBoxUnidades.FormattingEnabled = true;
             this.ComboBoxUnidades.Items.AddRange(new object[] {
             "UNIDAD",
+            "SIXPACK",
+            "DOCEPACK",
             "CAJA (24 Unds)",
             "CANASTA (30 Unds)"});
             this.ComboBoxUnidades.Location = new System.Drawing.Point(318, 252);

@@ -28,6 +28,8 @@ namespace Presentacion_GUI
         public FrmProductosEdit(FrmVistaProductos.Datos informacion)
         {
             InitializeComponent();
+            CargarLisBoxEstado();
+            CargarLisBoxCategoria();
             textIDProductoEdit.Text = informacion.ID.ToString();
             txtNombreProducEditar.Text = informacion.NombreProducto;
             txtDescripEditar.Text = informacion.Descripcion;
@@ -38,8 +40,7 @@ namespace Presentacion_GUI
             cmbEstadoEdit.Text = informacion.Estado.Descripcion;
             CantidadI = informacion.Cantidad;
             CantidadInicial.Text = informacion.Cantidad.ToString();
-            CargarLisBoxEstado();
-            CargarLisBoxCategoria();
+         
         }
         public Boolean vacio()
         {

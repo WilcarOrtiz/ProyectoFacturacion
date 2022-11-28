@@ -69,7 +69,7 @@ namespace Presentacion_GUI
             }
             else
             {
-                MessageBox.Show("Producto actualizado con exito");
+                MessageBox.Show("Cliente actualizado con exito");
             }
         }
 
