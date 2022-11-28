@@ -3,19 +3,12 @@
   <Class Name="Presentacion_GUI.Detalle_Factura" Collapsed="true">
     <Position X="4.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>/xCCoABDA6AgEhIEeD2AAFYzACAAUgIABKkBQQoFBAA=</HashCode>
+      <HashCode>/zCCgBBDA6AgAhIEeD2AAFYzACAAUgAABKkBQQoBBAA=</HashCode>
       <FileName>Detalle_Factura.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Presentacion_GUI.Facturacion" Collapsed="true">
     <Position X="6.25" Y="2.5" Width="1.75" />
-    <NestedTypes>
-      <Struct Name="Presentacion_GUI.Facturacion.Datos" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Facturacion.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>ckIII2VAE6IvUjoEBBGQABCSAQiESkAQTAQGBYgAEgM=</HashCode>
       <FileName>Facturacion.cs</FileName>
@@ -64,7 +57,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Presentacion_GUI.FrmNuevoCliente" Collapsed="true">
-    <Position X="12.25" Y="4.5" Width="1.5" />
+    <Position X="6.25" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>BgAAAAAABmAAGBAAQCCAAAUCEGAACIAgACADAQAQAAQ=</HashCode>
       <FileName>FrmNuevoCliente.cs</FileName>
@@ -87,7 +80,7 @@
   <Class Name="Presentacion_GUI.FrmProductosEdit" Collapsed="true">
     <Position X="2.5" Y="3.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>9wAIBAEAAKRUAlKAEAKBAQCKAACAAAAKABCQAQAAAAQ=</HashCode>
+      <HashCode>9wAIBAEAAKRUIlKAEAKBAQCKAACAAAAKAACQAQAAAAQ=</HashCode>
       <FileName>FrmProductosEdit.cs</FileName>
     </TypeIdentifier>
   </Class>

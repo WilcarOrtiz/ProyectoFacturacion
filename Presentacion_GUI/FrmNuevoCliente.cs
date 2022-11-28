@@ -29,6 +29,7 @@ namespace Presentacion_GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
         public FrmNuevoCliente(Facturacion.Datos informacion)
         {
             InitializeComponent();
