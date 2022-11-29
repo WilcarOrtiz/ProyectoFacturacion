@@ -1,9 +1,12 @@
-# ProyectoFacturacion
-primer paso: En primer lugar se debe copiar y pegar los txt (lista ...) 
-             suministrados en el GIT en la ruta PRESENTACION_GUI/BIN/DEBUG, 
-             ya que ellos tiene informacion necesaria para ver el correcto funcionamiento del programa.
+Pasos para ver el correcto funcionamiento del proyecto: 
+1.	Agregue la base de datos para ello ir al App.config de la capa Presentacion_Gui y cambie la cadena de conexión: 
+<add name = "cadena_conexion" connectionString="[Cadena de conexión de su dispositivo a la base de datos]" providerName="System.Data.SqlClient"			
+2.	Para ingresar como empleado 
+Usuario: 1066865142
+Contraseña: 1234567890
 
-Segundo paso: Luego de hacer lo anterior puede ejecutar el programa 
-             y se encontrara con un login en el txt listaUsuarios el
-             primer registro son los referentes al administrador (usuario: 1234567890 - contraseña: 12345), 
-             mientras que los restantes son de dos empleados. 
+3.	Para ingresar como administrador
+Usuario: 1234567890
+Contraseña: 1234567890
+
+Nota: al ingresar el empleado su usuario será la cedula del mismo
